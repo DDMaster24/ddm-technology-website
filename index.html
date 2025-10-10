@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDM-Technology | Professional IT Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .service-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-item h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .contact {
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        
+        .contact-item a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .portfolio {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .portfolio h2 {
+            color: white;
+        }
+        
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            .logo {
+                font-size: 36px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">DDM-Technology</h1>
+        <p class="tagline">Professional IT Solutions & App Development</p>
+        
+        <div class="section">
+            <h2>About Us</h2>
+            <p>DDM-Technology is a professional software development company specializing in mobile app development, web solutions, and custom software engineering. We deliver high-quality, scalable solutions for businesses across various industries.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service-item">
+                    <h3>📱 Mobile Apps</h3>
+                    <p>iOS & Android native and cross-platform applications</p>
+                </div>
+                <div class="service-item">
+                    <h3>🌐 Web Development</h3>
+                    <p>Modern, responsive web applications and websites</p>
+                </div>
+                <div class="service-item">
+                    <h3>☁️ Cloud Solutions</h3>
+                    <p>Scalable cloud infrastructure and deployment</p>
+                </div>
+                <div class="service-item">
+                    <h3>🔧 Custom Software</h3>
+                    <p>Tailored software solutions for your business needs</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="portfolio">
+            <h2>Featured Project</h2>
+            <div class="portfolio-item">
+                <h3>🍽️ Little Latte Lane</h3>
+                <p>A comprehensive restaurant ordering and management platform featuring real-time orders, payment integration, and customer engagement tools. Built with Next.js, React, and Supabase.</p>
+                <p style="margin-top: 10px;"><strong>Technologies:</strong> React Native, Next.js, Supabase, Capacitor, Yoco Payments</p>
+            </div>
+        </div>
+        
+        <div class="section contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-item">
+                <span>📧</span>
+                <a href="mailto:contact@ddm-technology.com">contact@ddm-technology.com</a>
+            </div>
+            <div class="contact-item">
+                <span>💼</span>
+                <span>Registered Business in South Africa</span>
+            </div>
+            <div class="contact-item">
+                <span>🚀</span>
+                <span>Available for new projects</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 DDM-Technology. All rights reserved.</p>
+            <p>Professional Software Development Services</p>
+        </div>
+    </div>
+</body>
+</html>
