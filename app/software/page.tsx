@@ -49,21 +49,15 @@ export default function Software() {
                 </ul>
               </div>
               <div className="product-price">
-                <span className="currency">From</span> R999
+                <span className="currency">From</span> R999<span className="currency">/month</span>
               </div>
               <div className="product-footer">
-                <button
-                  className="btn btn-primary"
-                  onClick={() => handleDownload('Little Latte Lane')}
-                >
-                  Download
-                </button>
-                <button
-                  className="btn btn-secondary"
-                  onClick={() => handleLicensePurchase('Little Latte Lane')}
-                >
-                  Buy License
-                </button>
+                <Link href="/software/little-latte-lane" className="btn btn-primary">
+                  View Details
+                </Link>
+                <Link href="/contact" className="btn btn-secondary">
+                  Contact Sales
+                </Link>
               </div>
             </div>
 
