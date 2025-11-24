@@ -4,676 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DDM Technology | Dream. Dare. Make.</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #f8f9fa;
-            --accent-color: #00a896;
-            --accent-hover: #008c7a;
-            --text-dark: #2c3e50;
-            --text-light: #6c757d;
-            --white: #ffffff;
-            --border-color: #e1e8ed;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--white);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--white);
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            box-shadow: var(--shadow-lg);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .logo .accent {
-            color: var(--accent-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            min-height: calc(100vh - 80px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero .tagline {
-            font-size: 2rem;
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--white);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .cta-button:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--white);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .about-text p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--secondary-color);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Services Section */
-        .services {
-            background: var(--secondary-color);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent-color);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        .service-card ul {
-            margin-top: 1rem;
-            list-style: none;
-            color: var(--text-light);
-        }
-
-        .service-card ul li {
-            padding: 0.3rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .service-card ul li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        /* Software Products Section */
-        .products {
-            background: var(--white);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .product-card {
-            background: var(--white);
-            border: 2px solid var(--border-color);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent-color);
-        }
-
-        .product-header {
-            background: var(--secondary-color);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .product-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .product-header h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .product-version {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .product-body {
-            padding: 2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-description {
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            flex: 1;
-        }
-
-        .product-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-features li {
-            padding: 0.5rem 0;
-            padding-left: 1.8rem;
-            position: relative;
-            color: var(--text-light);
-        }
-
-        .product-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .product-footer {
-            padding: 0 2rem 2rem;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--accent-color);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--accent-color);
-            color: var(--white);
-        }
-
-        .btn-disabled {
-            background: var(--secondary-color);
-            color: var(--text-light);
-            cursor: not-allowed;
-        }
-
-        .product-price {
-            text-align: center;
-            padding: 1rem 2rem;
-            background: var(--secondary-color);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .product-price .currency {
-            font-size: 1rem;
-            color: var(--text-light);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--secondary-color);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            color: var(--accent-color);
-        }
-
-        .contact-details h4 {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-details p {
-            color: var(--text-light);
-        }
-
-        .contact-details a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .contact-details a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-form {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 3rem 2rem 1.5rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-tagline {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .footer-bottom {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--white);
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow-lg);
-                transition: left 0.3s ease;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -682,311 +13,197 @@
             <div class="logo">DDM <span class="accent">Technology</span></div>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" onclick="closeMenu()">Home</a></li>
-                <li><a href="#about" onclick="closeMenu()">About</a></li>
-                <li><a href="#services" onclick="closeMenu()">Services</a></li>
-                <li><a href="#products" onclick="closeMenu()">Software</a></li>
-                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+                <li><a href="index.html" onclick="closeMenu()" class="active">Home</a></li>
+                <li><a href="about.html" onclick="closeMenu()">About</a></li>
+                <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+                <li><a href="software.html" onclick="closeMenu()">Software</a></li>
+                <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="hero-content">
             <h1 class="fade-in-up">DDM Technology</h1>
             <div class="tagline fade-in-up">Dream. Dare. Make.</div>
             <p class="subtitle fade-in-up">Daring to make your dream come true</p>
-            <a href="#contact" class="cta-button fade-in-up">Get Started</a>
+            <a href="contact.html" class="cta-button fade-in-up">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose DDM Technology?</h2>
+            <p class="section-subtitle">Comprehensive IT solutions delivered with professionalism and expertise</p>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="icon">💼</div>
+                    <h3>Professional Services</h3>
+                    <p>Expert IT support and solutions tailored to your business needs.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="icon">🚀</div>
+                    <h3>Fast & Reliable</h3>
+                    <p>Quick response times and dependable service you can count on.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="icon">⚡</div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock assistance whenever you need help.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="icon">🎯</div>
+                    <h3>Custom Solutions</h3>
+                    <p>Bespoke software and IT solutions built for your requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Services Overview -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">From on-site support to cutting-edge software development</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Desktop Support</h3>
+                    <p>On-site and remote technical support for all your IT needs.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Technical Repairs</h3>
+                    <p>Expert repair and maintenance for laptops, PCs, and hardware.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Software Development</h3>
+                    <p>Custom software solutions and mobile app development.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Web & Hosting</h3>
+                    <p>Website hosting, domain management, and web solutions.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3>Microsoft Solutions</h3>
+                    <p>Microsoft 365, email setup, and cloud migration services.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Automation</h3>
+                    <p>Process automation and workflow optimization solutions.</p>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Explore All Our Services</h2>
+                <p>Discover our complete range of IT solutions and services</p>
+                <a href="services.html" class="cta-button">View All Services</a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <h2 class="section-title">About DDM Technology</h2>
-        <p class="section-subtitle">Your trusted partner for comprehensive IT solutions and software development</p>
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">About DDM Technology</h2>
+            <p class="section-subtitle">Your trusted partner for comprehensive IT solutions and software development</p>
 
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Professional IT Services</h3>
-                <p>DDM Technology is a leading provider of comprehensive IT solutions based in South Africa. We specialize in delivering high-quality technical support, software development, and digital solutions for businesses and individuals.</p>
-                <p>From on-site support to cutting-edge app development, we handle all your technology needs with professionalism and expertise. Our mission is to empower our clients through technology, making their digital dreams a reality.</p>
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">100+</div>
-                    <div class="stat-label">Happy Clients</div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who We Are</h3>
+                    <p>DDM Technology is a leading provider of comprehensive IT solutions based in South Africa. We specialize in delivering high-quality technical support, software development, and digital solutions for businesses and individuals.</p>
+                    <p>From on-site support to cutting-edge app development, we handle all your technology needs with professionalism and expertise.</p>
+                    <a href="about.html" class="cta-button" style="display: inline-block; margin-top: 1rem;">Learn More About Us</a>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Support Available</div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <h2 class="section-title">Our Services</h2>
-        <p class="section-subtitle">Comprehensive IT solutions tailored to your needs</p>
+    <!-- Software Products Teaser -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Our Software Products</h2>
+            <p class="section-subtitle">Professional software solutions for your business</p>
 
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">💻</div>
-                <h3>On-Site Desktop Support</h3>
-                <p>Professional on-site technical support for your business or home office.</p>
-                <ul>
-                    <li>Hardware troubleshooting</li>
-                    <li>System optimization</li>
-                    <li>Network setup</li>
-                    <li>Equipment installation</li>
-                </ul>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">🍽️</div>
+                        <h3>Little Latte Lane</h3>
+                        <p class="product-version">Version 1.0.0</p>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-description">
+                            A comprehensive restaurant ordering and management platform with real-time orders and payment integration.
+                        </p>
+                    </div>
+                    <div class="product-footer">
+                        <a href="software.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">💼</div>
+                        <h3>Custom Solutions</h3>
+                        <p class="product-version">Tailored to You</p>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-description">
+                            Need a custom software solution? We build bespoke applications for your specific business needs.
+                        </p>
+                    </div>
+                    <div class="product-footer">
+                        <a href="contact.html" class="btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="service-card">
-                <div class="service-icon">🖥️</div>
-                <h3>Remote Desktop Support</h3>
-                <p>Fast and efficient remote assistance to solve your technical issues quickly.</p>
-                <ul>
-                    <li>Remote troubleshooting</li>
-                    <li>Software installations</li>
-                    <li>System maintenance</li>
-                    <li>Quick issue resolution</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Technical Support</h3>
-                <p>Expert repair and maintenance services for laptops, PCs, and peripherals.</p>
-                <ul>
-                    <li>Laptop & PC repairs</li>
-                    <li>Hardware upgrades</li>
-                    <li>Data recovery</li>
-                    <li>Performance tuning</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">⚙️</div>
-                <h3>Software Setup</h3>
-                <p>Professional installation and configuration of software applications.</p>
-                <ul>
-                    <li>Operating system setup</li>
-                    <li>Application installation</li>
-                    <li>Software licensing</li>
-                    <li>Configuration & training</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">📧</div>
-                <h3>Microsoft & Email Solutions</h3>
-                <p>Complete Microsoft ecosystem setup and email management services.</p>
-                <ul>
-                    <li>Microsoft 365 setup</li>
-                    <li>Email configuration</li>
-                    <li>Cloud migration</li>
-                    <li>Account management</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🌐</div>
-                <h3>Website Hosting</h3>
-                <p>Reliable and secure web hosting solutions for your online presence.</p>
-                <ul>
-                    <li>Domain management</li>
-                    <li>SSL certificates</li>
-                    <li>Server maintenance</li>
-                    <li>Performance optimization</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🎨</div>
-                <h3>Software Design & Development</h3>
-                <p>Custom software solutions built to meet your specific business needs.</p>
-                <ul>
-                    <li>Web applications</li>
-                    <li>Desktop software</li>
-                    <li>Database solutions</li>
-                    <li>API development</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">📱</div>
-                <h3>Mobile App Development</h3>
-                <p>Professional iOS and Android app development and deployment services.</p>
-                <ul>
-                    <li>Native app development</li>
-                    <li>Cross-platform apps</li>
-                    <li>App Store deployment</li>
-                    <li>Google Play publishing</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🤖</div>
-                <h3>Automation Solutions</h3>
-                <p>Streamline your workflows with custom automation and integration services.</p>
-                <ul>
-                    <li>Process automation</li>
-                    <li>Workflow optimization</li>
-                    <li>API integrations</li>
-                    <li>Script development</li>
-                </ul>
+            <div class="cta-section">
+                <h2>View All Software Products</h2>
+                <p>Explore our complete software catalog and licensing options</p>
+                <a href="software.html" class="cta-button">Browse Software</a>
             </div>
         </div>
     </section>
 
-    <!-- Software Products Section -->
-    <section class="products" id="products">
-        <h2 class="section-title">Our Software Products</h2>
-        <p class="section-subtitle">Download and license our professional software solutions</p>
-
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-header">
-                    <div class="product-icon">🍽️</div>
-                    <h3>Little Latte Lane</h3>
-                    <p class="product-version">Version 1.0.0</p>
-                </div>
-                <div class="product-body">
-                    <p class="product-description">
-                        A comprehensive restaurant ordering and management platform featuring real-time orders, payment integration, and customer engagement tools.
-                    </p>
-                    <ul class="product-features">
-                        <li>Real-time order management</li>
-                        <li>Integrated payment processing</li>
-                        <li>Customer loyalty program</li>
-                        <li>Analytics dashboard</li>
-                        <li>Multi-platform support</li>
-                    </ul>
-                </div>
-                <div class="product-price">
-                    <span class="currency">From</span> R999
-                </div>
-                <div class="product-footer">
-                    <button class="btn btn-primary">Download</button>
-                    <button class="btn btn-secondary">Buy License</button>
-                </div>
-            </div>
-
-            <!-- Placeholder for future products -->
-            <div class="product-card">
-                <div class="product-header">
-                    <div class="product-icon">📊</div>
-                    <h3>Coming Soon</h3>
-                    <p class="product-version">In Development</p>
-                </div>
-                <div class="product-body">
-                    <p class="product-description">
-                        We're constantly developing new software solutions to meet your business needs. Check back soon for our latest products!
-                    </p>
-                    <ul class="product-features">
-                        <li>More products coming soon</li>
-                        <li>Custom solutions available</li>
-                        <li>Enterprise packages</li>
-                    </ul>
-                </div>
-                <div class="product-footer">
-                    <button class="btn btn-disabled">Coming Soon</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-header">
-                    <div class="product-icon">💼</div>
-                    <h3>Custom Solutions</h3>
-                    <p class="product-version">Tailored to You</p>
-                </div>
-                <div class="product-body">
-                    <p class="product-description">
-                        Need a custom software solution? We build bespoke applications tailored to your specific business requirements and workflows.
-                    </p>
-                    <ul class="product-features">
-                        <li>Fully customizable</li>
-                        <li>Scalable architecture</li>
-                        <li>Ongoing support</li>
-                        <li>Training included</li>
-                    </ul>
-                </div>
-                <div class="product-footer">
-                    <a href="#contact" class="btn btn-primary">Request Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Ready to start your project? Contact us today!</p>
-
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <div class="contact-details">
-                        <h4>Email</h4>
-                        <p><a href="mailto:contact@ddm-technology.com">contact@ddm-technology.com</a></p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">📱</div>
-                    <div class="contact-details">
-                        <h4>Phone</h4>
-                        <p>Available upon request</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-details">
-                        <h4>Location</h4>
-                        <p>South Africa</p>
-                        <p>Serving clients nationwide</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">🕐</div>
-                    <div class="contact-details">
-                        <h4>Business Hours</h4>
-                        <p>Monday - Friday: 8am - 6pm</p>
-                        <p>Weekend: By appointment</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contact-form">
-                <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Send us a message</h3>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                </form>
+    <!-- Call to Action -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="cta-section" style="background: var(--white);">
+                <h2>Ready to Get Started?</h2>
+                <p>Contact us today to discuss your IT needs and get a custom quote</p>
+                <a href="contact.html" class="cta-button">Contact Us Now</a>
             </div>
         </div>
     </section>
@@ -998,11 +215,11 @@
             <p>Daring to make your dream come true</p>
 
             <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#products">Software</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="software.html">Software</a>
+                <a href="contact.html">Contact</a>
             </div>
 
             <div class="footer-bottom">
@@ -1012,48 +229,6 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        function closeMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.remove('active');
-        }
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Form submission (placeholder)
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-
-        // Product download buttons (placeholder)
-        document.querySelectorAll('.btn-primary').forEach(button => {
-            if (button.textContent === 'Download') {
-                button.addEventListener('click', function() {
-                    alert('Download functionality will be implemented soon. Please contact us for access.');
-                });
-            }
-            if (button.textContent === 'Buy License') {
-                button.addEventListener('click', function() {
-                    alert('Online payment functionality will be implemented soon. Please contact us to purchase a license.');
-                });
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
