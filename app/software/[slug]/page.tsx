@@ -110,16 +110,16 @@ The Basic package includes everything you need to get started with professional 
         platform: 'Windows',
         architecture: '64-bit',
         version: '1.0.0',
-        size: 'TBD',
-        url: '/downloads/pdf-summarizer-1.0.0-win64.exe',
-        releaseDate: '2025-01-15',
+        size: '41.3 MB',
+        url: 'https://github.com/DDMaster24/ddm-technology-website/releases/download/v1.0.0/DocumentSummarizerSetup.exe',
+        releaseDate: '2025-11-26',
       },
     ],
     screenshots: [],
     changelog: [
       {
         version: '1.0.0',
-        date: '2025-01-15',
+        date: '2025-11-26',
         changes: [
           'Initial release',
         ]
