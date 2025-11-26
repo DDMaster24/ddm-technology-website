@@ -31,28 +31,29 @@ export default function Software() {
           <div className="products-grid">
             <div className="product-card">
               <div className="product-header">
-                <div className="product-icon">🍽️</div>
-                <h3>Little Latte Lane</h3>
+                <div className="product-icon">📋</div>
+                <h3>DDM IC</h3>
                 <p className="product-version">Version 1.0.0</p>
               </div>
               <div className="product-body">
                 <p className="product-description">
-                  A comprehensive restaurant ordering and management platform featuring real-time
-                  orders, payment integration, and customer engagement tools.
+                  Professional bookkeeping and invoicing software to streamline your business
+                  finances. Create invoices, manage clients, and track your items with ease.
                 </p>
                 <ul className="product-features">
-                  <li>Real-time order management</li>
-                  <li>Integrated payment processing</li>
-                  <li>Customer loyalty program</li>
-                  <li>Analytics dashboard</li>
-                  <li>Multi-platform support</li>
+                  <li>Create professional invoices</li>
+                  <li>Client management</li>
+                  <li>Item/product catalogue</li>
+                  <li>Easy-to-use interface</li>
+                  <li>More features coming soon</li>
                 </ul>
               </div>
               <div className="product-price">
-                <span className="currency">From</span> R999<span className="currency">/month</span>
+                <span className="currency">From</span> R500<span className="currency">/year</span>
+                <p className="price-tier">Basic Package</p>
               </div>
               <div className="product-footer">
-                <Link href="/software/little-latte-lane" className="btn btn-primary">
+                <Link href="/software/ddm-ic" className="btn btn-primary">
                   View Details
                 </Link>
                 <Link href="/contact" className="btn btn-secondary">
@@ -61,26 +62,27 @@ export default function Software() {
               </div>
             </div>
 
-            {/* Placeholder for future products */}
             <div className="product-card">
               <div className="product-header">
-                <div className="product-icon">📊</div>
-                <h3>Coming Soon</h3>
-                <p className="product-version">In Development</p>
+                <div className="product-icon">📄</div>
+                <h3>PDF Summarizer</h3>
+                <p className="product-version">Version 1.0.0</p>
               </div>
               <div className="product-body">
                 <p className="product-description">
-                  We&apos;re constantly developing new software solutions to meet your business
-                  needs. Check back soon for our latest products!
+                  Quickly summarize PDF documents with our easy-to-use desktop application.
+                  More details coming soon.
                 </p>
                 <ul className="product-features">
-                  <li>More products coming soon</li>
-                  <li>Custom solutions available</li>
-                  <li>Enterprise packages</li>
+                  <li>Summarize PDF documents</li>
+                  <li>Easy-to-use interface</li>
+                  <li>Windows desktop application</li>
                 </ul>
               </div>
               <div className="product-footer">
-                <button className="btn btn-disabled">Coming Soon</button>
+                <Link href="/software/pdf-summarizer" className="btn btn-primary">
+                  Download
+                </Link>
               </div>
             </div>
 

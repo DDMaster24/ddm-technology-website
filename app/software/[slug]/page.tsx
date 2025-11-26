@@ -4,36 +4,33 @@ import DownloadButton from './DownloadButton'
 
 // Product data - you'll update this with your actual products
 const products = {
-  'little-latte-lane': {
-    name: 'Little Latte Lane',
-    tagline: 'Complete Restaurant Management System',
-    icon: '🍽️',
+  'ddm-ic': {
+    name: 'DDM IC',
+    tagline: 'Professional Invoicing & Bookkeeping Software',
+    icon: '📋',
     version: '1.0.0',
-    description: 'A comprehensive restaurant ordering and management platform featuring real-time orders, payment integration, and customer engagement tools. Built with modern technologies to streamline your restaurant operations.',
-    longDescription: `Little Latte Lane is a complete end-to-end solution for restaurant management. From taking orders to processing payments, managing inventory to analyzing sales data, this platform handles it all.
+    description: 'Streamline your business finances with DDM IC. Create professional invoices, manage clients, and organise your products and services - all in one easy-to-use application.',
+    longDescription: `DDM IC is designed to simplify your business bookkeeping and invoicing needs. Whether you're a freelancer, small business owner, or growing enterprise, DDM IC helps you stay organised and professional.
 
-Perfect for cafes, restaurants, and food service businesses looking to modernize their operations and provide an exceptional customer experience.`,
+The Basic package includes everything you need to get started with professional invoicing. More comprehensive packages with additional bookkeeping features will be available soon.`,
     features: [
-      { icon: '🛒', title: 'Real-time Order Management', description: 'Process orders instantly with live updates across all devices' },
-      { icon: '💳', title: 'Integrated Payment Processing', description: 'Accept payments through Yoco and other payment gateways' },
-      { icon: '👥', title: 'Customer Loyalty Program', description: 'Built-in rewards system to keep customers coming back' },
-      { icon: '📊', title: 'Analytics Dashboard', description: 'Track sales, popular items, and business performance' },
-      { icon: '📱', title: 'Multi-platform Support', description: 'Works on iOS, Android, and Web' },
-      { icon: '🔔', title: 'Push Notifications', description: 'Keep customers updated with order status' },
-      { icon: '🍔', title: 'Menu Management', description: 'Easy to update menu items, prices, and availability' },
-      { icon: '🖨️', title: 'Kitchen Display System', description: 'Digital order display for kitchen staff' },
+      { icon: '📄', title: 'Professional Invoices', description: 'Create and send polished, professional invoices to your clients' },
+      { icon: '👥', title: 'Client Management', description: 'Store and manage all your client information in one place' },
+      { icon: '📦', title: 'Item Catalogue', description: 'Maintain a catalogue of your products and services with pricing' },
+      { icon: '💾', title: 'Data Export', description: 'Export your data for backup or accounting purposes' },
+      { icon: '🖥️', title: 'Easy Interface', description: 'Clean, intuitive design that anyone can use' },
+      { icon: '🔄', title: 'More Coming Soon', description: 'Additional bookkeeping features in future packages' },
     ],
     pricing: {
-      monthly: 999,
-      yearly: 9990,
+      yearly: 500,
       currency: 'R',
+      tier: 'Basic',
       features: [
-        'Unlimited orders',
-        'Up to 3 locations',
-        'Payment gateway integration',
-        'Customer database',
-        'Analytics & reports',
-        '24/7 email support',
+        'Create unlimited invoices',
+        'Client management',
+        'Item/product catalogue',
+        'Data export',
+        'Email support',
         'Free updates for 1 year',
       ]
     },
@@ -41,15 +38,13 @@ Perfect for cafes, restaurants, and food service businesses looking to modernize
       minimum: [
         'Windows 10 or later (64-bit)',
         '4GB RAM',
-        '500MB free disk space',
-        'Internet connection',
+        '200MB free disk space',
         '.NET Framework 4.8 or later',
       ],
       recommended: [
         'Windows 11 (64-bit)',
         '8GB RAM or more',
-        '1GB free disk space',
-        'High-speed internet',
+        '500MB free disk space',
         'Multi-core processor',
       ]
     },
@@ -58,11 +53,10 @@ Perfect for cafes, restaurants, and food service businesses looking to modernize
         platform: 'Windows',
         architecture: '64-bit',
         version: '1.0.0',
-        size: '125 MB',
-        url: '/downloads/little-latte-lane-1.0.0-win64.exe', // We'll set this up next
+        size: 'TBD',
+        url: '/downloads/ddm-ic-1.0.0-win64.exe',
         releaseDate: '2025-01-15',
       },
-      // Add more versions as needed
     ],
     screenshots: [
       // Add screenshot URLs later
@@ -73,10 +67,61 @@ Perfect for cafes, restaurants, and food service businesses looking to modernize
         date: '2025-01-15',
         changes: [
           'Initial release',
-          'Complete restaurant management system',
-          'Payment integration with Yoco',
-          'Customer loyalty program',
-          'Analytics dashboard',
+          'Invoice creation and management',
+          'Client management system',
+          'Item/product catalogue',
+          'Data export functionality',
+        ]
+      }
+    ]
+  },
+  'pdf-summarizer': {
+    name: 'PDF Summarizer',
+    tagline: 'Summarize PDF Documents Quickly',
+    icon: '📄',
+    version: '1.0.0',
+    description: 'Quickly summarize PDF documents with our easy-to-use desktop application.',
+    longDescription: `More details coming soon.`,
+    features: [
+      { icon: '📄', title: 'PDF Summarization', description: 'Summarize PDF documents quickly and easily' },
+      { icon: '🖥️', title: 'Desktop Application', description: 'Windows desktop application' },
+    ],
+    pricing: {
+      yearly: 0,
+      currency: 'R',
+      tier: 'Free',
+      features: [
+        'PDF summarization',
+      ]
+    },
+    requirements: {
+      minimum: [
+        'Windows 10 or later (64-bit)',
+        '4GB RAM',
+        '200MB free disk space',
+      ],
+      recommended: [
+        'Windows 11 (64-bit)',
+        '8GB RAM or more',
+      ]
+    },
+    downloads: [
+      {
+        platform: 'Windows',
+        architecture: '64-bit',
+        version: '1.0.0',
+        size: 'TBD',
+        url: '/downloads/pdf-summarizer-1.0.0-win64.exe',
+        releaseDate: '2025-01-15',
+      },
+    ],
+    screenshots: [],
+    changelog: [
+      {
+        version: '1.0.0',
+        date: '2025-01-15',
+        changes: [
+          'Initial release',
         ]
       }
     ]
@@ -155,15 +200,15 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           <p className="section-subtitle">Simple, transparent pricing for your business</p>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '3rem', flexWrap: 'wrap' }}>
-            {/* Monthly Plan */}
-            <div className="product-card" style={{ maxWidth: '400px', width: '100%' }}>
-              <div className="product-header">
-                <h3>Monthly License</h3>
-                <p className="product-version">Pay as you grow</p>
+            {/* Basic Plan */}
+            <div className="product-card" style={{ maxWidth: '400px', width: '100%', borderColor: 'var(--accent-color)' }}>
+              <div className="product-header" style={{ background: 'var(--accent-color)', color: 'white' }}>
+                <h3 style={{ color: 'white' }}>{product.pricing.tier} Package</h3>
+                <p style={{ color: 'rgba(255,255,255,0.9)' }}>Everything you need to get started</p>
               </div>
               <div className="product-price">
-                {product.pricing.currency}{product.pricing.monthly.toLocaleString()}
-                <span className="currency"> / month</span>
+                {product.pricing.currency}{product.pricing.yearly.toLocaleString()}
+                <span className="currency"> / year</span>
               </div>
               <div className="product-body">
                 <ul className="product-features">
@@ -177,32 +222,25 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               </div>
             </div>
 
-            {/* Yearly Plan */}
-            <div className="product-card" style={{ maxWidth: '400px', width: '100%', borderColor: 'var(--accent-color)' }}>
-              <div className="product-header" style={{ background: 'var(--accent-color)', color: 'white' }}>
-                <div style={{ background: 'rgba(255,255,255,0.2)', padding: '0.5rem 1rem', borderRadius: '20px', display: 'inline-block', marginBottom: '1rem', fontSize: '0.9rem' }}>
-                  SAVE {Math.round((1 - (product.pricing.yearly / (product.pricing.monthly * 12))) * 100)}%
-                </div>
-                <h3 style={{ color: 'white' }}>Annual License</h3>
-                <p style={{ color: 'rgba(255,255,255,0.9)' }}>Best value</p>
-              </div>
-              <div className="product-price">
-                {product.pricing.currency}{product.pricing.yearly.toLocaleString()}
-                <span className="currency"> / year</span>
-                <div style={{ fontSize: '1rem', color: 'var(--text-light)', marginTop: '0.5rem' }}>
-                  ({product.pricing.currency}{Math.round(product.pricing.yearly / 12).toLocaleString()}/month)
-                </div>
+            {/* Coming Soon placeholder */}
+            <div className="product-card" style={{ maxWidth: '400px', width: '100%', opacity: 0.7 }}>
+              <div className="product-header">
+                <h3>More Packages</h3>
+                <p className="product-version">Coming Soon</p>
               </div>
               <div className="product-body">
+                <p style={{ color: 'var(--text-light)', padding: '2rem 0' }}>
+                  Additional packages with more comprehensive bookkeeping features will be available soon.
+                </p>
                 <ul className="product-features">
-                  {product.pricing.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                  <li style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>2 months free!</li>
+                  <li>Full bookkeeping capabilities</li>
+                  <li>Financial reporting</li>
+                  <li>Tax preparation tools</li>
+                  <li>And more...</li>
                 </ul>
               </div>
               <div className="product-footer">
-                <Link href="/contact" className="btn btn-primary">Get Started</Link>
+                <Link href="/contact" className="btn btn-secondary">Contact for Info</Link>
               </div>
             </div>
           </div>
