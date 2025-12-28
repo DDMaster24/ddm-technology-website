@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Hero from '@/components/Hero'
 import {
   BriefcaseIcon,
   RocketIcon,
@@ -11,24 +12,14 @@ import {
   MailIcon,
   CpuIcon,
   ClipboardIcon,
-  UtensilsIcon,
   ArrowRightIcon
 } from '@/components/Icons'
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <h1 className="fade-in-up">DDM Technology</h1>
-          <div className="tagline fade-in-up">Dream. Dare. Make.</div>
-          <p className="subtitle fade-in-up">Transforming ideas into powerful digital solutions</p>
-          <Link href="/contact" className="cta-button fade-in-up">
-            Get Started <ArrowRightIcon />
-          </Link>
-        </div>
-      </section>
+      {/* Enhanced Hero Section */}
+      <Hero />
 
       {/* Features Section */}
       <section className="features-section">
