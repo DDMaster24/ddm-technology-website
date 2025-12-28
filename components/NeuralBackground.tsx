@@ -3,6 +3,14 @@
 import { useEffect, useRef } from 'react'
 import styles from './NeuralBackground.module.css'
 
+// Aurora gradient colors from DDM IC logo
+const AURORA_COLORS = [
+  { r: 255, g: 107, b: 53 },   // Orange #FF6B35
+  { r: 233, g: 30, b: 99 },    // Pink #E91E63
+  { r: 156, g: 39, b: 176 },   // Purple #9C27B0
+  { r: 0, g: 212, b: 255 },    // Cyan #00D4FF
+]
+
 interface Node {
   x: number
   y: number
@@ -11,6 +19,7 @@ interface Node {
   radius: number
   pulse: number
   pulseSpeed: number
+  colorIndex: number
 }
 
 export default function NeuralBackground() {
@@ -43,7 +52,8 @@ export default function NeuralBackground() {
           vy: (Math.random() - 0.5) * 0.3,
           radius: Math.random() * 2 + 1,
           pulse: Math.random() * Math.PI * 2,
-          pulseSpeed: 0.02 + Math.random() * 0.02
+          pulseSpeed: 0.02 + Math.random() * 0.02,
+          colorIndex: Math.floor(Math.random() * AURORA_COLORS.length)
         })
       }
     }
@@ -51,15 +61,16 @@ export default function NeuralBackground() {
     const drawNode = (node: Node) => {
       const pulseScale = 1 + Math.sin(node.pulse) * 0.3
       const radius = node.radius * pulseScale
+      const color = AURORA_COLORS[node.colorIndex]
 
       // Outer glow
       const gradient = ctx.createRadialGradient(
         node.x, node.y, 0,
         node.x, node.y, radius * 4
       )
-      gradient.addColorStop(0, 'rgba(0, 212, 255, 0.4)')
-      gradient.addColorStop(0.5, 'rgba(0, 212, 255, 0.1)')
-      gradient.addColorStop(1, 'rgba(0, 212, 255, 0)')
+      gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, 0.5)`)
+      gradient.addColorStop(0.5, `rgba(${color.r}, ${color.g}, ${color.b}, 0.15)`)
+      gradient.addColorStop(1, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`)
 
       ctx.beginPath()
       ctx.arc(node.x, node.y, radius * 4, 0, Math.PI * 2)
@@ -69,21 +80,22 @@ export default function NeuralBackground() {
       // Core
       ctx.beginPath()
       ctx.arc(node.x, node.y, radius, 0, Math.PI * 2)
-      ctx.fillStyle = `rgba(0, 212, 255, ${0.6 + Math.sin(node.pulse) * 0.4})`
+      ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${0.7 + Math.sin(node.pulse) * 0.3})`
       ctx.fill()
     }
 
     const drawConnection = (node1: Node, node2: Node, distance: number, maxDistance: number) => {
-      const opacity = (1 - distance / maxDistance) * 0.3
+      const opacity = (1 - distance / maxDistance) * 0.35
+      const color1 = AURORA_COLORS[node1.colorIndex]
+      const color2 = AURORA_COLORS[node2.colorIndex]
 
       ctx.beginPath()
       ctx.moveTo(node1.x, node1.y)
       ctx.lineTo(node2.x, node2.y)
 
       const gradient = ctx.createLinearGradient(node1.x, node1.y, node2.x, node2.y)
-      gradient.addColorStop(0, `rgba(0, 212, 255, ${opacity})`)
-      gradient.addColorStop(0.5, `rgba(0, 180, 220, ${opacity * 0.8})`)
-      gradient.addColorStop(1, `rgba(0, 212, 255, ${opacity})`)
+      gradient.addColorStop(0, `rgba(${color1.r}, ${color1.g}, ${color1.b}, ${opacity})`)
+      gradient.addColorStop(1, `rgba(${color2.r}, ${color2.g}, ${color2.b}, ${opacity})`)
 
       ctx.strokeStyle = gradient
       ctx.lineWidth = 1

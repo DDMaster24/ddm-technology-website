@@ -45,7 +45,7 @@
 .badgeDot {
   width: 8px;
   height: 8px;
-  background: #00d4ff;
+  background: linear-gradient(135deg, #FF6B35, #E91E63);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -53,11 +53,11 @@
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
-    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.4);
   }
   50% {
     opacity: 0.8;
-    box-shadow: 0 0 0 8px rgba(0, 212, 255, 0);
+    box-shadow: 0 0 0 8px rgba(233, 30, 99, 0);
   }
 }
 
@@ -101,7 +101,7 @@
 
 .titleAccent {
   font-size: clamp(2.5rem, 8vw, 5rem);
-  background: linear-gradient(135deg, #00d4ff 0%, #00a8cc 50%, #0090b0 100%);
+  background: linear-gradient(135deg, #FF6B35 0%, #E91E63 35%, #9C27B0 65%, #00D4FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -140,8 +140,8 @@
   bottom: -4px;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(233, 30, 99, 0.6), transparent);
 }
 
 /* Subtitle */
@@ -180,8 +180,8 @@
   align-items: center;
   gap: 0.625rem;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #00d4ff 0%, #00b8e0 100%);
-  color: #050810;
+  background: linear-gradient(135deg, #FF6B35 0%, #E91E63 50%, #9C27B0 100%);
+  color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
@@ -205,8 +205,8 @@
 .primaryBtn:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 10px 40px rgba(0, 212, 255, 0.3),
-    0 0 0 1px rgba(0, 212, 255, 0.2);
+    0 10px 40px rgba(233, 30, 99, 0.4),
+    0 0 0 1px rgba(233, 30, 99, 0.3);
 }
 
 .primaryBtn:hover::before {
@@ -238,7 +238,7 @@
 
 .secondaryBtn:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(0, 212, 255, 0.4);
+  border-color: rgba(156, 39, 176, 0.5);
   color: #ffffff;
 }
 
@@ -271,7 +271,10 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.75rem;
   font-weight: 700;
-  color: #00d4ff;
+  background: linear-gradient(135deg, #FF6B35, #E91E63, #9C27B0, #00D4FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .statLabel {
@@ -325,7 +328,7 @@
 .scrollWheel {
   width: 3px;
   height: 8px;
-  background: rgba(0, 212, 255, 0.6);
+  background: linear-gradient(180deg, #FF6B35, #E91E63);
   border-radius: 2px;
   animation: scroll 1.5s ease-in-out infinite;
 }
