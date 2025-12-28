@@ -26,8 +26,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1.25rem;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.2);
   border-radius: 100px;
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.8);
@@ -45,7 +45,7 @@
 .badgeDot {
   width: 8px;
   height: 8px;
-  background: linear-gradient(135deg, #FF6B35, #E91E63);
+  background: linear-gradient(135deg, #DC2626, #EA580C);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -53,11 +53,11 @@
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
-    box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.4);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
   }
   50% {
     opacity: 0.8;
-    box-shadow: 0 0 0 8px rgba(233, 30, 99, 0);
+    box-shadow: 0 0 0 8px rgba(220, 38, 38, 0);
   }
 }
 
@@ -75,6 +75,7 @@
 }
 
 .titleText,
+.titleTextGradient,
 .titleAccent {
   display: inline-block;
   font-family: 'Clash Display', 'Space Grotesk', sans-serif;
@@ -85,6 +86,7 @@
 }
 
 .titleLine.visible .titleText,
+.titleLine.visible .titleTextGradient,
 .titleLine.visible .titleAccent {
   transform: translateY(0);
 }
@@ -99,9 +101,19 @@
   letter-spacing: -0.02em;
 }
 
+/* DDM with gradient */
+.titleTextGradient {
+  font-size: clamp(4rem, 15vw, 9rem);
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #DC2626 0%, #EA580C 40%, #1E40AF 60%, #0891B2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .titleAccent {
   font-size: clamp(2.5rem, 8vw, 5rem);
-  background: linear-gradient(135deg, #FF6B35 0%, #E91E63 35%, #9C27B0 65%, #00D4FF 100%);
+  background: linear-gradient(135deg, #DC2626 0%, #EA580C 30%, #1E40AF 70%, #0891B2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -141,7 +153,31 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(233, 30, 99, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.6), transparent);
+}
+
+/* Tagline with gradient text */
+.taglineWordAccent {
+  font-family: 'Satoshi', 'Inter', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.375rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  position: relative;
+  background: linear-gradient(135deg, #DC2626 0%, #EA580C 50%, #1E40AF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.taglineWordAccent::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.5), transparent);
 }
 
 /* Subtitle */
@@ -180,7 +216,7 @@
   align-items: center;
   gap: 0.625rem;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #FF6B35 0%, #E91E63 50%, #9C27B0 100%);
+  background: linear-gradient(135deg, #DC2626 0%, #EA580C 50%, #1E40AF 100%);
   color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
@@ -205,8 +241,8 @@
 .primaryBtn:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 10px 40px rgba(233, 30, 99, 0.4),
-    0 0 0 1px rgba(233, 30, 99, 0.3);
+    0 10px 40px rgba(220, 38, 38, 0.4),
+    0 0 0 1px rgba(220, 38, 38, 0.3);
 }
 
 .primaryBtn:hover::before {
@@ -238,7 +274,7 @@
 
 .secondaryBtn:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(156, 39, 176, 0.5);
+  border-color: rgba(30, 64, 175, 0.5);
   color: #ffffff;
 }
 
@@ -271,7 +307,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.75rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #FF6B35, #E91E63, #9C27B0, #00D4FF);
+  background: linear-gradient(135deg, #DC2626, #EA580C, #1E40AF, #0891B2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -328,7 +364,7 @@
 .scrollWheel {
   width: 3px;
   height: 8px;
-  background: linear-gradient(180deg, #FF6B35, #E91E63);
+  background: linear-gradient(180deg, #DC2626, #1E40AF);
   border-radius: 2px;
   animation: scroll 1.5s ease-in-out infinite;
 }

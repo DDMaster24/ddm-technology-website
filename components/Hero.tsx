@@ -23,21 +23,21 @@ export default function Hero() {
           <span>Transforming Ideas Into Reality</span>
         </div>
 
-        {/* Main heading with split animation */}
+        {/* Main heading with split animation - both lines have gradient */}
         <h1 className={styles.title}>
           <span className={`${styles.titleLine} ${mounted ? styles.visible : ''}`}>
-            <span className={styles.titleText}>DDM</span>
+            <span className={styles.titleTextGradient}>DDM</span>
           </span>
           <span className={`${styles.titleLine} ${styles.titleLineDelay} ${mounted ? styles.visible : ''}`}>
             <span className={styles.titleAccent}>Technology</span>
           </span>
         </h1>
 
-        {/* Tagline with gradient */}
+        {/* Tagline with gradient accents */}
         <div className={`${styles.tagline} ${mounted ? styles.visible : ''}`}>
-          <span className={styles.taglineWord}>Dream.</span>
-          <span className={styles.taglineWord}>Dare.</span>
-          <span className={styles.taglineWord}>Make.</span>
+          <span className={styles.taglineWordAccent}>Dream.</span>
+          <span className={styles.taglineWordAccent}>Dare.</span>
+          <span className={styles.taglineWordAccent}>Make.</span>
         </div>
 
         {/* Subtitle */}

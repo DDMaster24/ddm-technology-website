@@ -3,12 +3,12 @@
 import { useEffect, useRef } from 'react'
 import styles from './NeuralBackground.module.css'
 
-// Aurora gradient colors from DDM IC logo
-const AURORA_COLORS = [
-  { r: 255, g: 107, b: 53 },   // Orange #FF6B35
-  { r: 233, g: 30, b: 99 },    // Pink #E91E63
-  { r: 156, g: 39, b: 176 },   // Purple #9C27B0
-  { r: 0, g: 212, b: 255 },    // Cyan #00D4FF
+// Ember to Ocean - Dark Red to Dark Blue palette
+const EMBER_OCEAN_COLORS = [
+  { r: 220, g: 38, b: 38 },    // Dark Red #DC2626
+  { r: 234, g: 88, b: 12 },    // Deep Orange #EA580C
+  { r: 30, g: 64, b: 175 },    // Dark Blue #1E40AF
+  { r: 8, g: 145, b: 178 },    // Ocean Cyan #0891B2
 ]
 
 interface Node {
@@ -53,7 +53,7 @@ export default function NeuralBackground() {
           radius: Math.random() * 2 + 1,
           pulse: Math.random() * Math.PI * 2,
           pulseSpeed: 0.02 + Math.random() * 0.02,
-          colorIndex: Math.floor(Math.random() * AURORA_COLORS.length)
+          colorIndex: Math.floor(Math.random() * EMBER_OCEAN_COLORS.length)
         })
       }
     }
@@ -61,7 +61,7 @@ export default function NeuralBackground() {
     const drawNode = (node: Node) => {
       const pulseScale = 1 + Math.sin(node.pulse) * 0.3
       const radius = node.radius * pulseScale
-      const color = AURORA_COLORS[node.colorIndex]
+      const color = EMBER_OCEAN_COLORS[node.colorIndex]
 
       // Outer glow
       const gradient = ctx.createRadialGradient(
@@ -86,8 +86,8 @@ export default function NeuralBackground() {
 
     const drawConnection = (node1: Node, node2: Node, distance: number, maxDistance: number) => {
       const opacity = (1 - distance / maxDistance) * 0.35
-      const color1 = AURORA_COLORS[node1.colorIndex]
-      const color2 = AURORA_COLORS[node2.colorIndex]
+      const color1 = EMBER_OCEAN_COLORS[node1.colorIndex]
+      const color2 = EMBER_OCEAN_COLORS[node2.colorIndex]
 
       ctx.beginPath()
       ctx.moveTo(node1.x, node1.y)

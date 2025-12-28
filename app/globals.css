@@ -19,25 +19,32 @@
   --bg-card: #0c1220;
   --bg-card-hover: #111a2d;
 
-  /* Aurora Gradient Colors - From DDM IC Logo */
-  --aurora-orange: #FF6B35;
-  --aurora-coral: #FF8A5B;
-  --aurora-pink: #E91E63;
-  --aurora-magenta: #D81B60;
-  --aurora-purple: #9C27B0;
-  --aurora-violet: #7B1FA2;
-  --aurora-cyan: #00D4FF;
-  --aurora-teal: #00BCD4;
+  /* Ember to Ocean - Dark Red to Dark Blue Palette */
+  --ember-red: #DC2626;
+  --ember-crimson: #B91C1C;
+  --ember-orange: #EA580C;
+  --ember-amber: #D97706;
+  --ocean-blue: #1E40AF;
+  --ocean-indigo: #1E3A8A;
+  --ocean-cyan: #0891B2;
+  --ocean-teal: #0D9488;
 
   /* Primary Gradient - The Signature Look */
-  --gradient-aurora: linear-gradient(135deg, #FF6B35 0%, #E91E63 35%, #9C27B0 65%, #00D4FF 100%);
-  --gradient-aurora-reverse: linear-gradient(135deg, #00D4FF 0%, #9C27B0 35%, #E91E63 65%, #FF6B35 100%);
-  --gradient-aurora-vertical: linear-gradient(180deg, #FF6B35 0%, #E91E63 33%, #9C27B0 66%, #00D4FF 100%);
+  --gradient-ember-ocean: linear-gradient(135deg, #DC2626 0%, #EA580C 30%, #1E40AF 70%, #0891B2 100%);
+  --gradient-ember-ocean-reverse: linear-gradient(135deg, #0891B2 0%, #1E40AF 30%, #EA580C 70%, #DC2626 100%);
+  --gradient-ember-ocean-vertical: linear-gradient(180deg, #DC2626 0%, #EA580C 35%, #1E40AF 65%, #0891B2 100%);
+
+  /* Legacy alias for compatibility */
+  --gradient-aurora: var(--gradient-ember-ocean);
 
   /* Subtle Gradients for Backgrounds */
-  --gradient-glow-warm: radial-gradient(ellipse at center, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
-  --gradient-glow-pink: radial-gradient(ellipse at center, rgba(233, 30, 99, 0.12) 0%, transparent 70%);
-  --gradient-glow-cool: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+  --gradient-glow-warm: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.15) 0%, transparent 70%);
+  --gradient-glow-orange: radial-gradient(ellipse at center, rgba(234, 88, 12, 0.12) 0%, transparent 70%);
+  --gradient-glow-cool: radial-gradient(ellipse at center, rgba(30, 64, 175, 0.15) 0%, transparent 70%);
+  --gradient-glow-cyan: radial-gradient(ellipse at center, rgba(8, 145, 178, 0.12) 0%, transparent 70%);
+
+  /* Legacy alias */
+  --gradient-glow-pink: var(--gradient-glow-orange);
 
   /* Text Colors */
   --text-primary: #ffffff;
@@ -45,21 +52,30 @@
   --text-muted: rgba(255, 255, 255, 0.4);
   --text-dim: rgba(255, 255, 255, 0.25);
 
-  /* Borders - Aurora Tinted */
+  /* Borders - Ember Ocean Tinted */
   --border-subtle: rgba(255, 255, 255, 0.06);
   --border-default: rgba(255, 255, 255, 0.1);
-  --border-aurora: rgba(233, 30, 99, 0.3);
-  --border-glow: rgba(0, 212, 255, 0.4);
+  --border-ember: rgba(220, 38, 38, 0.3);
+  --border-ocean: rgba(30, 64, 175, 0.4);
+
+  /* Legacy alias */
+  --border-aurora: var(--border-ember);
+  --border-glow: var(--border-ocean);
 
   /* Shadows & Glows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 48px rgba(0, 0, 0, 0.5);
-  --glow-orange: 0 0 30px rgba(255, 107, 53, 0.4);
-  --glow-pink: 0 0 30px rgba(233, 30, 99, 0.4);
-  --glow-purple: 0 0 30px rgba(156, 39, 176, 0.4);
-  --glow-cyan: 0 0 30px rgba(0, 212, 255, 0.4);
-  --glow-aurora: 0 0 40px rgba(233, 30, 99, 0.3), 0 0 80px rgba(156, 39, 176, 0.2);
+  --glow-red: 0 0 30px rgba(220, 38, 38, 0.4);
+  --glow-orange: 0 0 30px rgba(234, 88, 12, 0.4);
+  --glow-blue: 0 0 30px rgba(30, 64, 175, 0.4);
+  --glow-cyan: 0 0 30px rgba(8, 145, 178, 0.4);
+  --glow-ember-ocean: 0 0 40px rgba(220, 38, 38, 0.3), 0 0 80px rgba(30, 64, 175, 0.25);
+
+  /* Legacy aliases */
+  --glow-pink: var(--glow-red);
+  --glow-purple: var(--glow-blue);
+  --glow-aurora: var(--glow-ember-ocean);
 
   /* Typography */
   --font-display: 'Clash Display', 'Space Grotesk', sans-serif;
@@ -94,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::selection {
-  background: var(--aurora-pink);
+  background: var(--ember-red);
   color: var(--text-primary);
 }
 
@@ -173,7 +189,7 @@ section {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--aurora-pink), var(--aurora-cyan), transparent);
+  background: linear-gradient(90deg, transparent, var(--ember-red), var(--ocean-blue), transparent);
 }
 
 .features-grid {
@@ -219,22 +235,22 @@ section {
   width: 56px;
   height: 56px;
   margin: 0 auto 1.25rem;
-  background: linear-gradient(135deg, rgba(233, 30, 99, 0.15), rgba(156, 39, 176, 0.1));
-  border: 1px solid rgba(233, 30, 99, 0.25);
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(234, 88, 12, 0.1));
+  border: 1px solid rgba(220, 38, 38, 0.25);
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--aurora-pink);
+  color: var(--ember-red);
   transition: all var(--duration-normal);
 }
 
 .feature-box:hover .icon {
-  box-shadow: var(--glow-pink);
+  box-shadow: var(--glow-blue);
   transform: scale(1.05);
-  color: var(--aurora-cyan);
-  border-color: rgba(0, 212, 255, 0.4);
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(156, 39, 176, 0.1));
+  color: var(--ocean-cyan);
+  border-color: rgba(30, 64, 175, 0.4);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.15), rgba(8, 145, 178, 0.1));
 }
 
 .feature-box .icon svg {
@@ -319,20 +335,20 @@ section {
 .service-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(233, 30, 99, 0.1));
-  border: 1px solid rgba(255, 107, 53, 0.25);
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.15), rgba(220, 38, 38, 0.1));
+  border: 1px solid rgba(234, 88, 12, 0.25);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
-  color: var(--aurora-orange);
+  color: var(--ember-orange);
   transition: all var(--duration-normal);
 }
 
 .service-card:hover .service-icon {
   box-shadow: var(--glow-orange);
-  color: var(--aurora-coral);
+  color: var(--ember-amber);
 }
 
 .service-icon svg {
@@ -373,7 +389,7 @@ section {
   transform: translateY(-50%);
   width: 6px;
   height: 6px;
-  background: var(--aurora-pink);
+  background: var(--ember-red);
   border-radius: 50%;
 }
 
@@ -567,13 +583,13 @@ section {
   width: 64px;
   height: 64px;
   margin: 0 auto 1.25rem;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.2), rgba(0, 212, 255, 0.15));
-  border: 1px solid rgba(156, 39, 176, 0.3);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.2), rgba(8, 145, 178, 0.15));
+  border: 1px solid rgba(30, 64, 175, 0.3);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--aurora-purple);
+  color: var(--ocean-blue);
 }
 
 .product-icon svg {
@@ -624,7 +640,7 @@ section {
   transform: translateY(-50%);
   width: 6px;
   height: 6px;
-  background: var(--aurora-cyan);
+  background: var(--ocean-cyan);
   border-radius: 50%;
 }
 
@@ -709,13 +725,13 @@ section {
 
 .btn-secondary {
   background: transparent;
-  color: var(--aurora-pink);
-  border: 1px solid var(--aurora-pink);
+  color: var(--ocean-cyan);
+  border: 1px solid var(--ocean-cyan);
 }
 
 .btn-secondary:hover {
-  background: rgba(233, 30, 99, 0.1);
-  box-shadow: var(--glow-pink);
+  background: rgba(8, 145, 178, 0.1);
+  box-shadow: var(--glow-cyan);
 }
 
 .cta-button {
@@ -866,14 +882,14 @@ section {
 .contact-icon {
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(156, 39, 176, 0.1));
-  border: 1px solid rgba(0, 212, 255, 0.25);
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15), rgba(30, 64, 175, 0.1));
+  border: 1px solid rgba(8, 145, 178, 0.25);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--aurora-cyan);
+  color: var(--ocean-cyan);
 }
 
 .contact-icon svg {
@@ -960,8 +976,8 @@ section {
 .form-group textarea:focus,
 .form-group select:focus {
   outline: none;
-  border-color: var(--aurora-pink);
-  box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.15);
+  border-color: var(--ocean-cyan);
+  box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.15);
 }
 
 .form-group textarea {

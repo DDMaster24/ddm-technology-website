@@ -57,7 +57,7 @@
 }
 
 .logo .accent {
-  background: linear-gradient(135deg, #FF6B35 0%, #E91E63 35%, #9C27B0 65%, #00D4FF 100%);
+  background: linear-gradient(135deg, #DC2626 0%, #EA580C 30%, #1E40AF 70%, #0891B2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -90,7 +90,7 @@
   transform: translateX(-50%) scaleX(0);
   width: 20px;
   height: 2px;
-  background: linear-gradient(90deg, #E91E63, #9C27B0);
+  background: linear-gradient(90deg, #DC2626, #1E40AF);
   border-radius: 1px;
   transition: transform 0.2s ease;
 }
@@ -104,7 +104,7 @@
 }
 
 .navLinks a.active {
-  color: #E91E63;
+  color: #DC2626;
 }
 
 .navLinks a.active::after {
@@ -126,8 +126,8 @@
 }
 
 .mobileMenuBtn:hover {
-  background: rgba(233, 30, 99, 0.1);
-  border-color: rgba(233, 30, 99, 0.3);
+  background: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.3);
 }
 
 @media (max-width: 768px) {
