@@ -3,10 +3,10 @@
 import { useEffect, useRef } from 'react'
 import styles from './NeuralBackground.module.css'
 
-// Ember to Ocean - Dark Red to Dark Blue palette
+// Crimson to Ocean - Dark Red to Dark Blue palette (no orange)
 const EMBER_OCEAN_COLORS = [
-  { r: 220, g: 38, b: 38 },    // Dark Red #DC2626
-  { r: 234, g: 88, b: 12 },    // Deep Orange #EA580C
+  { r: 220, g: 38, b: 38 },    // Bright Red #DC2626
+  { r: 185, g: 28, b: 28 },    // Crimson #B91C1C
   { r: 30, g: 64, b: 175 },    // Dark Blue #1E40AF
   { r: 8, g: 145, b: 178 },    // Ocean Cyan #0891B2
 ]

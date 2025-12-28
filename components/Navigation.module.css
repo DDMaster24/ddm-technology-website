@@ -57,7 +57,7 @@
 }
 
 .logo .accent {
-  background: linear-gradient(135deg, #DC2626 0%, #EA580C 30%, #1E40AF 70%, #0891B2 100%);
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 30%, #1E40AF 70%, #0891B2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -19,32 +19,33 @@
   --bg-card: #0c1220;
   --bg-card-hover: #111a2d;
 
-  /* Ember to Ocean - Dark Red to Dark Blue Palette */
+  /* Crimson to Ocean - Dark Red to Dark Blue Palette */
   --ember-red: #DC2626;
   --ember-crimson: #B91C1C;
-  --ember-orange: #EA580C;
-  --ember-amber: #D97706;
+  --ember-blood: #991B1B;
+  --ember-dark: #7F1D1D;
   --ocean-blue: #1E40AF;
   --ocean-indigo: #1E3A8A;
   --ocean-cyan: #0891B2;
   --ocean-teal: #0D9488;
 
-  /* Primary Gradient - The Signature Look */
-  --gradient-ember-ocean: linear-gradient(135deg, #DC2626 0%, #EA580C 30%, #1E40AF 70%, #0891B2 100%);
-  --gradient-ember-ocean-reverse: linear-gradient(135deg, #0891B2 0%, #1E40AF 30%, #EA580C 70%, #DC2626 100%);
-  --gradient-ember-ocean-vertical: linear-gradient(180deg, #DC2626 0%, #EA580C 35%, #1E40AF 65%, #0891B2 100%);
+  /* Primary Gradient - The Signature Look (Red to Blue, no orange) */
+  --gradient-ember-ocean: linear-gradient(135deg, #DC2626 0%, #B91C1C 30%, #1E40AF 70%, #0891B2 100%);
+  --gradient-ember-ocean-reverse: linear-gradient(135deg, #0891B2 0%, #1E40AF 30%, #B91C1C 70%, #DC2626 100%);
+  --gradient-ember-ocean-vertical: linear-gradient(180deg, #DC2626 0%, #B91C1C 35%, #1E40AF 65%, #0891B2 100%);
 
   /* Legacy alias for compatibility */
   --gradient-aurora: var(--gradient-ember-ocean);
 
   /* Subtle Gradients for Backgrounds */
   --gradient-glow-warm: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.15) 0%, transparent 70%);
-  --gradient-glow-orange: radial-gradient(ellipse at center, rgba(234, 88, 12, 0.12) 0%, transparent 70%);
+  --gradient-glow-crimson: radial-gradient(ellipse at center, rgba(185, 28, 28, 0.12) 0%, transparent 70%);
   --gradient-glow-cool: radial-gradient(ellipse at center, rgba(30, 64, 175, 0.15) 0%, transparent 70%);
   --gradient-glow-cyan: radial-gradient(ellipse at center, rgba(8, 145, 178, 0.12) 0%, transparent 70%);
 
   /* Legacy alias */
-  --gradient-glow-pink: var(--gradient-glow-orange);
+  --gradient-glow-pink: var(--gradient-glow-crimson);
+  --gradient-glow-orange: var(--gradient-glow-crimson);
 
   /* Text Colors */
   --text-primary: #ffffff;
@@ -67,13 +68,14 @@
   --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 48px rgba(0, 0, 0, 0.5);
   --glow-red: 0 0 30px rgba(220, 38, 38, 0.4);
-  --glow-orange: 0 0 30px rgba(234, 88, 12, 0.4);
+  --glow-crimson: 0 0 30px rgba(185, 28, 28, 0.4);
   --glow-blue: 0 0 30px rgba(30, 64, 175, 0.4);
   --glow-cyan: 0 0 30px rgba(8, 145, 178, 0.4);
   --glow-ember-ocean: 0 0 40px rgba(220, 38, 38, 0.3), 0 0 80px rgba(30, 64, 175, 0.25);
 
   /* Legacy aliases */
   --glow-pink: var(--glow-red);
+  --glow-orange: var(--glow-crimson);
   --glow-purple: var(--glow-blue);
   --glow-aurora: var(--glow-ember-ocean);
 
@@ -335,20 +337,20 @@ section {
 .service-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, rgba(234, 88, 12, 0.15), rgba(220, 38, 38, 0.1));
-  border: 1px solid rgba(234, 88, 12, 0.25);
+  background: linear-gradient(135deg, rgba(185, 28, 28, 0.15), rgba(220, 38, 38, 0.1));
+  border: 1px solid rgba(185, 28, 28, 0.25);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
-  color: var(--ember-orange);
+  color: var(--ember-crimson);
   transition: all var(--duration-normal);
 }
 
 .service-card:hover .service-icon {
-  box-shadow: var(--glow-orange);
-  color: var(--ember-amber);
+  box-shadow: var(--glow-crimson);
+  color: var(--ember-red);
 }
 
 .service-icon svg {
