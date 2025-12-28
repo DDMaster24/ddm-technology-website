@@ -1,4 +1,16 @@
 import Link from 'next/link'
+import {
+  MonitorIcon,
+  HeadphonesIcon,
+  WrenchIcon,
+  SettingsIcon,
+  MailIcon,
+  ServerIcon,
+  CodeIcon,
+  SmartphoneIcon,
+  CpuIcon,
+  ArrowRightIcon
+} from '@/components/Icons'
 
 export default function Services() {
   return (
@@ -16,7 +28,7 @@ export default function Services() {
         <div className="container">
           <div className="services-grid">
             <div className="service-card">
-              <div className="service-icon">💻</div>
+              <div className="service-icon"><MonitorIcon /></div>
               <h3>On-Site Desktop Support</h3>
               <p>Professional on-site technical support for your business or home office.</p>
               <ul>
@@ -28,7 +40,7 @@ export default function Services() {
             </div>
 
             <div className="service-card">
-              <div className="service-icon">🖥️</div>
+              <div className="service-icon"><HeadphonesIcon /></div>
               <h3>Remote Desktop Support</h3>
               <p>Fast and efficient remote assistance to solve your technical issues quickly.</p>
               <ul>
@@ -40,7 +52,7 @@ export default function Services() {
             </div>
 
             <div className="service-card">
-              <div className="service-icon">🔧</div>
+              <div className="service-icon"><WrenchIcon /></div>
               <h3>Technical Support</h3>
               <p>Expert repair and maintenance services for laptops, PCs, and peripherals.</p>
               <ul>
@@ -52,7 +64,7 @@ export default function Services() {
             </div>
 
             <div className="service-card">
-              <div className="service-icon">⚙️</div>
+              <div className="service-icon"><SettingsIcon /></div>
               <h3>Software Setup</h3>
               <p>Professional installation and configuration of software applications.</p>
               <ul>
@@ -64,7 +76,7 @@ export default function Services() {
             </div>
 
             <div className="service-card">
-              <div className="service-icon">📧</div>
+              <div className="service-icon"><MailIcon /></div>
               <h3>Microsoft & Email Solutions</h3>
               <p>Complete Microsoft ecosystem setup and email management services.</p>
               <ul>
@@ -76,7 +88,7 @@ export default function Services() {
             </div>
 
             <div className="service-card">
-              <div className="service-icon">🌐</div>
+              <div className="service-icon"><ServerIcon /></div>
               <h3>Website Hosting</h3>
               <p>Reliable and secure web hosting solutions for your online presence.</p>
               <ul>
@@ -88,7 +100,7 @@ export default function Services() {
             </div>
 
             <div className="service-card">
-              <div className="service-icon">🎨</div>
+              <div className="service-icon"><CodeIcon /></div>
               <h3>Software Design & Development</h3>
               <p>Custom software solutions built to meet your specific business needs.</p>
               <ul>
@@ -100,7 +112,7 @@ export default function Services() {
             </div>
 
             <div className="service-card">
-              <div className="service-icon">📱</div>
+              <div className="service-icon"><SmartphoneIcon /></div>
               <h3>Mobile App Development</h3>
               <p>Professional iOS and Android app development and deployment services.</p>
               <ul>
@@ -112,7 +124,7 @@ export default function Services() {
             </div>
 
             <div className="service-card">
-              <div className="service-icon">🤖</div>
+              <div className="service-icon"><CpuIcon /></div>
               <h3>Automation Solutions</h3>
               <p>Streamline your workflows with custom automation and integration services.</p>
               <ul>
@@ -128,7 +140,7 @@ export default function Services() {
             <h2>Ready to get started?</h2>
             <p>Contact us today to discuss your IT needs and get a custom quote.</p>
             <Link href="/contact" className="cta-button">
-              Contact Us
+              Contact Us <ArrowRightIcon />
             </Link>
           </div>
         </div>

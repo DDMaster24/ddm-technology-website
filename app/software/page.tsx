@@ -1,20 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import {
+  ClipboardIcon,
+  FileTextIcon,
+  BriefcaseIcon,
+  ArrowRightIcon
+} from '@/components/Icons'
 
 export default function Software() {
-  const handleDownload = (productName: string) => {
-    alert(
-      `Download functionality for ${productName} will be implemented soon. Please contact us for access.`
-    )
-  }
-
-  const handleLicensePurchase = (productName: string) => {
-    alert(
-      `Online payment functionality for ${productName} will be implemented soon. Please contact us to purchase a license.`
-    )
-  }
-
   return (
     <>
       {/* Page Header */}
@@ -31,7 +25,7 @@ export default function Software() {
           <div className="products-grid">
             <div className="product-card">
               <div className="product-header">
-                <div className="product-icon">📋</div>
+                <div className="product-icon"><ClipboardIcon /></div>
                 <h3>DDM IC</h3>
                 <p className="product-version">Version 1.0.0</p>
               </div>
@@ -64,7 +58,7 @@ export default function Software() {
 
             <div className="product-card">
               <div className="product-header">
-                <div className="product-icon">📄</div>
+                <div className="product-icon"><FileTextIcon /></div>
                 <h3>PDF Summarizer</h3>
                 <p className="product-version">Version 1.0.0</p>
               </div>
@@ -88,7 +82,7 @@ export default function Software() {
 
             <div className="product-card">
               <div className="product-header">
-                <div className="product-icon">💼</div>
+                <div className="product-icon"><BriefcaseIcon /></div>
                 <h3>Custom Solutions</h3>
                 <p className="product-version">Tailored to You</p>
               </div>
@@ -116,7 +110,7 @@ export default function Software() {
             <h2>Need help choosing?</h2>
             <p>Contact us to discuss which solution is right for your business.</p>
             <Link href="/contact" className="cta-button">
-              Get In Touch
+              Get In Touch <ArrowRightIcon />
             </Link>
           </div>
         </div>
