@@ -14,6 +14,7 @@ export default function Footer() {
           <Link href="/services">Services</Link>
           <Link href="/software">Software</Link>
           <Link href="/contact">Contact</Link>
+          <Link href="/policies">Policies</Link>
         </div>
 
         <div className={styles.footerBottom}>
