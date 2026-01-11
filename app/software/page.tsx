@@ -5,7 +5,8 @@ import {
   ClipboardIcon,
   FileTextIcon,
   BriefcaseIcon,
-  ArrowRightIcon
+  ArrowRightIcon,
+  CheckSquareIcon
 } from '@/components/Icons'
 
 export default function Software() {
@@ -75,6 +76,56 @@ export default function Software() {
               </div>
               <div className="product-footer">
                 <Link href="/software/pdf-summarizer" className="btn btn-primary">
+                  Download
+                </Link>
+              </div>
+            </div>
+
+            <div className="product-card" style={{ position: 'relative', overflow: 'visible' }}>
+              <div style={{
+                position: 'absolute',
+                top: '-12px',
+                right: '20px',
+                background: 'var(--gradient-ember-ocean)',
+                color: 'white',
+                padding: '6px 16px',
+                borderRadius: '20px',
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
+                boxShadow: 'var(--glow-ember-ocean)',
+                zIndex: 10
+              }}>
+                Cross-Platform
+              </div>
+              <div className="product-header">
+                <div className="product-icon"><CheckSquareIcon /></div>
+                <h3>TaskMaster Pro</h3>
+                <p className="product-version">Version 1.0.0</p>
+              </div>
+              <div className="product-body">
+                <p className="product-description">
+                  A powerful task management application to organize your work, track progress,
+                  and boost productivity across Windows, macOS, and Linux.
+                </p>
+                <ul className="product-features">
+                  <li>Smart task management</li>
+                  <li>Progress tracking dashboard</li>
+                  <li>Tags & categories</li>
+                  <li>Works offline - no account needed</li>
+                  <li>Windows, macOS & Linux</li>
+                </ul>
+              </div>
+              <div className="product-price">
+                <span className="currency">Free</span>
+                <p className="price-tier">All Features Included</p>
+              </div>
+              <div className="product-footer">
+                <Link href="/software/taskmaster-pro" className="btn btn-primary">
+                  View Details
+                </Link>
+                <Link href="/software/taskmaster-pro#download" className="btn btn-secondary">
                   Download
                 </Link>
               </div>

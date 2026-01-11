@@ -126,6 +126,110 @@ The Basic package includes everything you need to get started with professional 
       }
     ]
   },
+  'taskmaster-pro': {
+    name: 'TaskMaster Pro',
+    tagline: 'Master Your Productivity, Conquer Your Day',
+    icon: '✓',
+    version: '1.0.0',
+    description: 'A powerful, cross-platform task management application designed to help you organize your work, track progress, and boost productivity across all your devices.',
+    longDescription: `TaskMaster Pro is the ultimate productivity companion for professionals, teams, and anyone who wants to take control of their tasks and time.
+
+Built with performance and usability in mind, TaskMaster Pro runs natively on Windows, macOS, and Linux, giving you a seamless experience no matter which platform you prefer.
+
+Whether you're managing personal projects, coordinating team efforts, or simply trying to stay on top of your daily to-dos, TaskMaster Pro provides the tools you need to succeed.`,
+    features: [
+      { icon: '✅', title: 'Smart Task Management', description: 'Create, organize, and prioritize tasks with intuitive drag-and-drop interfaces' },
+      { icon: '📊', title: 'Progress Tracking', description: 'Visual dashboards and progress indicators to keep you motivated' },
+      { icon: '🔔', title: 'Smart Reminders', description: 'Never miss a deadline with customizable notifications and alerts' },
+      { icon: '🏷️', title: 'Tags & Categories', description: 'Organize tasks with flexible tagging and categorization systems' },
+      { icon: '🌍', title: 'Cross-Platform', description: 'Native apps for Windows, macOS, and Linux with consistent experience' },
+      { icon: '🔒', title: 'Privacy First', description: 'Your data stays on your device - no cloud accounts required' },
+    ],
+    pricing: {
+      yearly: 0,
+      currency: 'R',
+      tier: 'Free',
+      features: [
+        'Unlimited tasks and projects',
+        'All core features included',
+        'Cross-platform support',
+        'Offline functionality',
+        'No account required',
+        'Free updates',
+      ]
+    },
+    requirements: {
+      minimum: [
+        'Windows 10 / macOS 11 / Ubuntu 20.04 or later',
+        '4GB RAM',
+        '150MB free disk space',
+        '64-bit processor',
+      ],
+      recommended: [
+        'Windows 11 / macOS 14 / Ubuntu 22.04',
+        '8GB RAM or more',
+        '500MB free disk space',
+        'Multi-core processor',
+      ]
+    },
+    downloads: [
+      {
+        platform: 'Windows',
+        architecture: '64-bit',
+        version: '1.0.0',
+        size: '78 MB',
+        url: 'https://github.com/DDMaster24/tasker-pro/releases/download/v1.0.0/TaskMaster.Pro.Setup.1.0.0.exe',
+        releaseDate: '2026-01-11',
+      },
+      {
+        platform: 'macOS',
+        architecture: 'ARM64 (Apple Silicon)',
+        version: '1.0.0',
+        size: '99.3 MB',
+        url: 'https://github.com/DDMaster24/tasker-pro/releases/download/v1.0.0/TaskMaster.Pro-1.0.0-arm64.dmg',
+        releaseDate: '2026-01-11',
+      },
+      {
+        platform: 'macOS',
+        architecture: 'ARM64 (ZIP)',
+        version: '1.0.0',
+        size: '95.7 MB',
+        url: 'https://github.com/DDMaster24/tasker-pro/releases/download/v1.0.0/TaskMaster.Pro-1.0.0-arm64-mac.zip',
+        releaseDate: '2026-01-11',
+      },
+      {
+        platform: 'Linux',
+        architecture: 'AMD64 (DEB)',
+        version: '1.0.0',
+        size: '73 MB',
+        url: 'https://github.com/DDMaster24/tasker-pro/releases/download/v1.0.0/taskmaster-pro_1.0.0_amd64.deb',
+        releaseDate: '2026-01-11',
+      },
+      {
+        platform: 'Linux',
+        architecture: 'AppImage',
+        version: '1.0.0',
+        size: '109 MB',
+        url: 'https://github.com/DDMaster24/tasker-pro/releases/download/v1.0.0/TaskMaster.Pro-1.0.0.AppImage',
+        releaseDate: '2026-01-11',
+      },
+    ],
+    screenshots: [],
+    changelog: [
+      {
+        version: '1.0.0',
+        date: '2026-01-11',
+        changes: [
+          'Initial release',
+          'Task creation and management',
+          'Project organization',
+          'Tags and categories',
+          'Progress tracking dashboard',
+          'Cross-platform support (Windows, macOS, Linux)',
+        ]
+      }
+    ]
+  },
   // Add more products here as you create them
 }
 
