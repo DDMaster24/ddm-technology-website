@@ -21,6 +21,70 @@ export default function Home() {
       {/* Enhanced Hero Section */}
       <Hero />
 
+      {/* AI Services Banner */}
+      <section style={{
+        background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(30, 64, 175, 0.08) 100%)',
+        borderTop: '1px solid rgba(220, 38, 38, 0.15)',
+        borderBottom: '1px solid rgba(30, 64, 175, 0.15)',
+        padding: '3rem 2rem',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '2px',
+          background: 'var(--gradient-ember-ocean)',
+        }} />
+        <div className="container" style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '2rem',
+          flexWrap: 'wrap',
+        }}>
+          <div style={{ flex: 1, minWidth: '280px' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.375rem 0.875rem',
+              background: 'rgba(220, 38, 38, 0.1)',
+              border: '1px solid rgba(220, 38, 38, 0.25)',
+              borderRadius: '100px',
+              fontSize: '0.8125rem',
+              color: 'var(--ember-red)',
+              marginBottom: '0.75rem',
+              fontWeight: 600,
+            }}>
+              <CpuIcon /> NEW
+            </div>
+            <h2 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+              fontWeight: 600,
+              color: 'var(--text-primary)',
+              marginBottom: '0.5rem',
+            }}>
+              AI Employees for Your Business
+            </h2>
+            <p style={{
+              fontSize: '1rem',
+              color: 'var(--text-secondary)',
+              lineHeight: 1.6,
+              maxWidth: '500px',
+            }}>
+              Automate repetitive tasks with intelligent AI agents that work 24/7. Starting from R15,000/month.
+            </p>
+          </div>
+          <Link href="/ai-services" className="cta-button">
+            Explore AI Packages <ArrowRightIcon />
+          </Link>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="features-section">
         <div className="container">

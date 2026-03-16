@@ -1071,6 +1071,25 @@ section {
 /* ============================================
    RESPONSIVE
    ============================================ */
+/* ============================================
+   AI SERVICES - RESPONSIVE PRICING GRID
+   ============================================ */
+@media (max-width: 1200px) {
+  .ai-pricing-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ai-pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .ai-roi-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);

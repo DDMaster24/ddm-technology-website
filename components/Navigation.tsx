@@ -72,6 +72,15 @@ export default function Navigation() {
           </li>
           <li>
             <Link
+              href="/ai-services"
+              className={pathname?.startsWith('/ai-services') ? styles.active : ''}
+              onClick={closeMenu}
+            >
+              AI Services
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/contact"
               className={pathname === '/contact' ? styles.active : ''}
               onClick={closeMenu}
