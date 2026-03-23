@@ -130,6 +130,23 @@
   border-color: rgba(220, 38, 38, 0.3);
 }
 
+.ctaLink {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 40%, #1E40AF 100%) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  font-weight: 600 !important;
+}
+
+.ctaLink:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.ctaLink::after {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   .navContainer {
     padding: 1rem 1.5rem;

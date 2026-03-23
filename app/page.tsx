@@ -1,173 +1,138 @@
 import Link from 'next/link'
 import Hero from '@/components/Hero'
 import {
-  BriefcaseIcon,
-  RocketIcon,
+  MessageCircleIcon,
   ZapIcon,
-  TargetIcon,
-  MonitorIcon,
-  WrenchIcon,
+  FileSearchIcon,
+  MegaphoneIcon,
   CodeIcon,
-  GlobeIcon,
-  MailIcon,
-  CpuIcon,
-  ClipboardIcon,
-  ArrowRightIcon
+  ArrowRightIcon,
+  CheckCircleIcon,
+  TrendingUpIcon,
+  ShieldCheckIcon,
+  SparklesIcon,
+  RocketIcon,
+  BarChartIcon,
 } from '@/components/Icons'
 
 export default function Home() {
   return (
     <>
-      {/* Enhanced Hero Section */}
       <Hero />
 
-      {/* AI Services Banner */}
-      <section style={{
-        background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(30, 64, 175, 0.08) 100%)',
-        borderTop: '1px solid rgba(220, 38, 38, 0.15)',
-        borderBottom: '1px solid rgba(30, 64, 175, 0.15)',
-        padding: '3rem 2rem',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '2px',
-          background: 'var(--gradient-ember-ocean)',
-        }} />
-        <div className="container" style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '2rem',
-          flexWrap: 'wrap',
-        }}>
-          <div style={{ flex: 1, minWidth: '280px' }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              padding: '0.375rem 0.875rem',
-              background: 'rgba(220, 38, 38, 0.1)',
-              border: '1px solid rgba(220, 38, 38, 0.25)',
-              borderRadius: '100px',
-              fontSize: '0.8125rem',
-              color: 'var(--ember-red)',
-              marginBottom: '0.75rem',
-              fontWeight: 600,
-            }}>
-              <CpuIcon /> NEW
-            </div>
-            <h2 style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-              fontWeight: 600,
-              color: 'var(--text-primary)',
-              marginBottom: '0.5rem',
-            }}>
-              AI Employees for Your Business
-            </h2>
-            <p style={{
-              fontSize: '1rem',
-              color: 'var(--text-secondary)',
-              lineHeight: 1.6,
-              maxWidth: '500px',
-            }}>
-              Automate repetitive tasks with intelligent AI agents that work 24/7. Starting from R15,000/month.
-            </p>
-          </div>
-          <Link href="/ai-services" className="cta-button">
-            Explore AI Packages <ArrowRightIcon />
-          </Link>
-        </div>
-      </section>
-
-      {/* Features Section */}
+      {/* What We Do - Quick overview */}
       <section className="features-section">
         <div className="container">
-          <h2 className="section-title">Why Choose DDM Technology?</h2>
+          <h2 className="section-title">What We Actually Do</h2>
           <p className="section-subtitle">
-            Comprehensive IT solutions delivered with professionalism and expertise
+            We build AI systems that handle the boring stuff — so you can focus on growing your business
           </p>
 
           <div className="features-grid">
             <div className="feature-box">
-              <div className="icon"><BriefcaseIcon /></div>
-              <h3>Professional Services</h3>
-              <p>Expert IT support and solutions tailored to your business needs.</p>
-            </div>
-
-            <div className="feature-box">
-              <div className="icon"><RocketIcon /></div>
-              <h3>Fast & Reliable</h3>
-              <p>Quick response times and dependable service you can count on.</p>
-            </div>
-
-            <div className="feature-box">
               <div className="icon"><ZapIcon /></div>
-              <h3>24/7 Support</h3>
-              <p>Round-the-clock assistance whenever you need help.</p>
+              <h3>Automate Workflows</h3>
+              <p>Connect your tools and let AI handle repetitive tasks 24/7. No more manual data entry.</p>
             </div>
 
             <div className="feature-box">
-              <div className="icon"><TargetIcon /></div>
-              <h3>Custom Solutions</h3>
-              <p>Bespoke software and IT solutions built for your requirements.</p>
+              <div className="icon"><MessageCircleIcon /></div>
+              <h3>AI Customer Service</h3>
+              <p>Chatbots and voice agents that actually help your customers — in English, Zulu, or Afrikaans.</p>
+            </div>
+
+            <div className="feature-box">
+              <div className="icon"><FileSearchIcon /></div>
+              <h3>Smart Document Processing</h3>
+              <p>Invoices, contracts, compliance docs — automatically extracted, sorted, and filed.</p>
+            </div>
+
+            <div className="feature-box">
+              <div className="icon"><TrendingUpIcon /></div>
+              <h3>AI Sales & Marketing</h3>
+              <p>Generate leads, create content, and automate your social media while you sleep.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Quick Services Overview */}
+      {/* Services Overview */}
       <section className="services-section">
         <div className="container">
-          <h2 className="section-title">Our Services</h2>
-          <p className="section-subtitle">From on-site support to cutting-edge software development</p>
+          <h2 className="section-title">Our AI Services</h2>
+          <p className="section-subtitle">End-to-end AI automation — from strategy to deployment</p>
 
           <div className="services-grid">
             <div className="service-card">
-              <div className="service-icon"><MonitorIcon /></div>
-              <h3>Desktop Support</h3>
-              <p>On-site and remote technical support for all your IT needs.</p>
+              <div className="service-icon"><MessageCircleIcon /></div>
+              <h3>AI Customer Service</h3>
+              <p>Chatbots, voice agents, and email responders that handle enquiries around the clock.</p>
+              <ul>
+                <li>WhatsApp & website chatbots</li>
+                <li>AI voice call agents</li>
+                <li>Smart email responses</li>
+              </ul>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><WrenchIcon /></div>
-              <h3>Technical Repairs</h3>
-              <p>Expert repair and maintenance for laptops, PCs, and hardware.</p>
+              <div className="service-icon"><ZapIcon /></div>
+              <h3>Workflow Automation</h3>
+              <p>Connect your existing tools with intelligent automation that eliminates manual work.</p>
+              <ul>
+                <li>n8n & Zapier integrations</li>
+                <li>CRM automation</li>
+                <li>Custom API connections</li>
+              </ul>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon"><FileSearchIcon /></div>
+              <h3>Document Processing</h3>
+              <p>AI that reads, extracts, and files your documents automatically.</p>
+              <ul>
+                <li>Invoice processing</li>
+                <li>Contract analysis</li>
+                <li>Compliance automation</li>
+              </ul>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon"><MegaphoneIcon /></div>
+              <h3>AI Sales & Marketing</h3>
+              <p>Automated lead generation, content creation, and social media management.</p>
+              <ul>
+                <li>AI lead qualification</li>
+                <li>Content generation</li>
+                <li>Social media automation</li>
+              </ul>
             </div>
 
             <div className="service-card">
               <div className="service-icon"><CodeIcon /></div>
-              <h3>Software Development</h3>
-              <p>Custom software solutions and mobile app development.</p>
+              <h3>Custom AI Development</h3>
+              <p>Bespoke AI solutions built specifically for your business processes.</p>
+              <ul>
+                <li>Custom AI models</li>
+                <li>API integrations</li>
+                <li>Full-stack AI apps</li>
+              </ul>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><GlobeIcon /></div>
-              <h3>Web & Hosting</h3>
-              <p>Website hosting, domain management, and web solutions.</p>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><MailIcon /></div>
-              <h3>Microsoft Solutions</h3>
-              <p>Microsoft 365, email setup, and cloud migration services.</p>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><CpuIcon /></div>
-              <h3>Automation</h3>
-              <p>Process automation and workflow optimization solutions.</p>
+              <div className="service-icon"><ShieldCheckIcon /></div>
+              <h3>AI Strategy & Consulting</h3>
+              <p>Figure out where AI fits in your business — before spending a cent.</p>
+              <ul>
+                <li>AI readiness audit</li>
+                <li>ROI projections</li>
+                <li>Implementation roadmap</li>
+              </ul>
             </div>
           </div>
 
           <div className="cta-section">
-            <h2>Explore All Our Services</h2>
-            <p>Discover our complete range of IT solutions and services</p>
+            <h2>Explore All Services</h2>
+            <p>See detailed breakdowns, benefits, and pricing for each service</p>
             <Link href="/services" className="cta-button">
               View All Services <ArrowRightIcon />
             </Link>
@@ -175,113 +140,144 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Why DDM */}
       <section className="about">
         <div className="container">
-          <h2 className="section-title">About DDM Technology</h2>
+          <h2 className="section-title">Why South African Businesses Choose Us</h2>
           <p className="section-subtitle">
-            Your trusted partner for comprehensive IT solutions and software development
+            We are not a Silicon Valley startup. We are a South African team that understands local business.
           </p>
 
           <div className="about-content">
             <div className="about-text">
-              <h3>Who We Are</h3>
+              <h3>Built for SA Business</h3>
               <p>
-                DDM Technology is a leading provider of comprehensive IT solutions based in South
-                Africa. We specialize in delivering high-quality technical support, software
-                development, and digital solutions for businesses and individuals.
+                We have built AI automations for coal traders, restaurant chains, property managers,
+                and e-commerce stores — all right here in South Africa. We understand load shedding,
+                we understand POPIA, and we understand that every rand counts.
               </p>
               <p>
-                From on-site support to cutting-edge app development, we handle all your technology
-                needs with professionalism and expertise.
+                Our approach is simple: find the bottleneck in your business, build an AI system to
+                fix it, and prove the ROI before you pay a cent. No lock-in contracts. No enterprise
+                fluff. Just results.
               </p>
               <Link href="/about" className="cta-button" style={{ display: 'inline-flex', marginTop: '1.5rem' }}>
-                Learn More <ArrowRightIcon />
+                About DDM Technology <ArrowRightIcon />
               </Link>
             </div>
             <div className="stats">
               <div className="stat-item">
-                <div className="stat-number">100+</div>
-                <div className="stat-label">Happy Clients</div>
+                <div className="stat-number">50+</div>
+                <div className="stat-label">AI Automations Deployed</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">500+</div>
-                <div className="stat-label">Projects Completed</div>
+                <div className="stat-number">10x</div>
+                <div className="stat-label">Average Speed Improvement</div>
               </div>
               <div className="stat-item">
                 <div className="stat-number">24/7</div>
-                <div className="stat-label">Support Available</div>
+                <div className="stat-label">Your AI Never Sleeps</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Software Products Teaser */}
+      {/* Case Studies Teaser */}
       <section className="products-section">
         <div className="container">
-          <h2 className="section-title">Our Software Products</h2>
-          <p className="section-subtitle">Professional software solutions for your business</p>
+          <h2 className="section-title">Real Results for Real Businesses</h2>
+          <p className="section-subtitle">See how we have helped SA companies automate and grow</p>
 
-          <div className="products-grid">
+          <div className="products-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
             <div className="product-card">
               <div className="product-header">
-                <div className="product-icon"><ClipboardIcon /></div>
-                <h3>DDM IC</h3>
-                <p className="product-version">Version 1.0.0</p>
+                <div className="product-icon"><BarChartIcon /></div>
+                <h3>MineX Coal Trading</h3>
+                <p className="product-version">Commodity Marketplace</p>
               </div>
               <div className="product-body">
                 <p className="product-description">
-                  Professional bookkeeping and invoicing software to streamline your business
-                  finances. Create invoices, manage clients, and track your items with ease.
+                  Digitised R50M+ in coal trades with an AI-powered marketplace that automates
+                  matching, logistics, and compliance documentation.
                 </p>
               </div>
               <div className="product-footer">
-                <Link href="/software" className="btn btn-primary">
-                  View Details
+                <Link href="/case-studies" className="btn btn-primary">
+                  Read Case Study
                 </Link>
               </div>
             </div>
 
             <div className="product-card">
               <div className="product-header">
-                <div className="product-icon"><BriefcaseIcon /></div>
-                <h3>Custom Solutions</h3>
-                <p className="product-version">Tailored to You</p>
+                <div className="product-icon"><RocketIcon /></div>
+                <h3>Flame & Fork Restaurant Chain</h3>
+                <p className="product-version">Food & Hospitality</p>
               </div>
               <div className="product-body">
                 <p className="product-description">
-                  Need a custom software solution? We build bespoke applications for your specific
-                  business needs.
+                  Cut order processing time by 80% with AI-powered order management,
+                  inventory prediction, and automated supplier communications.
                 </p>
               </div>
               <div className="product-footer">
-                <Link href="/contact" className="btn btn-primary">
-                  Request Quote
+                <Link href="/case-studies" className="btn btn-primary">
+                  Read Case Study
+                </Link>
+              </div>
+            </div>
+
+            <div className="product-card">
+              <div className="product-header">
+                <div className="product-icon"><SparklesIcon /></div>
+                <h3>UrbanNest Property Management</h3>
+                <p className="product-version">Real Estate</p>
+              </div>
+              <div className="product-body">
+                <p className="product-description">
+                  Automated tenant communications, maintenance requests, and lease processing —
+                  saving 20+ hours per week across 200 units.
+                </p>
+              </div>
+              <div className="product-footer">
+                <Link href="/case-studies" className="btn btn-primary">
+                  Read Case Study
                 </Link>
               </div>
             </div>
           </div>
 
           <div className="cta-section">
-            <h2>View All Software Products</h2>
-            <p>Explore our complete software catalog and licensing options</p>
-            <Link href="/software" className="cta-button">
-              Browse Software <ArrowRightIcon />
+            <h2>See All Case Studies</h2>
+            <p>Discover how AI automation is transforming South African businesses</p>
+            <Link href="/case-studies" className="cta-button">
+              View Portfolio <ArrowRightIcon />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Final CTA */}
       <section className="contact-section">
         <div className="container">
           <div className="cta-section">
-            <h2>Ready to Get Started?</h2>
-            <p>Contact us today to discuss your IT needs and get a custom quote</p>
-            <Link href="/contact" className="cta-button">
-              Contact Us Now <ArrowRightIcon />
-            </Link>
+            <h2>Ready to Automate Your Business?</h2>
+            <p>Book a free AI audit — we will show you exactly where AI can save you time and money</p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link href="/contact" className="cta-button">
+                Book a Free AI Audit <ArrowRightIcon />
+              </Link>
+              <a
+                href="https://wa.me/27000000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.875rem 2rem' }}
+              >
+                WhatsApp Us
+              </a>
+            </div>
           </div>
         </div>
       </section>

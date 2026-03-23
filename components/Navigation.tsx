@@ -30,7 +30,7 @@ export default function Navigation() {
         </Link>
 
         <button className={styles.mobileMenuBtn} onClick={toggleMenu}>
-          ☰
+          &#9776;
         </button>
 
         <ul className={`${styles.navLinks} ${isMenuOpen ? styles.active : ''}`}>
@@ -45,15 +45,6 @@ export default function Navigation() {
           </li>
           <li>
             <Link
-              href="/about"
-              className={pathname === '/about' ? styles.active : ''}
-              onClick={closeMenu}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
               href="/services"
               className={pathname === '/services' ? styles.active : ''}
               onClick={closeMenu}
@@ -63,29 +54,29 @@ export default function Navigation() {
           </li>
           <li>
             <Link
-              href="/software"
-              className={pathname === '/software' ? styles.active : ''}
+              href="/case-studies"
+              className={pathname === '/case-studies' ? styles.active : ''}
               onClick={closeMenu}
             >
-              Software
+              Case Studies
             </Link>
           </li>
           <li>
             <Link
-              href="/ai-services"
-              className={pathname?.startsWith('/ai-services') ? styles.active : ''}
+              href="/about"
+              className={pathname === '/about' ? styles.active : ''}
               onClick={closeMenu}
             >
-              AI Services
+              About
             </Link>
           </li>
           <li>
             <Link
               href="/contact"
-              className={pathname === '/contact' ? styles.active : ''}
+              className={`${pathname === '/contact' ? styles.active : ''} ${styles.ctaLink}`}
               onClick={closeMenu}
             >
-              Contact
+              Book AI Audit
             </Link>
           </li>
         </ul>

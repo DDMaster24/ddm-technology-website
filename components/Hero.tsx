@@ -20,61 +20,57 @@ export default function Hero() {
         {/* Floating badge */}
         <div className={`${styles.badge} ${mounted ? styles.visible : ''}`}>
           <span className={styles.badgeDot} />
-          <span>Transforming Ideas Into Reality</span>
+          <span>AI Automation Agency — South Africa</span>
         </div>
 
-        {/* Main heading with split animation - both lines have gradient */}
+        {/* Main heading */}
         <h1 className={styles.title}>
           <span className={`${styles.titleLine} ${mounted ? styles.visible : ''}`}>
-            <span className={styles.titleTextGradient}>DDM</span>
+            <span className={styles.titleTextGradient}>We Build AI Systems</span>
           </span>
           <span className={`${styles.titleLine} ${styles.titleLineDelay} ${mounted ? styles.visible : ''}`}>
-            <span className={styles.titleAccent}>Technology</span>
+            <span className={styles.titleAccent}>That Run Your Business</span>
+          </span>
+          <span className={`${styles.titleLine} ${styles.titleLineDelay2} ${mounted ? styles.visible : ''}`}>
+            <span className={styles.titleAccent}>While You Sleep</span>
           </span>
         </h1>
 
-        {/* Tagline with gradient accents */}
-        <div className={`${styles.tagline} ${mounted ? styles.visible : ''}`}>
-          <span className={styles.taglineWordAccent}>Dream.</span>
-          <span className={styles.taglineWordAccent}>Dare.</span>
-          <span className={styles.taglineWordAccent}>Make.</span>
-        </div>
-
         {/* Subtitle */}
         <p className={`${styles.subtitle} ${mounted ? styles.visible : ''}`}>
-          Professional IT solutions and software development services.
+          Practical AI automation for South African businesses.
           <br />
-          We bring your digital vision to life.
+          No hype. No fluff. Just systems that save you time and money.
         </p>
 
         {/* CTA buttons */}
         <div className={`${styles.actions} ${mounted ? styles.visible : ''}`}>
           <Link href="/contact" className={styles.primaryBtn}>
-            <span>Get Started</span>
+            <span>Book a Free AI Audit</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </Link>
-          <Link href="/services" className={styles.secondaryBtn}>
-            <span>View Services</span>
+          <Link href="/case-studies" className={styles.secondaryBtn}>
+            <span>See Our Work</span>
           </Link>
         </div>
 
         {/* Stats row */}
         <div className={`${styles.stats} ${mounted ? styles.visible : ''}`}>
           <div className={styles.stat}>
-            <span className={styles.statNumber}>100+</span>
-            <span className={styles.statLabel}>Happy Clients</span>
+            <span className={styles.statNumber}>50+</span>
+            <span className={styles.statLabel}>AI Automations Built</span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.stat}>
-            <span className={styles.statNumber}>500+</span>
-            <span className={styles.statLabel}>Projects</span>
+            <span className={styles.statNumber}>10x</span>
+            <span className={styles.statLabel}>Faster Workflows</span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.stat}>
-            <span className={styles.statNumber}>24/7</span>
-            <span className={styles.statLabel}>Support</span>
+            <span className={styles.statNumber}>R0</span>
+            <span className={styles.statLabel}>Upfront for Qualifying Businesses</span>
           </div>
         </div>
       </div>

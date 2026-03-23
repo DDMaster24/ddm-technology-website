@@ -1,146 +1,266 @@
 import Link from 'next/link'
 import {
-  MonitorIcon,
-  HeadphonesIcon,
-  WrenchIcon,
-  SettingsIcon,
-  MailIcon,
-  ServerIcon,
+  MessageCircleIcon,
+  ZapIcon,
+  FileSearchIcon,
+  MegaphoneIcon,
   CodeIcon,
-  SmartphoneIcon,
-  CpuIcon,
-  ArrowRightIcon
+  ArrowRightIcon,
+  CheckCircleIcon,
 } from '@/components/Icons'
+
+const services = [
+  {
+    icon: <MessageCircleIcon />,
+    title: 'AI Customer Service',
+    description:
+      'Deploy intelligent chatbots, voice agents, and email responders that handle customer enquiries 24/7 — in any language your customers speak.',
+    benefits: [
+      'WhatsApp, website, and Facebook chatbots that understand context',
+      'AI voice agents for inbound and outbound calls',
+      'Smart email triage and auto-responses that sound human',
+    ],
+    color: 'var(--ember-red)',
+  },
+  {
+    icon: <ZapIcon />,
+    title: 'Workflow Automation',
+    description:
+      'Connect your existing tools — CRM, accounting, email, spreadsheets — with intelligent automation that eliminates manual work and human error.',
+    benefits: [
+      'n8n, Zapier, and Make integrations tailored to your stack',
+      'CRM automation: lead routing, follow-ups, pipeline management',
+      'Custom API connections between any systems you use',
+    ],
+    color: 'var(--ocean-cyan)',
+  },
+  {
+    icon: <FileSearchIcon />,
+    title: 'Document Processing',
+    description:
+      'AI that reads your invoices, contracts, and compliance documents — extracts the data you need and files everything automatically.',
+    benefits: [
+      'Invoice data extraction and automatic bookkeeping entry',
+      'Contract analysis: key terms, expiry dates, risk flags',
+      'POPIA compliance automation and audit trail generation',
+    ],
+    color: 'var(--ocean-blue)',
+  },
+  {
+    icon: <MegaphoneIcon />,
+    title: 'AI Sales & Marketing',
+    description:
+      'Automated lead generation, content creation, and social media management that works around the clock — even when your marketing team is off.',
+    benefits: [
+      'AI lead qualification and scoring from web, email, and social',
+      'Blog posts, social captions, and ad copy generated on brand',
+      'Automated posting, scheduling, and engagement tracking',
+    ],
+    color: 'var(--ember-crimson)',
+  },
+  {
+    icon: <CodeIcon />,
+    title: 'Custom AI Development',
+    description:
+      'When off-the-shelf tools are not enough, we build bespoke AI solutions — custom models, full-stack apps, and API integrations tailored to your exact needs.',
+    benefits: [
+      'Custom AI models trained on your business data',
+      'Full-stack web and mobile applications with AI built in',
+      'Third-party API integrations and data pipeline automation',
+    ],
+    color: 'var(--ocean-cyan)',
+  },
+]
 
 export default function Services() {
   return (
     <>
-      {/* Page Header */}
       <section className="page-header">
         <div className="page-header-content">
-          <h1>Our Services</h1>
-          <p>Comprehensive IT solutions tailored to your needs</p>
+          <h1>AI Automation Services</h1>
+          <p>Practical AI solutions that save time, cut costs, and scale your South African business</p>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Detail */}
       <section className="services-section">
         <div className="container">
-          <div className="services-grid">
-            <div className="service-card">
-              <div className="service-icon"><MonitorIcon /></div>
-              <h3>On-Site Desktop Support</h3>
-              <p>Professional on-site technical support for your business or home office.</p>
-              <ul>
-                <li>Hardware troubleshooting</li>
-                <li>System optimization</li>
-                <li>Network setup</li>
-                <li>Equipment installation</li>
-              </ul>
-            </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+            {services.map((service, index) => (
+              <div
+                key={service.title}
+                style={{
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-subtle)',
+                  borderRadius: '24px',
+                  padding: '3rem',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+              >
+                {/* Top accent line */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '3px',
+                  background: 'var(--gradient-ember-ocean)',
+                }} />
 
-            <div className="service-card">
-              <div className="service-icon"><HeadphonesIcon /></div>
-              <h3>Remote Desktop Support</h3>
-              <p>Fast and efficient remote assistance to solve your technical issues quickly.</p>
-              <ul>
-                <li>Remote troubleshooting</li>
-                <li>Software installations</li>
-                <li>System maintenance</li>
-                <li>Quick issue resolution</li>
-              </ul>
-            </div>
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: '3rem',
+                  alignItems: 'start',
+                }}>
+                  {/* Left: Info */}
+                  <div>
+                    <div style={{
+                      width: '56px',
+                      height: '56px',
+                      background: `linear-gradient(135deg, ${service.color}22, ${service.color}11)`,
+                      border: `1px solid ${service.color}44`,
+                      borderRadius: '16px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: service.color,
+                      marginBottom: '1.5rem',
+                    }}>
+                      {service.icon}
+                    </div>
+                    <h3 style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '1.75rem',
+                      fontWeight: 600,
+                      color: 'var(--text-primary)',
+                      marginBottom: '1rem',
+                    }}>
+                      {service.title}
+                    </h3>
+                    <p style={{
+                      fontSize: '1.0625rem',
+                      color: 'var(--text-secondary)',
+                      lineHeight: 1.7,
+                      maxWidth: '500px',
+                    }}>
+                      {service.description}
+                    </p>
+                  </div>
 
-            <div className="service-card">
-              <div className="service-icon"><WrenchIcon /></div>
-              <h3>Technical Support</h3>
-              <p>Expert repair and maintenance services for laptops, PCs, and peripherals.</p>
-              <ul>
-                <li>Laptop & PC repairs</li>
-                <li>Hardware upgrades</li>
-                <li>Data recovery</li>
-                <li>Performance tuning</li>
-              </ul>
-            </div>
+                  {/* Right: Benefits + CTA */}
+                  <div>
+                    <h4 style={{
+                      fontSize: '0.875rem',
+                      fontWeight: 600,
+                      color: 'var(--text-muted)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      marginBottom: '1.25rem',
+                    }}>
+                      Key Benefits
+                    </h4>
+                    <ul style={{ listStyle: 'none', marginBottom: '2rem' }}>
+                      {service.benefits.map((benefit) => (
+                        <li
+                          key={benefit}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: '0.75rem',
+                            padding: '0.625rem 0',
+                            fontSize: '0.9375rem',
+                            color: 'var(--text-secondary)',
+                            lineHeight: 1.5,
+                          }}
+                        >
+                          <span style={{
+                            flexShrink: 0,
+                            width: '20px',
+                            height: '20px',
+                            color: 'var(--ocean-cyan)',
+                            marginTop: '2px',
+                          }}>
+                            <CheckCircleIcon />
+                          </span>
+                          {benefit}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link href="/contact" className="cta-button">
+                      Get Started <ArrowRightIcon />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
-            <div className="service-card">
-              <div className="service-icon"><SettingsIcon /></div>
-              <h3>Software Setup</h3>
-              <p>Professional installation and configuration of software applications.</p>
-              <ul>
-                <li>Operating system setup</li>
-                <li>Application installation</li>
-                <li>Software licensing</li>
-                <li>Configuration & training</li>
-              </ul>
-            </div>
+          {/* Process section */}
+          <div style={{ marginTop: '5rem' }}>
+            <h2 className="section-title">How We Work</h2>
+            <p className="section-subtitle">From audit to deployment in weeks, not months</p>
 
-            <div className="service-card">
-              <div className="service-icon"><MailIcon /></div>
-              <h3>Microsoft & Email Solutions</h3>
-              <p>Complete Microsoft ecosystem setup and email management services.</p>
-              <ul>
-                <li>Microsoft 365 setup</li>
-                <li>Email configuration</li>
-                <li>Cloud migration</li>
-                <li>Account management</li>
-              </ul>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><ServerIcon /></div>
-              <h3>Website Hosting</h3>
-              <p>Reliable and secure web hosting solutions for your online presence.</p>
-              <ul>
-                <li>Domain management</li>
-                <li>SSL certificates</li>
-                <li>Server maintenance</li>
-                <li>Performance optimization</li>
-              </ul>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><CodeIcon /></div>
-              <h3>Software Design & Development</h3>
-              <p>Custom software solutions built to meet your specific business needs.</p>
-              <ul>
-                <li>Web applications</li>
-                <li>Desktop software</li>
-                <li>Database solutions</li>
-                <li>API development</li>
-              </ul>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><SmartphoneIcon /></div>
-              <h3>Mobile App Development</h3>
-              <p>Professional iOS and Android app development and deployment services.</p>
-              <ul>
-                <li>Native app development</li>
-                <li>Cross-platform apps</li>
-                <li>App Store deployment</li>
-                <li>Google Play publishing</li>
-              </ul>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><CpuIcon /></div>
-              <h3>Automation Solutions</h3>
-              <p>Streamline your workflows with custom automation and integration services.</p>
-              <ul>
-                <li>Process automation</li>
-                <li>Workflow optimization</li>
-                <li>API integrations</li>
-                <li>Script development</li>
-              </ul>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: '1.5rem',
+            }}>
+              {[
+                { step: '01', title: 'Free AI Audit', desc: 'We analyse your business processes and identify where AI can make the biggest impact.' },
+                { step: '02', title: 'Solution Design', desc: 'We design a custom automation strategy with clear ROI projections and timelines.' },
+                { step: '03', title: 'Build & Test', desc: 'We build, integrate, and rigorously test your AI systems with your real data.' },
+                { step: '04', title: 'Deploy & Optimise', desc: 'We launch, monitor, and continuously improve your automations for peak performance.' },
+              ].map((item) => (
+                <div
+                  key={item.step}
+                  style={{
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-subtle)',
+                    borderRadius: '20px',
+                    padding: '2rem',
+                    textAlign: 'center',
+                  }}
+                >
+                  <div style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '2.5rem',
+                    fontWeight: 700,
+                    background: 'var(--gradient-ember-ocean)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    marginBottom: '1rem',
+                  }}>
+                    {item.step}
+                  </div>
+                  <h3 style={{
+                    fontSize: '1.125rem',
+                    fontWeight: 600,
+                    color: 'var(--text-primary)',
+                    marginBottom: '0.75rem',
+                  }}>
+                    {item.title}
+                  </h3>
+                  <p style={{
+                    fontSize: '0.9375rem',
+                    color: 'var(--text-secondary)',
+                    lineHeight: 1.6,
+                  }}>
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="cta-section">
-            <h2>Ready to get started?</h2>
-            <p>Contact us today to discuss your IT needs and get a custom quote.</p>
+          <div className="cta-section" style={{ marginTop: '4rem' }}>
+            <h2>Ready to Automate?</h2>
+            <p>Book a free AI audit and find out exactly how much time and money you could save</p>
             <Link href="/contact" className="cta-button">
-              Contact Us <ArrowRightIcon />
+              Book a Free AI Audit <ArrowRightIcon />
             </Link>
           </div>
         </div>

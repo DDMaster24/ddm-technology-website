@@ -5,23 +5,24 @@ import {
   MailIcon,
   PhoneIcon,
   MapPinIcon,
-  ClockIcon
+  ClockIcon,
+  ArrowRightIcon,
 } from '@/components/Icons'
+import { WhatsAppIcon } from '@/components/Icons'
 
 export default function Contact() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    alert('Thank you for your message! We will get back to you soon.')
+    alert('Thank you for your message! We will get back to you within 24 hours.')
     e.currentTarget.reset()
   }
 
   return (
     <>
-      {/* Page Header */}
       <section className="page-header">
         <div className="page-header-content">
           <h1>Get In Touch</h1>
-          <p>Ready to start your project? Contact us today!</p>
+          <p>Book a free AI audit or just say hello — we respond within 24 hours</p>
         </div>
       </section>
 
@@ -35,7 +36,7 @@ export default function Contact() {
                 <div className="contact-details">
                   <h4>Email</h4>
                   <p>
-                    <a href="mailto:contact@ddm-technology.com">contact@ddm-technology.com</a>
+                    <a href="mailto:darius@ddmtech.co.za">darius@ddmtech.co.za</a>
                   </p>
                 </div>
               </div>
@@ -43,8 +44,15 @@ export default function Contact() {
               <div className="contact-item">
                 <div className="contact-icon"><PhoneIcon /></div>
                 <div className="contact-details">
-                  <h4>Phone</h4>
-                  <p>Available upon request</p>
+                  <h4>WhatsApp</h4>
+                  <p>
+                    <a href="https://wa.me/27000000000" target="_blank" rel="noopener noreferrer">
+                      +27 (0) 00 000 0000
+                    </a>
+                  </p>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
+                    Quick response — usually within the hour
+                  </p>
                 </div>
               </div>
 
@@ -52,8 +60,8 @@ export default function Contact() {
                 <div className="contact-icon"><MapPinIcon /></div>
                 <div className="contact-details">
                   <h4>Location</h4>
+                  <p>Roodepoort, Johannesburg</p>
                   <p>South Africa</p>
-                  <p>Serving clients nationwide</p>
                 </div>
               </div>
 
@@ -61,32 +69,91 @@ export default function Contact() {
                 <div className="contact-icon"><ClockIcon /></div>
                 <div className="contact-details">
                   <h4>Business Hours</h4>
-                  <p>Monday - Friday: 8am - 6pm</p>
+                  <p>Monday - Friday: 8am - 6pm SAST</p>
                   <p>Weekend: By appointment</p>
                 </div>
               </div>
+
+              {/* WhatsApp CTA */}
+              <a
+                href="https://wa.me/27000000000?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20your%20AI%20automation%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.75rem',
+                  padding: '1rem 1.5rem',
+                  background: '#25D366',
+                  color: 'white',
+                  fontWeight: 600,
+                  fontSize: '1rem',
+                  borderRadius: '12px',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                  marginTop: '0.5rem',
+                }}
+              >
+                <WhatsAppIcon />
+                Chat on WhatsApp
+              </a>
             </div>
 
             <div className="contact-form">
-              <h3 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)', fontFamily: 'Sora, sans-serif' }}>
-                Send us a message
+              <h3 style={{
+                marginBottom: '0.5rem',
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-display)',
+                fontSize: '1.375rem',
+                fontWeight: 600,
+              }}>
+                Book a Free AI Audit
               </h3>
+              <p style={{
+                color: 'var(--text-secondary)',
+                fontSize: '0.9375rem',
+                marginBottom: '1.5rem',
+                lineHeight: 1.6,
+              }}>
+                Tell us about your business and we will identify where AI can save you time and money — no commitment required.
+              </p>
               <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <input type="text" id="name" name="name" placeholder="Your name" required />
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                  <div className="form-group">
+                    <label htmlFor="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="company">Company</label>
+                    <input type="text" id="company" name="company" placeholder="Your company" />
+                  </div>
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
                   <input type="email" id="email" name="email" placeholder="your@email.com" required />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="subject">Subject</label>
-                  <input type="text" id="subject" name="subject" placeholder="How can we help?" required />
+                  <label htmlFor="service">What are you interested in?</label>
+                  <select id="service" name="service" required>
+                    <option value="">Select a service...</option>
+                    <option value="ai-audit">Free AI Audit</option>
+                    <option value="customer-service">AI Customer Service</option>
+                    <option value="workflow-automation">Workflow Automation</option>
+                    <option value="document-processing">Document Processing</option>
+                    <option value="sales-marketing">AI Sales & Marketing</option>
+                    <option value="custom-development">Custom AI Development</option>
+                    <option value="other">Other / Not sure yet</option>
+                  </select>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="message">Message</label>
-                  <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                  <label htmlFor="message">Tell us about your business</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="What does your business do? What tasks take up the most time? What would you automate if you could?"
+                    required
+                  ></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
                   Send Message

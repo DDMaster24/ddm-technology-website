@@ -96,14 +96,13 @@
 }
 
 .titleText {
-  font-size: clamp(4rem, 15vw, 9rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   color: #ffffff;
   letter-spacing: -0.02em;
 }
 
-/* DDM with gradient */
 .titleTextGradient {
-  font-size: clamp(4rem, 15vw, 9rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, #DC2626 0%, #B91C1C 35%, #1E40AF 65%, #0891B2 100%);
   -webkit-background-clip: text;
@@ -112,13 +111,14 @@
 }
 
 .titleAccent {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 30%, #1E40AF 70%, #0891B2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: rgba(255, 255, 255, 0.9);
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.9);
+  letter-spacing: -0.01em;
+}
+
+.titleLineDelay2 .titleAccent {
+  transition-delay: 0.2s;
 }
 
 /* Tagline */
