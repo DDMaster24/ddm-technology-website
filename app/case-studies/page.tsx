@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   ArrowRightIcon,
@@ -7,6 +8,26 @@ import {
   TrendingUpIcon,
   CheckCircleIcon,
 } from '@/components/Icons'
+
+export const metadata: Metadata = {
+  title: 'Case Studies',
+  description:
+    'See how AI automation transformed South African businesses. Real results: 80% faster processing, R120K/month saved, 20+ hours/week recovered.',
+  openGraph: {
+    title: 'Case Studies | DDM Technology',
+    description:
+      'Real results for real SA businesses. Coal trading, restaurant chains, property management — see how AI automation delivers ROI.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Case Studies | DDM Technology',
+    description:
+      'Real results for real SA businesses — see how AI automation delivers measurable ROI.',
+  },
+  alternates: {
+    canonical: '/case-studies',
+  },
+}
 
 const caseStudies = [
   {

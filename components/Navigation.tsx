@@ -23,13 +23,18 @@ export default function Navigation() {
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
+    <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`} aria-label="Main navigation">
       <div className={styles.navContainer}>
         <Link href="/" className={styles.logo}>
           DDM <span className={styles.accent}>Technology</span>
         </Link>
 
-        <button className={styles.mobileMenuBtn} onClick={toggleMenu}>
+        <button
+          className={styles.mobileMenuBtn}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+        >
           &#9776;
         </button>
 
@@ -39,6 +44,7 @@ export default function Navigation() {
               href="/"
               className={pathname === '/' ? styles.active : ''}
               onClick={closeMenu}
+              {...(pathname === '/' ? { 'aria-current': 'page' as const } : {})}
             >
               Home
             </Link>
@@ -48,6 +54,7 @@ export default function Navigation() {
               href="/services"
               className={pathname === '/services' ? styles.active : ''}
               onClick={closeMenu}
+              {...(pathname === '/services' ? { 'aria-current': 'page' as const } : {})}
             >
               Services
             </Link>
@@ -57,6 +64,7 @@ export default function Navigation() {
               href="/case-studies"
               className={pathname === '/case-studies' ? styles.active : ''}
               onClick={closeMenu}
+              {...(pathname === '/case-studies' ? { 'aria-current': 'page' as const } : {})}
             >
               Case Studies
             </Link>
@@ -66,6 +74,7 @@ export default function Navigation() {
               href="/about"
               className={pathname === '/about' ? styles.active : ''}
               onClick={closeMenu}
+              {...(pathname === '/about' ? { 'aria-current': 'page' as const } : {})}
             >
               About
             </Link>
@@ -75,6 +84,7 @@ export default function Navigation() {
               href="/contact"
               className={`${pathname === '/contact' ? styles.active : ''} ${styles.ctaLink}`}
               onClick={closeMenu}
+              {...(pathname === '/contact' ? { 'aria-current': 'page' as const } : {})}
             >
               Book AI Audit
             </Link>

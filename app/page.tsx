@@ -15,9 +15,130 @@ import {
   BarChartIcon,
 } from '@/components/Icons'
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://ddmtech.co.za/#organization',
+      name: 'DDM Technology',
+      url: 'https://ddmtech.co.za',
+      description:
+        'South African AI automation agency building chatbots, workflow automation, document processing, and custom AI solutions.',
+      foundingDate: '2024',
+      founder: {
+        '@type': 'Person',
+        name: 'Darius',
+        jobTitle: 'Founder & CEO',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Roodepoort',
+        addressRegion: 'Gauteng',
+        addressCountry: 'ZA',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'darius@ddmtech.co.za',
+        contactType: 'sales',
+        availableLanguage: ['English'],
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'South Africa',
+      },
+    },
+    {
+      '@type': 'LocalBusiness',
+      '@id': 'https://ddmtech.co.za/#localbusiness',
+      name: 'DDM Technology',
+      url: 'https://ddmtech.co.za',
+      email: 'darius@ddmtech.co.za',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Roodepoort',
+        addressRegion: 'Gauteng',
+        postalCode: '1724',
+        addressCountry: 'ZA',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: -26.1625,
+        longitude: 27.8725,
+      },
+      openingHours: 'Mo-Fr 08:00-18:00',
+      priceRange: 'R15000-R120000+',
+    },
+    {
+      '@type': 'Service',
+      serviceType: 'AI Automation',
+      provider: { '@id': 'https://ddmtech.co.za/#organization' },
+      areaServed: {
+        '@type': 'Country',
+        name: 'South Africa',
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'AI Automation Services',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'AI Customer Service',
+              description:
+                'Chatbots, voice agents, and email responders that handle customer enquiries 24/7.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Workflow Automation',
+              description:
+                'Connect your existing tools with intelligent automation that eliminates manual work.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Document Processing',
+              description:
+                'AI that reads, extracts, and files your documents automatically.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'AI Sales & Marketing',
+              description:
+                'Automated lead generation, content creation, and social media management.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Custom AI Development',
+              description:
+                'Bespoke AI solutions built specifically for your business processes.',
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Hero />
 
       {/* What We Do - Quick overview */}

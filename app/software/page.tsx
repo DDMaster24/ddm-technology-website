@@ -1,5 +1,4 @@
-'use client'
-
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   ClipboardIcon,
@@ -8,6 +7,26 @@ import {
   ArrowRightIcon,
   CheckSquareIcon
 } from '@/components/Icons'
+
+export const metadata: Metadata = {
+  title: 'Software Products',
+  description:
+    'Download professional software from DDM Technology. Invoicing, PDF summarisation, task management, and custom solutions for South African businesses.',
+  openGraph: {
+    title: 'Software Products | DDM Technology',
+    description:
+      'Professional software solutions: invoicing, PDF tools, task management, and custom development.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Software Products | DDM Technology',
+    description:
+      'Professional software solutions from DDM Technology.',
+  },
+  alternates: {
+    canonical: '/software',
+  },
+}
 
 export default function Software() {
   return (

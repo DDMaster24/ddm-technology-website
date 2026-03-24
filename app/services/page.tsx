@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   MessageCircleIcon,
@@ -8,6 +9,26 @@ import {
   ArrowRightIcon,
   CheckCircleIcon,
 } from '@/components/Icons'
+
+export const metadata: Metadata = {
+  title: 'AI Automation Services',
+  description:
+    'AI chatbots, workflow automation, document processing, and custom AI development for South African businesses. From strategy to deployment.',
+  openGraph: {
+    title: 'AI Automation Services | DDM Technology',
+    description:
+      'Practical AI solutions that save time, cut costs, and scale your SA business. Chatbots, workflow automation, document processing, and more.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Automation Services | DDM Technology',
+    description:
+      'Practical AI solutions that save time, cut costs, and scale your SA business.',
+  },
+  alternates: {
+    canonical: '/services',
+  },
+}
 
 const services = [
   {

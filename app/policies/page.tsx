@@ -2,8 +2,17 @@ import type { Metadata } from 'next'
 import styles from './policies.module.css'
 
 export const metadata: Metadata = {
-  title: 'Policies | DDM Technology',
-  description: 'Privacy Policy, Refund Policy, and Terms of Service for DDM Technology products and services',
+  title: 'Policies',
+  description:
+    'Privacy Policy, Refund Policy, and Terms of Service for DDM Technology products and services.',
+  openGraph: {
+    title: 'Policies | DDM Technology',
+    description:
+      'Privacy Policy, Refund Policy, and Terms of Service for DDM Technology products and services.',
+  },
+  alternates: {
+    canonical: '/policies',
+  },
 }
 
 export default function Policies() {

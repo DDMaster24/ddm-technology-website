@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   ArrowRightIcon,
@@ -10,6 +11,26 @@ import {
   CpuIcon,
   GlobeIcon,
 } from '@/components/Icons'
+
+export const metadata: Metadata = {
+  title: 'About Us',
+  description:
+    'DDM Technology is a South African AI automation agency in Roodepoort, Johannesburg. We bring world-class AI solutions to local businesses without the enterprise price tag.',
+  openGraph: {
+    title: 'About DDM Technology | AI Automation Agency',
+    description:
+      'A young, hungry SA tech company building the future of business automation. 50+ AI automations deployed for businesses across South Africa.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About DDM Technology | AI Automation Agency',
+    description:
+      'A young, hungry SA tech company building the future of business automation.',
+  },
+  alternates: {
+    canonical: '/about',
+  },
+}
 
 const values = [
   {

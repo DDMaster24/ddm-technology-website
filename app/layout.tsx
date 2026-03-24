@@ -4,7 +4,11 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'DDM Technology | AI Automation Agency — South Africa',
+  metadataBase: new URL('https://ddmtech.co.za'),
+  title: {
+    default: 'DDM Technology | AI Automation Agency — South Africa',
+    template: '%s | DDM Technology',
+  },
   description:
     'South African AI automation agency. We build AI chatbots, workflow automation, document processing, and custom AI solutions for businesses in Johannesburg and across SA.',
   keywords:
@@ -16,6 +20,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_ZA',
     siteName: 'DDM Technology',
+    url: 'https://ddmtech.co.za',
   },
   twitter: {
     card: 'summary_large_image',
@@ -26,6 +31,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: '/',
   },
 }
 
@@ -41,8 +49,11 @@ export default function RootLayout({
         <meta name="geo.placename" content="Roodepoort, Johannesburg" />
       </head>
       <body>
+        <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <Navigation />
-        {children}
+        <main id="main-content">
+          {children}
+        </main>
         <Footer />
         {/* Floating WhatsApp Button */}
         <a

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import DownloadButton from './DownloadButton'
@@ -469,6 +470,22 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </section>
     </>
   )
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const product = products[params.slug as keyof typeof products]
+  if (!product) return {}
+  return {
+    title: product.name,
+    description: product.description,
+    openGraph: {
+      title: `${product.name} | DDM Technology`,
+      description: product.description,
+    },
+    alternates: {
+      canonical: `/software/${params.slug}`,
+    },
+  }
 }
 
 // Generate static params for all products
