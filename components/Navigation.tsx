@@ -81,6 +81,16 @@ export default function Navigation() {
           </li>
           <li>
             <Link
+              href="/blog"
+              className={pathname?.startsWith('/blog') ? styles.active : ''}
+              onClick={closeMenu}
+              {...(pathname?.startsWith('/blog') ? { 'aria-current': 'page' as const } : {})}
+            >
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/contact"
               className={`${pathname === '/contact' ? styles.active : ''} ${styles.ctaLink}`}
               onClick={closeMenu}
