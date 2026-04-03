@@ -6,26 +6,29 @@ import {
   ArrowRightIcon,
   ClockIcon,
   UsersIcon,
-  TargetIcon,
-  FileTextIcon,
-  ClipboardIcon,
-  BarChartIcon,
   SettingsIcon,
+  FileSearchIcon,
+  BarChartIcon,
   ShieldCheckIcon,
+  CpuIcon,
+  BuildingIcon,
   TrendingUpIcon,
+  MailIcon,
+  ClipboardIcon,
+  LayersIcon,
   SparklesIcon,
 } from '@/components/Icons'
 
 export const metadata: Metadata = {
-  title: 'Workflow Automation for South African Businesses | DDM Technology',
+  title: 'AI Workflow Automation for South African Businesses',
   description:
-    'AI-powered workflow automation for South African businesses. Automate lead capture, invoice processing, onboarding, inventory, and reporting. Save 20+ hours per week.',
+    'Eliminate manual work with AI-powered workflow automation. Connect your CRM, email, accounting, and more. Load-shedding resilient. From R15,000/month.',
   keywords:
-    'workflow automation South Africa, business process automation SA, AI automation Johannesburg, invoice automation, lead capture automation, onboarding automation South Africa',
+    'workflow automation South Africa, AI automation Johannesburg, business process automation SA, CRM automation, invoice automation, AI workflow Roodepoort',
   openGraph: {
-    title: 'Workflow Automation | DDM Technology',
+    title: 'AI Workflow Automation | DDM Technology',
     description:
-      'Eliminate manual busywork with AI workflow automation. Lead capture, invoicing, onboarding, inventory, and reports — on autopilot. Built for SA businesses.',
+      'Connect your business tools with intelligent AI automation. Eliminate manual work, reduce errors, and scale operations 24/7. Built for SA businesses.',
     type: 'website',
     locale: 'en_ZA',
     siteName: 'DDM Technology',
@@ -33,152 +36,177 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Workflow Automation | DDM Technology',
+    title: 'AI Workflow Automation | DDM Technology',
     description:
-      'AI workflow automation for SA businesses. Automate lead capture, invoicing, onboarding, and reporting. Save 20+ hours per week.',
+      'Eliminate manual work with intelligent AI automation. Built for South African businesses.',
   },
   alternates: {
     canonical: '/ai-services/workflow-automation',
   },
 }
 
+const painPoints = [
+  {
+    icon: <ClockIcon />,
+    title: 'Hours Lost to Copy-Paste',
+    description:
+      'Your team spends half their day moving data between systems — copying from emails to spreadsheets, from invoices to accounting software, from enquiries to CRM. It is tedious, error-prone, and expensive.',
+  },
+  {
+    icon: <ShieldCheckIcon />,
+    title: 'Human Errors Cost Money',
+    description:
+      'Manually entered data leads to duplicate records, missed invoices, wrong amounts, and compliance issues. One misplaced zero on an invoice can cost thousands.',
+  },
+  {
+    icon: <UsersIcon />,
+    title: 'Staff Doing Robot Work',
+    description:
+      'Skilled employees are wasted on repetitive admin tasks instead of strategy, sales, and customer relationships. You are paying human rates for work a machine should do.',
+  },
+]
+
 const useCases = [
   {
-    icon: <TargetIcon />,
+    icon: <TrendingUpIcon />,
     title: 'Lead Capture & Routing',
     description:
-      'Automatically capture leads from your website, WhatsApp, email, and social media. Score them, enrich the data, and route hot prospects to the right salesperson — instantly.',
+      'Automatically capture leads from your website, WhatsApp, email, and social media. Score them, enrich with company data, and route hot leads straight to the right salesperson — instantly.',
+    stats: '3x faster lead response',
     color: 'var(--ember-red)',
   },
   {
-    icon: <FileTextIcon />,
-    title: 'Invoice Processing',
+    icon: <FileSearchIcon />,
+    title: 'Invoice & Document Processing',
     description:
-      'Extract data from invoices, match to purchase orders, flag discrepancies, and route for approval. Cut invoice processing time from days to minutes.',
+      'AI reads invoices, purchase orders, and delivery notes. Extracts amounts, line items, and dates. Matches them to orders and pushes data into your accounting system — Xero, Sage, QuickBooks.',
+    stats: '90% less manual capture',
     color: 'var(--ocean-cyan)',
   },
   {
     icon: <UsersIcon />,
-    title: 'Employee & Client Onboarding',
+    title: 'Employee Onboarding',
     description:
-      'Trigger welcome emails, collect documents, create accounts, assign tasks, and track progress — all automatically when a new hire or client is added.',
+      'New hire? Trigger a complete workflow: create email account, send welcome pack, assign training modules, notify IT for equipment, schedule orientation — all automatically.',
+    stats: '2 days → 2 hours',
     color: 'var(--ocean-blue)',
   },
   {
     icon: <ClipboardIcon />,
-    title: 'Inventory Management',
+    title: 'Inventory & Stock Management',
     description:
-      'Monitor stock levels in real time, trigger reorder alerts, sync with suppliers, and update your accounting system — no spreadsheets required.',
+      'Monitor stock levels in real-time. When inventory drops below threshold, auto-generate purchase orders, notify suppliers, and update your ERP. Never run out of stock unexpectedly.',
+    stats: 'Zero stockout surprises',
     color: 'var(--ember-crimson)',
   },
   {
     icon: <BarChartIcon />,
     title: 'Automated Reporting',
     description:
-      'Generate daily, weekly, or monthly reports from your live data. Sales dashboards, financial summaries, and KPI trackers — delivered to your inbox on schedule.',
+      'Generate daily sales reports, weekly KPI dashboards, and monthly financial summaries — automatically pulled from your live data and delivered to your inbox or Slack every morning.',
+    stats: 'Reports while you sleep',
     color: 'var(--ocean-cyan)',
+  },
+  {
+    icon: <MailIcon />,
+    title: 'Email & Communication Flows',
+    description:
+      'Auto-sort incoming emails by intent, route support tickets to the right department, send follow-up sequences to prospects, and trigger alerts when key clients email.',
+    stats: '80% less email triage',
+    color: 'var(--ocean-blue)',
   },
 ]
 
 const benefits = [
   {
     icon: <ClockIcon />,
-    title: 'Save 20+ Hours Per Week',
-    description:
-      'Eliminate repetitive manual tasks. Your team focuses on high-value work while automations handle the rest.',
+    title: 'Works 24/7/365',
+    description: 'Your automation never sleeps, never takes leave, never calls in sick. Processes run overnight, on weekends, and through every public holiday.',
   },
   {
     icon: <ShieldCheckIcon />,
-    title: 'Reduce Human Error',
-    description:
-      'Automated workflows follow the same steps every time. No missed steps, no typos, no forgotten follow-ups.',
+    title: 'Zero Human Error',
+    description: 'No more typos, duplicates, or forgotten steps. Every data point is captured accurately, every time, with full audit trails.',
   },
   {
     icon: <TrendingUpIcon />,
-    title: 'Scale Without Hiring',
-    description:
-      'Handle 10x the volume without adding headcount. Automations grow with your business.',
+    title: 'Scales Instantly',
+    description: 'Processing 10 invoices or 10,000 — the cost is the same. Scale your operations without hiring proportionally.',
   },
   {
     icon: <ZapIcon />,
-    title: 'Faster Turnaround',
-    description:
-      'Processes that took days now complete in minutes. Faster approvals, faster responses, faster revenue.',
-  },
-  {
-    icon: <SparklesIcon />,
-    title: 'AI-Powered Decisions',
-    description:
-      'Intelligent routing, anomaly detection, and predictive triggers — not just simple if-then rules.',
-  },
-  {
-    icon: <SettingsIcon />,
-    title: 'Integrate Everything',
-    description:
-      'Connect your CRM, accounting software, email, WhatsApp, Google Workspace, Xero, Sage, and more into one seamless flow.',
+    title: 'Load-Shedding Resilient',
+    description: 'All automations run in the cloud. When Eskom cuts power, your workflows keep running. Your competitors\u2019 manual processes stop — yours don\u2019t.',
   },
 ]
 
-const howItWorks = [
+const steps = [
   {
     step: '01',
     title: 'Audit',
-    desc: 'We map your current processes, identify bottlenecks, and calculate exactly how much time and money manual work is costing you.',
+    description: 'We map your current workflows — every spreadsheet, email chain, and manual process. We identify the biggest time-wasters and highest-ROI automation targets.',
   },
   {
     step: '02',
     title: 'Design',
-    desc: 'We architect your automated workflows — triggers, logic, integrations, and exception handling — tailored to how your business actually operates.',
+    description: 'We architect your automated workflows with clear triggers, logic, and integrations. You approve the design before we write a single line of code.',
   },
   {
     step: '03',
     title: 'Deploy',
-    desc: 'We build, test, and launch your automations with zero disruption. Your team gets hands-on training and documentation.',
+    description: 'We build, test, and deploy your automations. They connect to your existing tools — CRM, accounting, email, ERP — with zero disruption to current operations.',
   },
   {
     step: '04',
     title: 'Optimise',
-    desc: 'We monitor performance, refine triggers, and expand automations as your business evolves. Continuous improvement, not set-and-forget.',
+    description: 'We monitor performance, fix edge cases, and continuously improve. Monthly reports show time saved, errors prevented, and ROI delivered.',
   },
+]
+
+const integrations = [
+  'Xero', 'Sage', 'QuickBooks', 'HubSpot', 'Zoho CRM', 'Salesforce',
+  'Google Workspace', 'Microsoft 365', 'Slack', 'WhatsApp Business',
+  'Shopify', 'WooCommerce', 'Airtable', 'Monday.com', 'Trello',
+  'PayFast', 'Yoco', 'Zapier', 'Make (Integromat)', 'Custom APIs',
 ]
 
 const faqs = [
   {
-    question: 'What kind of workflows can you automate?',
+    question: 'What exactly is workflow automation?',
     answer:
-      'Almost any repetitive business process — lead capture, invoice processing, onboarding, inventory alerts, report generation, approval chains, data entry, email sequences, and more. If it follows a pattern, we can automate it.',
+      'Workflow automation uses software to perform repetitive tasks automatically. Instead of your team manually copying data between systems, sending follow-up emails, or generating reports, AI-powered workflows handle it instantly and accurately — triggered by events like a new email, form submission, or time schedule.',
   },
   {
-    question: 'How long does it take to set up workflow automation?',
+    question: 'Will automation replace my employees?',
     answer:
-      'Simple automations can be live within 1–2 weeks. More complex multi-system integrations typically take 3–6 weeks. We start delivering value from week one with quick wins while building out the full solution.',
+      'No — it frees them. Automation handles the repetitive, low-value tasks (data entry, report generation, email sorting) so your team can focus on strategy, relationships, and creative work that actually grows your business.',
   },
   {
-    question: 'Will this work with our existing software?',
+    question: 'How long does it take to implement?',
     answer:
-      'Yes. We integrate with Xero, Sage, QuickBooks, HubSpot, Zoho, Google Workspace, Microsoft 365, Slack, WhatsApp, and hundreds of other tools. If your system has an API, we can connect it.',
+      'Simple workflows (email routing, lead capture) can be live in 1-2 weeks. Complex multi-system integrations (ERP + CRM + accounting) typically take 4-6 weeks. We work in phases so you see value quickly.',
   },
   {
-    question: 'Do we need to change our current processes?',
+    question: 'What if my systems are old or unusual?',
     answer:
-      'No. We automate around your existing processes first, then optimise over time. There is no need for a disruptive overhaul — we meet you where you are.',
+      'We work with any system that has an API or can export data. For legacy systems, we can build custom connectors or use screen-scraping and email-parsing as bridges. We have integrated with everything from modern SaaS to 20-year-old on-premise systems.',
   },
   {
-    question: 'What happens when something goes wrong in an automated workflow?',
+    question: 'What about load shedding?',
     answer:
-      'Every automation includes error handling, alerts, and fallback logic. If something unexpected happens, the system flags it and routes to a human for review. Nothing slips through the cracks.',
+      'All our automations run in the cloud — they are completely unaffected by local power outages. When load shedding hits, your competitors\u2019 manual processes grind to a halt. Your automated workflows keep running without interruption.',
   },
   {
-    question: 'Is this suitable for small businesses?',
+    question: 'How do you charge for workflow automation?',
     answer:
-      'Absolutely. In fact, small businesses benefit the most because every hour saved has a bigger impact. Our solutions scale from sole proprietors to enterprises with hundreds of staff.',
+      'Our AI Employee packages start at R15,000/month and include workflow automation as a core component. The right package depends on the number of workflows, complexity, and volume. We offer a free audit to scope your needs and give you an accurate quote.',
   },
 ]
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Workflow Automation',
+  name: 'AI Workflow Automation',
   provider: {
     '@type': 'Organization',
     name: 'DDM Technology',
@@ -191,7 +219,7 @@ const jsonLd = {
     },
   },
   description:
-    'AI-powered workflow automation for South African businesses. Automate lead capture, invoice processing, onboarding, inventory management, and reporting.',
+    'AI-powered workflow automation for South African businesses. Connect CRM, email, accounting, and more. Eliminate manual work and scale operations 24/7.',
   areaServed: {
     '@type': 'Country',
     name: 'South Africa',
@@ -232,38 +260,37 @@ export default function WorkflowAutomationPage() {
             alignItems: 'center',
             gap: '0.5rem',
             padding: '0.5rem 1rem',
-            background: 'rgba(30, 64, 175, 0.1)',
-            border: '1px solid rgba(30, 64, 175, 0.25)',
+            background: 'rgba(220, 38, 38, 0.1)',
+            border: '1px solid rgba(220, 38, 38, 0.25)',
             borderRadius: '100px',
             fontSize: '0.875rem',
-            color: 'var(--ocean-blue)',
+            color: 'var(--ember-red)',
             marginBottom: '1.5rem',
             fontWeight: 600,
           }}>
-            <SettingsIcon /> Workflow Automation
+            <ZapIcon /> AI Workflow Automation
           </div>
           <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', lineHeight: 1.15, marginBottom: '1.25rem' }}>
-            Stop Doing Manually What{' '}
+            Stop Paying Humans to Do{' '}
             <span style={{
               background: 'var(--gradient-ember-ocean)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}>
-              AI Can Do in Seconds
+              Robot Work
             </span>
           </h1>
           <p style={{ fontSize: '1.1875rem', lineHeight: 1.7, maxWidth: '650px', margin: '0 auto 2rem' }}>
-            South African businesses lose thousands of hours a year on repetitive tasks —
-            data entry, follow-ups, approvals, reporting. We build AI-powered automations
-            that handle the busywork so your team can focus on growth.
+            Connect your CRM, email, accounting, and spreadsheets with intelligent AI automation.
+            Eliminate manual data entry, reduce errors to zero, and free your team to do work that actually matters.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/ai-services/contact" className="cta-button">
-              Book a Free Automation Audit <ArrowRightIcon />
+              Book a Free Workflow Audit <ArrowRightIcon />
             </Link>
             <Link
-              href="#use-cases"
+              href="/ai-services"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -279,18 +306,18 @@ export default function WorkflowAutomationPage() {
                 transition: 'all var(--duration-fast)',
               }}
             >
-              See Use Cases
+              View AI Packages
             </Link>
           </div>
         </div>
       </section>
 
-      {/* SA-Specific Pain Points */}
+      {/* Pain Points */}
       <section style={{ background: 'var(--bg-primary)' }}>
         <div className="container">
-          <h2 className="section-title">Why SA Businesses Are Automating Now</h2>
+          <h2 className="section-title">The Manual Work Trap</h2>
           <p className="section-subtitle">
-            Load shedding, rising costs, and skills shortages mean you cannot afford to waste time on manual processes
+            Your team is spending 40% of their time on tasks a machine should handle
           </p>
 
           <div style={{
@@ -298,26 +325,7 @@ export default function WorkflowAutomationPage() {
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '2rem',
           }}>
-            {[
-              {
-                icon: <ClockIcon />,
-                title: 'Staff Doing Admin Instead of Selling',
-                description:
-                  'Your best people spend half their day on data entry, chasing approvals, and copying information between systems. That is revenue-generating time you will never get back.',
-              },
-              {
-                icon: <ZapIcon />,
-                title: 'Load Shedding Kills Productivity',
-                description:
-                  'When the power comes back, your team scrambles to catch up on delayed tasks. Automated workflows run 24/7 in the cloud — load shedding does not touch them.',
-              },
-              {
-                icon: <TrendingUpIcon />,
-                title: 'Growing Pains Without Growing Headcount',
-                description:
-                  'Hiring is expensive and slow in SA. Automation lets you handle 5x the workload without adding staff, so you scale profitably even in a tight economy.',
-              },
-            ].map((point) => (
+            {painPoints.map((point) => (
               <div
                 key={point.title}
                 style={{
@@ -374,11 +382,11 @@ export default function WorkflowAutomationPage() {
       </section>
 
       {/* Use Cases */}
-      <section id="use-cases" style={{ background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)' }}>
+      <section style={{ background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)' }}>
         <div className="container">
-          <h2 className="section-title">What You Can Automate</h2>
+          <h2 className="section-title">What We Automate</h2>
           <p className="section-subtitle">
-            Five high-impact workflows that save SA businesses the most time and money
+            Real workflows, real results — tailored to how SA businesses actually operate
           </p>
 
           <div style={{
@@ -424,9 +432,24 @@ export default function WorkflowAutomationPage() {
                   fontSize: '0.9375rem',
                   color: 'var(--text-secondary)',
                   lineHeight: 1.7,
+                  marginBottom: '1rem',
                 }}>
                   {useCase.description}
                 </p>
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.375rem 0.875rem',
+                  background: `${useCase.color}11`,
+                  border: `1px solid ${useCase.color}33`,
+                  borderRadius: '100px',
+                  fontSize: '0.8125rem',
+                  fontWeight: 600,
+                  color: useCase.color,
+                }}>
+                  <SparklesIcon /> {useCase.stats}
+                </div>
               </div>
             ))}
           </div>
@@ -436,14 +459,14 @@ export default function WorkflowAutomationPage() {
       {/* Benefits */}
       <section style={{ background: 'var(--bg-primary)' }}>
         <div className="container">
-          <h2 className="section-title">Why Automate With DDM Technology</h2>
+          <h2 className="section-title">Why AI Automation Wins</h2>
           <p className="section-subtitle">
-            We do not just connect tools — we build intelligent automations that think, adapt, and scale
+            Especially in South Africa, where load shedding makes manual work unreliable
           </p>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
+            gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1.5rem',
           }}>
             {benefits.map((benefit) => (
@@ -454,19 +477,20 @@ export default function WorkflowAutomationPage() {
                   border: '1px solid var(--border-subtle)',
                   borderRadius: '20px',
                   padding: '2rem',
+                  textAlign: 'center',
                 }}
               >
                 <div style={{
-                  width: '48px',
-                  height: '48px',
+                  width: '56px',
+                  height: '56px',
                   background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.15), rgba(8, 145, 178, 0.1))',
                   border: '1px solid rgba(30, 64, 175, 0.25)',
-                  borderRadius: '12px',
+                  borderRadius: '14px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: 'var(--ocean-blue)',
-                  marginBottom: '1.25rem',
+                  margin: '0 auto 1.25rem',
                 }}>
                   {benefit.icon}
                 </div>
@@ -482,7 +506,7 @@ export default function WorkflowAutomationPage() {
                 <p style={{
                   fontSize: '0.9375rem',
                   color: 'var(--text-secondary)',
-                  lineHeight: 1.7,
+                  lineHeight: 1.6,
                 }}>
                   {benefit.description}
                 </p>
@@ -495,26 +519,26 @@ export default function WorkflowAutomationPage() {
       {/* How It Works */}
       <section style={{ background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)' }}>
         <div className="container">
-          <h2 className="section-title">From Manual to Automated in 4 Steps</h2>
+          <h2 className="section-title">How We Build Your Automation</h2>
           <p className="section-subtitle">
-            A proven process that delivers results without disrupting your operations
+            A proven 4-step process from audit to optimisation
           </p>
 
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1.5rem',
-            maxWidth: '1000px',
+            maxWidth: '1100px',
             margin: '0 auto',
           }}>
-            {howItWorks.map((item) => (
+            {steps.map((item) => (
               <div
                 key={item.step}
                 style={{
                   background: 'var(--bg-card)',
                   border: '1px solid var(--border-subtle)',
                   borderRadius: '20px',
-                  padding: '2.5rem 1.5rem',
+                  padding: '2.5rem 1.75rem',
                   textAlign: 'center',
                   position: 'relative',
                   overflow: 'hidden',
@@ -553,7 +577,7 @@ export default function WorkflowAutomationPage() {
                   color: 'var(--text-secondary)',
                   lineHeight: 1.7,
                 }}>
-                  {item.desc}
+                  {item.description}
                 </p>
               </div>
             ))}
@@ -561,51 +585,90 @@ export default function WorkflowAutomationPage() {
         </div>
       </section>
 
-      {/* Pricing Teaser */}
+      {/* Integrations */}
       <section style={{ background: 'var(--bg-primary)' }}>
         <div className="container">
+          <h2 className="section-title">We Connect to Your Tools</h2>
+          <p className="section-subtitle">
+            If your software has an API, we can automate it. Here are some of the tools we work with daily.
+          </p>
+
           <div style={{
-            maxWidth: '700px',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '0.75rem',
+            maxWidth: '800px',
+            margin: '0 auto',
+          }}>
+            {integrations.map((name) => (
+              <div
+                key={name}
+                style={{
+                  padding: '0.625rem 1.25rem',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-subtle)',
+                  borderRadius: '100px',
+                  fontSize: '0.875rem',
+                  fontWeight: 500,
+                  color: 'var(--text-secondary)',
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                {name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Teaser */}
+      <section style={{ background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)' }}>
+        <div className="container">
+          <div style={{
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: '24px',
+            padding: '3rem',
+            maxWidth: '800px',
             margin: '0 auto',
             textAlign: 'center',
-            background: 'linear-gradient(135deg, var(--bg-tertiary), var(--bg-card))',
-            border: '1px solid rgba(220, 38, 38, 0.3)',
-            borderRadius: '24px',
-            padding: '3rem 2.5rem',
-            position: 'relative',
-            overflow: 'hidden',
           }}>
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: '3px',
-              background: 'var(--gradient-ember-ocean)',
-            }} />
             <h2 style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+              fontSize: '1.75rem',
               fontWeight: 700,
               color: 'var(--text-primary)',
               marginBottom: '1rem',
             }}>
-              Transparent Pricing in Rands
+              Workflow Automation Pricing
             </h2>
             <p style={{
               fontSize: '1.0625rem',
               color: 'var(--text-secondary)',
               lineHeight: 1.7,
-              marginBottom: '2rem',
-              maxWidth: '550px',
-              margin: '0 auto 2rem',
+              marginBottom: '1.5rem',
+              maxWidth: '600px',
+              margin: '0 auto 1.5rem',
             }}>
-              Every automation project is scoped to your specific needs. View our AI service
-              packages for starting prices, or book a free audit for a custom quote.
+              Workflow automation is included in all our AI Employee packages, starting from{' '}
+              <span style={{
+                fontWeight: 700,
+                background: 'var(--gradient-ember-ocean)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                R15,000/month
+              </span>
+              . The right package depends on the number of workflows, complexity, and volume.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="/ai-services" className="cta-button">
-                View AI Packages & Pricing <ArrowRightIcon />
+              <Link href="/ai-services" className="btn btn-secondary">
+                View All Packages
+              </Link>
+              <Link href="/ai-services/contact" className="cta-button">
+                Get a Custom Quote <ArrowRightIcon />
               </Link>
             </div>
           </div>
@@ -613,11 +676,11 @@ export default function WorkflowAutomationPage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)' }}>
+      <section style={{ background: 'var(--bg-primary)' }}>
         <div className="container">
           <h2 className="section-title">Frequently Asked Questions</h2>
           <p className="section-subtitle">
-            Everything you need to know about workflow automation for your business
+            Common questions about workflow automation for your business
           </p>
 
           <div style={{
@@ -665,11 +728,11 @@ export default function WorkflowAutomationPage() {
           <div className="cta-section">
             <h2>Ready to Automate Your Business?</h2>
             <p>
-              Book a free automation audit. We will map your processes, identify quick wins,
-              and show you exactly how much time and money you can save.
+              Book a free workflow audit. We will map your manual processes, identify the biggest
+              time-wasters, and show you exactly how much time and money automation can save.
             </p>
             <Link href="/ai-services/contact" className="cta-button">
-              Book a Free Automation Audit <ArrowRightIcon />
+              Book a Free Workflow Audit <ArrowRightIcon />
             </Link>
           </div>
         </div>

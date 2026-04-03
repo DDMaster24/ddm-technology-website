@@ -3,7 +3,7 @@ import { blogPosts } from '@/lib/blog-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://ddmtech.co.za'
-  const lastModified = new Date('2026-03-26')
+  const lastModified = new Date('2026-04-03')
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
