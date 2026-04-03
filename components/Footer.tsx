@@ -22,6 +22,7 @@ export default function Footer() {
               <h4>Services</h4>
               <Link href="/services">All Services</Link>
               <Link href="/ai-services">AI Packages &amp; Pricing</Link>
+              <Link href="/ai-readiness">AI Readiness Quiz</Link>
               <Link href="/ai-services/whatsapp-chatbot">WhatsApp AI Chatbot</Link>
               <Link href="/ai-services/workflow-automation">Workflow Automation</Link>
               <Link href="/software">Software Products</Link>

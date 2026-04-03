@@ -71,6 +71,16 @@ export default function Navigation() {
           </li>
           <li>
             <Link
+              href="/ai-readiness"
+              className={pathname === '/ai-readiness' ? styles.active : ''}
+              onClick={closeMenu}
+              {...(pathname === '/ai-readiness' ? { 'aria-current': 'page' as const } : {})}
+            >
+              AI Readiness
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/case-studies"
               className={pathname === '/case-studies' ? styles.active : ''}
               onClick={closeMenu}
