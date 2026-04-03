@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: 'Blog | DDM Technology',
     description:
       'Practical AI automation insights, case studies, and guides for South African businesses.',
+    url: 'https://ddmtech.co.za/blog',
   },
   twitter: {
     card: 'summary_large_image',

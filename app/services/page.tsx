@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     title: 'AI Automation Services | DDM Technology',
     description:
       'Practical AI solutions that save time, cut costs, and scale your SA business. Chatbots, workflow automation, document processing, and more.',
+    url: 'https://ddmtech.co.za/services',
   },
   twitter: {
     card: 'summary_large_image',
@@ -93,9 +94,31 @@ const services = [
   },
 ]
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'AI Automation Services',
+  provider: {
+    '@type': 'Organization',
+    name: 'DDM Technology',
+    url: 'https://ddmtech.co.za',
+  },
+  description:
+    'AI chatbots, workflow automation, document processing, and custom AI development for South African businesses.',
+  areaServed: {
+    '@type': 'Country',
+    name: 'South Africa',
+  },
+  serviceType: 'AI Automation',
+}
+
 export default function Services() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="page-header">
         <div className="page-header-content">
           <h1>AI Automation Services</h1>

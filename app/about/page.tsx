@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     title: 'About DDM Technology | AI Automation Agency',
     description:
       'A young, hungry SA tech company building the future of business automation. 50+ AI automations deployed for businesses across South Africa.',
+    url: 'https://ddmtech.co.za/about',
   },
   twitter: {
     card: 'summary_large_image',
@@ -74,9 +75,38 @@ const techStack = [
   { name: 'WhatsApp API', category: 'Integrations' },
 ]
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About DDM Technology',
+  description:
+    'DDM Technology is a South African AI automation agency in Roodepoort, Johannesburg.',
+  url: 'https://ddmtech.co.za/about',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'DDM Technology',
+    url: 'https://ddmtech.co.za',
+    founder: {
+      '@type': 'Person',
+      name: 'Darius',
+      jobTitle: 'Founder & CEO',
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Roodepoort',
+      addressRegion: 'Gauteng',
+      addressCountry: 'ZA',
+    },
+  },
+}
+
 export default function About() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="page-header">
         <div className="page-header-content">
           <h1>About DDM Technology</h1>
@@ -89,7 +119,7 @@ export default function About() {
         <div className="container">
           <div className="about-content">
             <div className="about-text">
-              <h3>Our Story</h3>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '1rem' }}>Our Story</h2>
               <p>
                 DDM Technology started with a simple observation: South African businesses are
                 drowning in manual, repetitive work — while the AI tools to fix it already exist.

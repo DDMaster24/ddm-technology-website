@@ -241,8 +241,32 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     notFound()
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: product.name,
+    description: product.description,
+    url: `https://ddmtech.co.za/software/${params.slug}`,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: product.downloads.map((d: { platform: string }) => d.platform).join(', '),
+    offers: {
+      '@type': 'Offer',
+      price: product.pricing.yearly.toString(),
+      priceCurrency: 'ZAR',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'DDM Technology',
+      url: 'https://ddmtech.co.za',
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <section className="page-header">
         <div className="page-header-content">
@@ -256,24 +280,24 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Quick Actions */}
-      <section style={{ padding: '2rem', background: 'var(--white)' }}>
+      <section style={{ padding: '2rem', background: 'var(--bg-primary)' }}>
         <div className="container" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="#download" className="cta-button">Download Now</a>
-          <Link href="/contact" className="cta-button" style={{ background: 'var(--white)', color: 'var(--accent-color)', border: '2px solid var(--accent-color)' }}>
+          <Link href="/contact" className="cta-button" style={{ background: 'var(--bg-primary)', color: 'var(--ember-red)', border: '2px solid var(--ember-red)' }}>
             Contact Sales
           </Link>
         </div>
       </section>
 
       {/* Overview */}
-      <section style={{ padding: '4rem 2rem', background: 'var(--secondary-color)' }}>
+      <section style={{ padding: '4rem 2rem', background: 'var(--bg-secondary)' }}>
         <div className="container">
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <h2 className="section-title">Overview</h2>
-            <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', lineHeight: '1.8', marginBottom: '2rem' }}>
+            <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '2rem' }}>
               {product.description}
             </p>
-            <div style={{ whiteSpace: 'pre-line', color: 'var(--text-light)', lineHeight: '1.8' }}>
+            <div style={{ whiteSpace: 'pre-line', color: 'var(--text-secondary)', lineHeight: '1.8' }}>
               {product.longDescription}
             </div>
           </div>
@@ -281,7 +305,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Features */}
-      <section style={{ padding: '4rem 2rem', background: 'var(--white)' }}>
+      <section style={{ padding: '4rem 2rem', background: 'var(--bg-primary)' }}>
         <div className="container">
           <h2 className="section-title">Features</h2>
           <p className="section-subtitle">Everything you need to run your business efficiently</p>
@@ -299,15 +323,15 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Pricing */}
-      <section style={{ padding: '4rem 2rem', background: 'var(--secondary-color)' }}>
+      <section style={{ padding: '4rem 2rem', background: 'var(--bg-secondary)' }}>
         <div className="container">
           <h2 className="section-title">Pricing</h2>
           <p className="section-subtitle">Simple, transparent pricing for your business</p>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '3rem', flexWrap: 'wrap' }}>
             {/* Basic Plan */}
-            <div className="product-card" style={{ maxWidth: '400px', width: '100%', borderColor: 'var(--accent-color)' }}>
-              <div className="product-header" style={{ background: 'var(--accent-color)', color: 'white' }}>
+            <div className="product-card" style={{ maxWidth: '400px', width: '100%', borderColor: 'var(--ember-red)' }}>
+              <div className="product-header" style={{ background: 'var(--ember-red)', color: 'white' }}>
                 <h3 style={{ color: 'white' }}>{product.pricing.tier} Package</h3>
                 <p style={{ color: 'rgba(255,255,255,0.9)' }}>Everything you need to get started</p>
               </div>
@@ -334,7 +358,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 <p className="product-version">Coming Soon</p>
               </div>
               <div className="product-body">
-                <p style={{ color: 'var(--text-light)', padding: '2rem 0' }}>
+                <p style={{ color: 'var(--text-secondary)', padding: '2rem 0' }}>
                   Additional packages with more comprehensive bookkeeping features will be available soon.
                 </p>
                 <ul className="product-features">
@@ -353,7 +377,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* System Requirements */}
-      <section style={{ padding: '4rem 2rem', background: 'var(--white)' }}>
+      <section style={{ padding: '4rem 2rem', background: 'var(--bg-primary)' }}>
         <div className="container">
           <h2 className="section-title">System Requirements</h2>
 
@@ -362,20 +386,20 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <h3>Minimum Requirements</h3>
               <ul style={{ listStyle: 'none', marginTop: '1rem' }}>
                 {product.requirements.minimum.map((req, index) => (
-                  <li key={index} style={{ padding: '0.5rem 0', paddingLeft: '1.5rem', position: 'relative', color: 'var(--text-light)' }}>
-                    <span style={{ position: 'absolute', left: 0, color: 'var(--accent-color)' }}>✓</span>
+                  <li key={index} style={{ padding: '0.5rem 0', paddingLeft: '1.5rem', position: 'relative', color: 'var(--text-secondary)' }}>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--ember-red)' }}>✓</span>
                     {req}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="service-card" style={{ borderColor: 'var(--accent-color)' }}>
+            <div className="service-card" style={{ borderColor: 'var(--ember-red)' }}>
               <h3>Recommended</h3>
               <ul style={{ listStyle: 'none', marginTop: '1rem' }}>
                 {product.requirements.recommended.map((req, index) => (
-                  <li key={index} style={{ padding: '0.5rem 0', paddingLeft: '1.5rem', position: 'relative', color: 'var(--text-light)' }}>
-                    <span style={{ position: 'absolute', left: 0, color: 'var(--accent-color)' }}>✓</span>
+                  <li key={index} style={{ padding: '0.5rem 0', paddingLeft: '1.5rem', position: 'relative', color: 'var(--text-secondary)' }}>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--ember-red)' }}>✓</span>
                     {req}
                   </li>
                 ))}
@@ -386,7 +410,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Download Section */}
-      <section id="download" style={{ padding: '4rem 2rem', background: 'var(--secondary-color)' }}>
+      <section id="download" style={{ padding: '4rem 2rem', background: 'var(--bg-secondary)' }}>
         <div className="container">
           <h2 className="section-title">Download</h2>
           <p className="section-subtitle">Get the latest version of {product.name}</p>
@@ -398,10 +422,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   <h3 style={{ marginBottom: '0.5rem' }}>
                     {download.platform} ({download.architecture})
                   </h3>
-                  <p style={{ color: 'var(--text-light)', marginBottom: '0.5rem' }}>
+                  <p style={{ color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
                     Version {download.version} • {download.size} • Released {download.releaseDate}
                   </p>
-                  <div style={{ fontSize: '0.9rem', color: 'var(--text-light)' }}>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
                     <span style={{ marginRight: '1rem' }}>📦 Installer</span>
                     <span>🔒 Secure Download</span>
                   </div>
@@ -413,8 +437,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '3rem', padding: '2rem', background: 'var(--white)', borderRadius: '15px' }}>
-            <p style={{ color: 'var(--text-light)', marginBottom: '1rem' }}>
+          <div style={{ textAlign: 'center', marginTop: '3rem', padding: '2rem', background: 'var(--bg-primary)', borderRadius: '15px' }}>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>
               Need help with installation?
             </p>
             <Link href="/contact" className="cta-button">
@@ -425,7 +449,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Changelog */}
-      <section style={{ padding: '4rem 2rem', background: 'var(--white)' }}>
+      <section style={{ padding: '4rem 2rem', background: 'var(--bg-primary)' }}>
         <div className="container">
           <h2 className="section-title">Changelog</h2>
           <p className="section-subtitle">What's new in this version</p>
@@ -435,12 +459,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <div key={index} className="service-card" style={{ marginBottom: '2rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
                   <h3>Version {release.version}</h3>
-                  <span style={{ color: 'var(--text-light)', fontSize: '0.9rem' }}>{release.date}</span>
+                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>{release.date}</span>
                 </div>
                 <ul style={{ listStyle: 'none' }}>
                   {release.changes.map((change, changeIndex) => (
-                    <li key={changeIndex} style={{ padding: '0.5rem 0', paddingLeft: '1.5rem', position: 'relative', color: 'var(--text-light)' }}>
-                      <span style={{ position: 'absolute', left: 0, color: 'var(--accent-color)' }}>•</span>
+                    <li key={changeIndex} style={{ padding: '0.5rem 0', paddingLeft: '1.5rem', position: 'relative', color: 'var(--text-secondary)' }}>
+                      <span style={{ position: 'absolute', left: 0, color: 'var(--ember-red)' }}>•</span>
                       {change}
                     </li>
                   ))}
@@ -452,14 +476,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* CTA Section */}
-      <section style={{ padding: '4rem 2rem', background: 'var(--accent-color)', color: 'white', textAlign: 'center' }}>
+      <section style={{ padding: '4rem 2rem', background: 'var(--ember-red)', color: 'white', textAlign: 'center' }}>
         <div className="container">
           <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'white' }}>Ready to Get Started?</h2>
           <p style={{ fontSize: '1.3rem', marginBottom: '2rem', opacity: 0.9 }}>
             Transform your business with {product.name}
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="#download" className="cta-button" style={{ background: 'white', color: 'var(--accent-color)' }}>
+            <a href="#download" className="cta-button" style={{ background: 'white', color: 'var(--ember-red)' }}>
               Download Now
             </a>
             <Link href="/contact" className="cta-button" style={{ background: 'transparent', border: '2px solid white' }}>
@@ -479,6 +503,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: product.name,
     description: product.description,
     openGraph: {
+      title: `${product.name} | DDM Technology`,
+      description: product.description,
+      url: `https://ddmtech.co.za/software/${params.slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image' as const,
       title: `${product.name} | DDM Technology`,
       description: product.description,
     },

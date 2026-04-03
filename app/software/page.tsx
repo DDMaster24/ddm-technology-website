@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     title: 'Software Products | DDM Technology',
     description:
       'Professional software solutions: invoicing, PDF tools, task management, and custom development.',
+    url: 'https://ddmtech.co.za/software',
   },
   twitter: {
     card: 'summary_large_image',
@@ -28,9 +29,57 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'DDM Technology Software Products',
+  description:
+    'Professional software from DDM Technology: invoicing, PDF summarisation, and task management.',
+  url: 'https://ddmtech.co.za/software',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'SoftwareApplication',
+        name: 'DDM IC',
+        url: 'https://ddmtech.co.za/software/ddm-ic',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Windows',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'SoftwareApplication',
+        name: 'PDF Summarizer',
+        url: 'https://ddmtech.co.za/software/pdf-summarizer',
+        applicationCategory: 'UtilitiesApplication',
+        operatingSystem: 'Windows',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      item: {
+        '@type': 'SoftwareApplication',
+        name: 'TaskMaster Pro',
+        url: 'https://ddmtech.co.za/software/taskmaster-pro',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Windows, macOS, Linux',
+      },
+    },
+  ],
+}
+
 export default function Software() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header-content">

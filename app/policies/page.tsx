@@ -9,6 +9,13 @@ export const metadata: Metadata = {
     title: 'Policies | DDM Technology',
     description:
       'Privacy Policy, Refund Policy, and Terms of Service for DDM Technology products and services.',
+    url: 'https://ddmtech.co.za/policies',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Policies | DDM Technology',
+    description:
+      'Privacy Policy, Refund Policy, and Terms of Service for DDM Technology.',
   },
   alternates: {
     canonical: '/policies',
@@ -208,7 +215,7 @@ export default function Policies() {
             <h3>2.5 How to Request a Refund</h3>
             <p>To request a refund:</p>
             <ol>
-              <li>Email us at <strong>support@ddm-technology.com</strong> with your order number and reason for the refund request.</li>
+              <li>Email us at <strong>darius@ddmtech.co.za</strong> with your order number and reason for the refund request.</li>
               <li>Include any relevant details or screenshots demonstrating the issue.</li>
               <li>Our team will review your request within 3-5 business days.</li>
               <li>Approved refunds will be processed within 7-10 business days to your original payment method.</li>
@@ -341,8 +348,8 @@ export default function Policies() {
             <h3>3.15 Contact Information</h3>
             <p>For questions about these policies, please contact us:</p>
             <ul className={styles.contactList}>
-              <li><strong>Email:</strong> support@ddm-technology.com</li>
-              <li><strong>Website:</strong> www.ddm-technology.com</li>
+              <li><strong>Email:</strong> darius@ddmtech.co.za</li>
+              <li><strong>Website:</strong> ddmtech.co.za</li>
               <li><strong>Address:</strong> South Africa</li>
             </ul>
           </div>

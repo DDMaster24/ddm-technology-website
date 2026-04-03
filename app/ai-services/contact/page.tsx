@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Book a Free AI Demo | DDM Technology',
     description:
       'Free 30-minute consultation. Live demo of AI employees. Custom ROI analysis. No obligation.',
+    url: 'https://ddmtech.co.za/ai-services/contact',
   },
   twitter: {
     card: 'summary_large_image',

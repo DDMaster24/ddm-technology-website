@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/Hero'
 import {
@@ -14,6 +15,27 @@ import {
   RocketIcon,
   BarChartIcon,
 } from '@/components/Icons'
+
+export const metadata: Metadata = {
+  title: 'AI Automation Agency — South Africa',
+  description:
+    'South African AI automation agency. We build AI chatbots, workflow automation, document processing, and custom AI solutions for businesses in Johannesburg and across SA.',
+  openGraph: {
+    title: 'DDM Technology | AI Automation Agency — South Africa',
+    description:
+      'We build AI systems that handle the boring stuff — chatbots, workflow automation, document processing — so SA businesses can focus on growth.',
+    url: 'https://ddmtech.co.za',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DDM Technology | AI Automation Agency — South Africa',
+    description:
+      'AI chatbots, workflow automation, and custom AI solutions for South African businesses.',
+  },
+  alternates: {
+    canonical: '/',
+  },
+}
 
 const jsonLd = {
   '@context': 'https://schema.org',

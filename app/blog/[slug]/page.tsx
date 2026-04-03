@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
+      url: `https://ddmtech.co.za/blog/${post.slug}`,
     },
     twitter: {
       card: 'summary_large_image',

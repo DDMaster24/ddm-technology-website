@@ -20,12 +20,11 @@ export default function Footer() {
           <div className={styles.footerNav}>
             <div className={styles.footerNavGroup}>
               <h4>Services</h4>
-              <Link href="/services">AI Customer Service</Link>
-              <Link href="/services">Workflow Automation</Link>
-              <Link href="/services">Document Processing</Link>
+              <Link href="/services">All Services</Link>
               <Link href="/ai-services">AI Packages &amp; Pricing</Link>
               <Link href="/ai-services/whatsapp-chatbot">WhatsApp AI Chatbot</Link>
               <Link href="/ai-services/workflow-automation">Workflow Automation</Link>
+              <Link href="/software">Software Products</Link>
             </div>
 
             <div className={styles.footerNavGroup}>

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     title: 'Case Studies | DDM Technology',
     description:
       'Real results for real SA businesses. Coal trading, restaurant chains, property management — see how AI automation delivers ROI.',
+    url: 'https://ddmtech.co.za/case-studies',
   },
   twitter: {
     card: 'summary_large_image',
@@ -86,9 +87,27 @@ const caseStudies = [
   },
 ]
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'AI Automation Case Studies',
+  description:
+    'See how AI automation transformed South African businesses. Real results from coal trading, restaurant chains, and property management.',
+  url: 'https://ddmtech.co.za/case-studies',
+  publisher: {
+    '@type': 'Organization',
+    name: 'DDM Technology',
+    url: 'https://ddmtech.co.za',
+  },
+}
+
 export default function CaseStudies() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="page-header">
         <div className="page-header-content">
           <h1>Case Studies</h1>
