@@ -1182,6 +1182,29 @@ section {
 }
 
 /* ============================================
+   RESPONSIVE - INLINE GRID OVERRIDES
+   ============================================ */
+@media (max-width: 768px) {
+  [style*="repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  [style*="repeat(5, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  [style*="repeat(2, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  [style*="repeat(5, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================
    WHATSAPP FLOATING BUTTON
    ============================================ */
 .whatsapp-float {

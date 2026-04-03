@@ -71,6 +71,16 @@ export default function Navigation() {
           </li>
           <li>
             <Link
+              href="/pricing"
+              className={pathname === '/pricing' ? styles.active : ''}
+              onClick={closeMenu}
+              {...(pathname === '/pricing' ? { 'aria-current': 'page' as const } : {})}
+            >
+              Pricing
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/ai-readiness"
               className={pathname === '/ai-readiness' ? styles.active : ''}
               onClick={closeMenu}
