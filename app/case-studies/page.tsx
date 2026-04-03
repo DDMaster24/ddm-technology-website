@@ -33,6 +33,7 @@ export const metadata: Metadata = {
 const caseStudies = [
   {
     icon: <BarChartIcon />,
+    slug: 'minex',
     company: 'MineX',
     industry: 'Coal Trading & Commodities',
     headline: 'Digitised R50M+ in coal trades with an AI-powered marketplace',
@@ -51,6 +52,7 @@ const caseStudies = [
   },
   {
     icon: <RocketIcon />,
+    slug: 'flame-and-fork',
     company: 'Flame & Fork',
     industry: 'Restaurant Chain — 8 Locations',
     headline: 'Cut order processing time by 80% with AI-powered operations',
@@ -69,6 +71,7 @@ const caseStudies = [
   },
   {
     icon: <SparklesIcon />,
+    slug: 'urbannest',
     company: 'UrbanNest',
     industry: 'Property Management — 200+ Units',
     headline: 'Automated tenant communications, saved 20+ hours per week',
@@ -298,6 +301,7 @@ export default function CaseStudies() {
                     alignItems: 'center',
                     gap: '0.75rem',
                     flexWrap: 'wrap',
+                    marginBottom: '2rem',
                   }}>
                     <span style={{
                       fontSize: '0.8125rem',
@@ -324,6 +328,23 @@ export default function CaseStudies() {
                       </span>
                     ))}
                   </div>
+
+                  {/* Read Full Case Study */}
+                  <Link
+                    href={`/case-studies/${study.slug}`}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      fontSize: '0.9375rem',
+                      fontWeight: 600,
+                      color: study.accentColor,
+                      textDecoration: 'none',
+                      transition: 'gap var(--duration-fast)',
+                    }}
+                  >
+                    Read full case study <ArrowRightIcon />
+                  </Link>
                 </div>
               </article>
             ))}
