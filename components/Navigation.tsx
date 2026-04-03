@@ -61,6 +61,16 @@ export default function Navigation() {
           </li>
           <li>
             <Link
+              href="/ai-services"
+              className={pathname?.startsWith('/ai-services') ? styles.active : ''}
+              onClick={closeMenu}
+              {...(pathname?.startsWith('/ai-services') ? { 'aria-current': 'page' as const } : {})}
+            >
+              AI Services
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/case-studies"
               className={pathname === '/case-studies' ? styles.active : ''}
               onClick={closeMenu}

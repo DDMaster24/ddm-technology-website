@@ -50,6 +50,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/ai-services/whatsapp-chatbot`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/ai-services/workflow-automation`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/ai-services/contact`,
       lastModified,
       changeFrequency: 'monthly',

@@ -23,8 +23,9 @@ export default function Footer() {
               <Link href="/services">AI Customer Service</Link>
               <Link href="/services">Workflow Automation</Link>
               <Link href="/services">Document Processing</Link>
-              <Link href="/services">AI Sales & Marketing</Link>
-              <Link href="/services">Custom AI Development</Link>
+              <Link href="/ai-services">AI Packages &amp; Pricing</Link>
+              <Link href="/ai-services/whatsapp-chatbot">WhatsApp AI Chatbot</Link>
+              <Link href="/ai-services/workflow-automation">Workflow Automation</Link>
             </div>
 
             <div className={styles.footerNavGroup}>
