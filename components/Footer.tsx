@@ -38,9 +38,11 @@ export default function Footer() {
             <div className={styles.footerNavGroup}>
               <h4>Industries</h4>
               <Link href="/industries">All Industries</Link>
-              <Link href="/industries/real-estate">Real Estate</Link>
               <Link href="/industries/restaurants">Restaurants</Link>
-              <Link href="/industries/logistics">Logistics</Link>
+              <Link href="/industries/real-estate">Real Estate</Link>
+              <Link href="/industries/healthcare">Healthcare</Link>
+              <Link href="/industries/accounting">Accounting</Link>
+              <Link href="/industries/retail-ecommerce">Retail &amp; E-Commerce</Link>
             </div>
 
             <div className={styles.footerNavGroup}>

@@ -28,6 +28,7 @@ import {
   GlobeIcon,
   TargetIcon,
   BuildingIcon,
+  TruckIcon,
 } from '@/components/Icons'
 
 interface IndustryData {
