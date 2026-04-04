@@ -36,6 +36,14 @@ export default function Footer() {
             </div>
 
             <div className={styles.footerNavGroup}>
+              <h4>Industries</h4>
+              <Link href="/industries">All Industries</Link>
+              <Link href="/industries/real-estate">Real Estate</Link>
+              <Link href="/industries/restaurants">Restaurants</Link>
+              <Link href="/industries/logistics">Logistics</Link>
+            </div>
+
+            <div className={styles.footerNavGroup}>
               <h4>Company</h4>
               <Link href="/about">About Us</Link>
               <Link href="/case-studies">Case Studies</Link>

@@ -91,6 +91,16 @@ export default function Navigation() {
           </li>
           <li>
             <Link
+              href="/industries"
+              className={pathname?.startsWith('/industries') ? styles.active : ''}
+              onClick={closeMenu}
+              {...(pathname?.startsWith('/industries') ? { 'aria-current': 'page' as const } : {})}
+            >
+              Industries
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/case-studies"
               className={pathname === '/case-studies' ? styles.active : ''}
               onClick={closeMenu}
