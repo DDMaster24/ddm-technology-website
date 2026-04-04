@@ -4,8 +4,9 @@ import {
   UtensilsIcon,
   HomeIcon,
   HeartIcon,
-  CalculatorIcon,
+  BriefcaseIcon,
   ShoppingCartIcon,
+  TruckIcon,
   ArrowRightIcon,
   CheckCircleIcon,
   SparklesIcon,
@@ -14,13 +15,13 @@ import {
 export const metadata: Metadata = {
   title: 'AI Automation for Every Industry | DDM Technology',
   description:
-    'Industry-specific AI automation solutions for South African businesses. Restaurants, real estate, healthcare, accounting, and retail — tailored AI that delivers results.',
+    'Industry-specific AI automation solutions for South African businesses. Restaurants, real estate, healthcare, professional services, retail, and logistics — tailored AI that delivers results.',
   keywords:
     'AI automation industries South Africa, AI for business Johannesburg, industry AI solutions, AI automation SA',
   openGraph: {
     title: 'AI Automation for Every Industry | DDM Technology',
     description:
-      'Industry-specific AI automation solutions for South African businesses. Restaurants, real estate, healthcare, accounting, and retail.',
+      'Industry-specific AI automation solutions for South African businesses. Restaurants, real estate, healthcare, professional services, retail, and logistics.',
     url: 'https://ddmtech.co.za/industries',
     type: 'website',
     locale: 'en_ZA',
@@ -73,16 +74,33 @@ const industries = [
     colorHex: '#0891B2',
   },
   {
+    slug: 'logistics',
+    icon: <TruckIcon />,
+    title: 'Logistics & Transport',
+    description:
+      'AI fleet tracking, route optimization, document processing, load matching. Built for SA logistics companies bleeding margins to manual processes and compliance bottlenecks.',
+    features: [
+      'AI fleet tracking',
+      'Route optimization',
+      'Document processing AI',
+      'Compliance automation',
+    ],
+    result: '70% faster trade matching with AI-powered logistics platform',
+    linkText: 'Explore Logistics AI',
+    color: 'var(--ember-crimson)',
+    colorHex: '#B91C1C',
+  },
+  {
     slug: 'healthcare',
     icon: <HeartIcon />,
     title: 'Healthcare, Dental & Wellness',
     description:
-      'AI appointment reminders, WhatsApp patient communication, automated intake forms, smart scheduling. Built for SA practices losing revenue to no-shows.',
+      'AI appointment reminders, WhatsApp patient communication, automated intake forms, medical record digitization, billing automation. Built for SA practices losing revenue to no-shows.',
     features: [
       'AI appointment reminders',
       'WhatsApp patient comms',
-      'Automated intake forms',
-      'Smart scheduling',
+      'Medical record digitization',
+      'Billing & claims automation',
     ],
     result: '30-40% reduction in appointment no-shows',
     linkText: 'Explore Healthcare AI',
@@ -90,38 +108,38 @@ const industries = [
     colorHex: '#0D9488',
   },
   {
-    slug: 'accounting',
-    icon: <CalculatorIcon />,
-    title: 'Accounting & Tax',
-    description:
-      'AI document processing, automated SARS submissions, client portal with AI chat, workflow automation. Built for SA firms drowning in data entry every tax season.',
-    features: [
-      'AI document processing',
-      'Automated SARS prep',
-      'Client portal AI chat',
-      'Workflow automation',
-    ],
-    result: '15-20 hours saved per week on manual data entry',
-    linkText: 'Explore Accounting AI',
-    color: 'var(--ocean-blue)',
-    colorHex: '#1E40AF',
-  },
-  {
-    slug: 'retail-ecommerce',
+    slug: 'retail',
     icon: <ShoppingCartIcon />,
     title: 'Retail & E-Commerce',
     description:
-      'AI customer service bots, automated stock alerts, WhatsApp order updates, smart returns handling. Built for SA retailers overwhelmed by support volume.',
+      'AI inventory management, demand forecasting, WhatsApp Commerce, customer service chatbots, personalised marketing. Built for SA retailers overwhelmed by stock chaos and support volume.',
     features: [
-      'AI customer service bot',
-      'Automated stock alerts',
-      'WhatsApp order updates',
-      'Smart returns handling',
+      'AI inventory management',
+      'Demand forecasting',
+      'WhatsApp Commerce',
+      'Personalised marketing AI',
     ],
-    result: '60-70% of customer queries handled automatically',
+    result: '35% less overstock with AI demand forecasting',
     linkText: 'Explore Retail AI',
-    color: 'var(--ember-crimson)',
-    colorHex: '#B91C1C',
+    color: 'var(--ember-red)',
+    colorHex: '#DC2626',
+  },
+  {
+    slug: 'professional-services',
+    icon: <BriefcaseIcon />,
+    title: 'Law Firms, Accounting & Consulting',
+    description:
+      'Document automation, AI client intake, SARS compliance, FICA/POPIA management, B-BBEE reporting, smart billing. Built for SA firms drowning in non-billable admin.',
+    features: [
+      'Document automation',
+      'AI client intake',
+      'SARS compliance automation',
+      'Smart billing & time tracking',
+    ],
+    result: '70% faster document drafting with AI automation',
+    linkText: 'Explore Professional Services AI',
+    color: 'var(--ocean-blue)',
+    colorHex: '#1E40AF',
   },
 ]
 
