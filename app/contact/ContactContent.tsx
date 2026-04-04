@@ -12,8 +12,19 @@ import { WhatsAppIcon } from '@/components/Icons'
 export default function ContactContent() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    alert('Thank you for your message! We will get back to you within 24 hours.')
-    e.currentTarget.reset()
+    const form = e.currentTarget
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value
+    const company = (form.elements.namedItem('company') as HTMLInputElement).value
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value
+    const service = (form.elements.namedItem('service') as HTMLSelectElement).value
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value
+
+    const subject = encodeURIComponent(`Website Enquiry: ${service || 'General'}`)
+    const body = encodeURIComponent(
+      `Name: ${name}\nCompany: ${company || 'N/A'}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message}`
+    )
+
+    window.location.href = `mailto:darius@ddmtech.co.za?subject=${subject}&body=${body}`
   }
 
   return (
@@ -45,8 +56,8 @@ export default function ContactContent() {
                 <div className="contact-details">
                   <h4>WhatsApp</h4>
                   <p>
-                    <a href="https://wa.me/27000000000" target="_blank" rel="noopener noreferrer">
-                      +27 (0) 00 000 0000
+                    <a href="https://wa.me/27832580869" target="_blank" rel="noopener noreferrer">
+                      +27 83 258 0869
                     </a>
                   </p>
                   <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
@@ -75,7 +86,7 @@ export default function ContactContent() {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/27000000000?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20your%20AI%20automation%20services."
+                href="https://wa.me/27832580869?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20your%20AI%20automation%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -158,6 +169,45 @@ export default function ContactContent() {
                   Send Message
                 </button>
               </form>
+
+              {/* WhatsApp alternative below form */}
+              <div style={{
+                marginTop: '1.5rem',
+                padding: '1.25rem',
+                background: 'rgba(37, 211, 102, 0.08)',
+                border: '1px solid rgba(37, 211, 102, 0.2)',
+                borderRadius: '12px',
+                textAlign: 'center',
+              }}>
+                <p style={{
+                  color: 'var(--text-secondary)',
+                  fontSize: '0.875rem',
+                  marginBottom: '0.75rem',
+                }}>
+                  Prefer a quick chat? Get an instant response on WhatsApp.
+                </p>
+                <a
+                  href="https://wa.me/27832580869?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20your%20AI%20automation%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.625rem 1.25rem',
+                    background: '#25D366',
+                    color: 'white',
+                    fontWeight: 600,
+                    fontSize: '0.9375rem',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  <WhatsAppIcon />
+                  Or WhatsApp Us
+                </a>
+              </div>
             </div>
           </div>
         </div>

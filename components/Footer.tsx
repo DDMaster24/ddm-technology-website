@@ -23,10 +23,16 @@ export default function Footer() {
               <Link href="/services">All Services</Link>
               <Link href="/ai-services">AI Packages &amp; Pricing</Link>
               <Link href="/pricing">Pricing</Link>
-              <Link href="/ai-readiness">AI Readiness Quiz</Link>
               <Link href="/ai-services/whatsapp-chatbot">WhatsApp AI Chatbot</Link>
               <Link href="/ai-services/workflow-automation">Workflow Automation</Link>
               <Link href="/software">Software Products</Link>
+            </div>
+
+            <div className={styles.footerNavGroup}>
+              <h4>Tools</h4>
+              <Link href="/ai-readiness">AI Readiness Quiz</Link>
+              <Link href="/tools/roi-calculator">AI ROI Calculator</Link>
+              <Link href="/tools">All Tools</Link>
             </div>
 
             <div className={styles.footerNavGroup}>
@@ -41,7 +47,7 @@ export default function Footer() {
             <div className={styles.footerNavGroup}>
               <h4>Contact</h4>
               <a href="mailto:darius@ddmtech.co.za">darius@ddmtech.co.za</a>
-              <a href="https://wa.me/27000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a href="https://wa.me/27832580869" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               <span>Roodepoort, Johannesburg</span>
             </div>
           </div>

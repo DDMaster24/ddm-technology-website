@@ -111,6 +111,16 @@ export default function Navigation() {
           </li>
           <li>
             <Link
+              href="/tools"
+              className={pathname?.startsWith('/tools') ? styles.active : ''}
+              onClick={closeMenu}
+              {...(pathname?.startsWith('/tools') ? { 'aria-current': 'page' as const } : {})}
+            >
+              Tools
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/blog"
               className={pathname?.startsWith('/blog') ? styles.active : ''}
               onClick={closeMenu}

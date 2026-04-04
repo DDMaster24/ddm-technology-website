@@ -1,15 +1,27 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, FormEvent } from 'react'
-import { MailIcon, PhoneIcon, ArrowRightIcon } from '@/components/Icons'
+import { FormEvent } from 'react'
+import { MailIcon, PhoneIcon } from '@/components/Icons'
+import { WhatsAppIcon } from '@/components/Icons'
 
 export default function AIServicesContactContent() {
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
+    const form = e.currentTarget
+    const name = (form.elements.namedItem('fullName') as HTMLInputElement).value
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value
+    const phone = (form.elements.namedItem('phone') as HTMLInputElement).value
+    const company = (form.elements.namedItem('company') as HTMLInputElement).value
+    const packageInterest = (form.elements.namedItem('package') as HTMLSelectElement).value
+    const needs = (form.elements.namedItem('needs') as HTMLTextAreaElement).value
+
+    const subject = encodeURIComponent(`AI Services Enquiry: ${packageInterest || 'General'}`)
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nCompany: ${company || 'N/A'}\nPackage Interest: ${packageInterest}\n\nNeeds:\n${needs}`
+    )
+
+    window.location.href = `mailto:darius@ddmtech.co.za?subject=${subject}&body=${body}`
   }
 
   return (
@@ -110,71 +122,84 @@ export default function AIServicesContactContent() {
 
             {/* Contact Form */}
             <div className="contact-form">
-              {submitted ? (
-                <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
-                  <div style={{
-                    width: '64px',
-                    height: '64px',
-                    margin: '0 auto 1.5rem',
-                    background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(30, 64, 175, 0.1))',
-                    border: '1px solid rgba(220, 38, 38, 0.25)',
-                    borderRadius: '16px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1.5rem',
-                    color: 'var(--ember-red)',
-                  }}>
-                    &#10003;
-                  </div>
-                  <h3 style={{ fontSize: '1.375rem', fontWeight: 600, marginBottom: '0.75rem', color: 'var(--text-primary)' }}>
-                    Thank you!
-                  </h3>
-                  <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                    We&apos;ve received your enquiry and will be in touch within 24 hours to schedule your free demo.
-                  </p>
+              <form onSubmit={handleSubmit}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1.5rem', color: 'var(--text-primary)' }}>
+                  Book a Free Demo
+                </h3>
+                <div className="form-group">
+                  <label>Full Name</label>
+                  <input type="text" name="fullName" placeholder="Your name" required />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1.5rem', color: 'var(--text-primary)' }}>
-                    Book a Free Demo
-                  </h3>
-                  <div className="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Your name" required />
-                  </div>
-                  <div className="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="you@company.co.za" required />
-                  </div>
-                  <div className="form-group">
-                    <label>Phone / WhatsApp</label>
-                    <input type="tel" placeholder="+27..." />
-                  </div>
-                  <div className="form-group">
-                    <label>Company Name</label>
-                    <input type="text" placeholder="Your company" />
-                  </div>
-                  <div className="form-group">
-                    <label>Package Interest</label>
-                    <select defaultValue="">
-                      <option value="" disabled>Select a package</option>
-                      <option value="starter">Starter - R15,000/mo</option>
-                      <option value="business">Business - R35,000/mo</option>
-                      <option value="enterprise">Enterprise - R75,000/mo</option>
-                      <option value="hq">AI HQ - R120,000+/mo</option>
-                      <option value="unsure">Not sure yet</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label>Tell us about your needs</label>
-                    <textarea placeholder="What tasks would you like to automate?" rows={4} />
-                  </div>
-                  <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-                    Book My Free Demo
-                  </button>
-                </form>
-              )}
+                <div className="form-group">
+                  <label>Email Address</label>
+                  <input type="email" name="email" placeholder="you@company.co.za" required />
+                </div>
+                <div className="form-group">
+                  <label>Phone / WhatsApp</label>
+                  <input type="tel" name="phone" placeholder="+27..." />
+                </div>
+                <div className="form-group">
+                  <label>Company Name</label>
+                  <input type="text" name="company" placeholder="Your company" />
+                </div>
+                <div className="form-group">
+                  <label>Package Interest</label>
+                  <select name="package" defaultValue="">
+                    <option value="" disabled>Select a package</option>
+                    <option value="starter">Starter - R15,000/mo</option>
+                    <option value="business">Business - R35,000/mo</option>
+                    <option value="enterprise">Enterprise - R75,000/mo</option>
+                    <option value="hq">AI HQ - R120,000+/mo</option>
+                    <option value="unsure">Not sure yet</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Tell us about your needs</label>
+                  <textarea name="needs" placeholder="What tasks would you like to automate?" rows={4} />
+                </div>
+                <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
+                  Book My Free Demo
+                </button>
+              </form>
+
+              {/* WhatsApp alternative below form */}
+              <div style={{
+                marginTop: '1.5rem',
+                padding: '1.25rem',
+                background: 'rgba(37, 211, 102, 0.08)',
+                border: '1px solid rgba(37, 211, 102, 0.2)',
+                borderRadius: '12px',
+                textAlign: 'center',
+              }}>
+                <p style={{
+                  color: 'var(--text-secondary)',
+                  fontSize: '0.875rem',
+                  marginBottom: '0.75rem',
+                }}>
+                  Prefer a quick chat? Get an instant response on WhatsApp.
+                </p>
+                <a
+                  href="https://wa.me/27832580869?text=Hi%2C%20I%27m%20interested%20in%20DDM%20Technology%27s%20AI%20packages."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.625rem 1.25rem',
+                    background: '#25D366',
+                    color: 'white',
+                    fontWeight: 600,
+                    fontSize: '0.9375rem',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  <WhatsAppIcon />
+                  Or WhatsApp Us
+                </a>
+              </div>
             </div>
           </div>
         </div>
