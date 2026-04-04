@@ -101,6 +101,16 @@ export default function Navigation() {
           </li>
           <li>
             <Link
+              href="/testimonials"
+              className={pathname === '/testimonials' ? styles.active : ''}
+              onClick={closeMenu}
+              {...(pathname === '/testimonials' ? { 'aria-current': 'page' as const } : {})}
+            >
+              Testimonials
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/case-studies"
               className={pathname === '/case-studies' ? styles.active : ''}
               onClick={closeMenu}

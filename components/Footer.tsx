@@ -48,6 +48,7 @@ export default function Footer() {
             <div className={styles.footerNavGroup}>
               <h4>Company</h4>
               <Link href="/about">About Us</Link>
+              <Link href="/testimonials">Testimonials</Link>
               <Link href="/case-studies">Case Studies</Link>
               <Link href="/blog">Blog</Link>
               <Link href="/contact">Contact</Link>
