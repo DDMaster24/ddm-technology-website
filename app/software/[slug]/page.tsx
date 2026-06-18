@@ -9,7 +9,7 @@ const products = {
     name: 'DDM IC',
     tagline: 'Professional Invoicing & Bookkeeping Software',
     icon: '📋',
-    version: '1.0.6',
+    version: '1.0.7',
     description: 'Streamline your business finances with DDM IC. Create professional invoices, manage clients, and organise your products and services - all in one easy-to-use application.',
     longDescription: `DDM IC is designed to simplify your business bookkeeping and invoicing needs. Whether you're a freelancer, small business owner, or growing enterprise, DDM IC helps you stay organised and professional.
 
@@ -52,9 +52,9 @@ The Basic package includes everything you need to get started with professional 
       {
         platform: 'Windows',
         architecture: '64-bit',
-        version: '1.0.6',
+        version: '1.0.7',
         size: '79.2 MB',
-        url: 'https://github.com/DDMaster24/ddm-technology-website/releases/download/ddm-ic-v1.0.6/DDM-IC-Setup-1.0.6-Windows.zip',
+        url: 'https://github.com/DDMaster24/ddm-technology-website/releases/download/ddm-ic-v1.0.7/DDM-IC-Setup-1.0.7-Windows.zip',
         releaseDate: '2026-06-18',
       },
     ],
@@ -63,7 +63,7 @@ The Basic package includes everything you need to get started with professional 
     ],
     changelog: [
       {
-        version: '1.0.6',
+        version: '1.0.7',
         date: '2026-06-18',
         changes: [
           'Editable invoice numbers with a configurable default format in Settings',
