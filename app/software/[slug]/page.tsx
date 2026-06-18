@@ -9,7 +9,7 @@ const products = {
     name: 'DDM IC',
     tagline: 'Professional Invoicing & Bookkeeping Software',
     icon: '📋',
-    version: '1.0.0',
+    version: '1.0.3',
     description: 'Streamline your business finances with DDM IC. Create professional invoices, manage clients, and organise your products and services - all in one easy-to-use application.',
     longDescription: `DDM IC is designed to simplify your business bookkeeping and invoicing needs. Whether you're a freelancer, small business owner, or growing enterprise, DDM IC helps you stay organised and professional.
 
@@ -40,7 +40,6 @@ The Basic package includes everything you need to get started with professional 
         'Windows 10 or later (64-bit)',
         '4GB RAM',
         '200MB free disk space',
-        '.NET Framework 4.8 or later',
       ],
       recommended: [
         'Windows 11 (64-bit)',
@@ -53,10 +52,10 @@ The Basic package includes everything you need to get started with professional 
       {
         platform: 'Windows',
         architecture: '64-bit',
-        version: '1.0.0',
+        version: '1.0.3',
         size: '79.2 MB',
-        url: 'https://github.com/DDMaster24/ddm-technology-website/releases/download/ddm-ic-v1.0.0/DDM-Invoice-Pro-Windows.zip',
-        releaseDate: '2025-11-26',
+        url: 'https://github.com/DDMaster24/ddm-technology-website/releases/download/ddm-ic-v1.0.3/DDM-IC-Setup-1.0.3-Windows.zip',
+        releaseDate: '2026-06-18',
       },
     ],
     screenshots: [
@@ -64,8 +63,19 @@ The Basic package includes everything you need to get started with professional 
     ],
     changelog: [
       {
+        version: '1.0.3',
+        date: '2026-06-18',
+        changes: [
+          'Editable invoice numbers with a configurable default format in Settings',
+          'Duplicate invoice-number warning to prevent clashes',
+          'Fixed numbering issue that caused duplicates after drafts or deletions',
+          'Improved data safety: atomic saves, stronger database integrity, real backup & restore',
+          'More resilient: graceful error recovery instead of blank screens',
+        ]
+      },
+      {
         version: '1.0.0',
-        date: '2025-01-15',
+        date: '2025-11-26',
         changes: [
           'Initial release',
           'Invoice creation and management',
