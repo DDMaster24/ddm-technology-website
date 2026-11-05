@@ -393,7 +393,7 @@
 
 .fileItem {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr) auto;
+  grid-template-columns: 48px minmax(0, 1fr);
   gap: 12px;
   align-items: center;
   padding: 8px;
@@ -455,8 +455,18 @@
 }
 
 .fileActions {
+  grid-column: 2;
   display: flex;
   gap: 6px;
+}
+
+@media (min-width: 480px) {
+  .fileItem {
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+  }
+  .fileActions {
+    grid-column: auto;
+  }
 }
 
 .smallButton {

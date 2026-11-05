@@ -82,9 +82,9 @@ export function buildSubmissionSchema({ minDate }: ValidateOptions) {
     .object({
       answers: z.record(z.string(), answerValueSchema),
       files: z.array(uploadedFileSchema).max(40),
-      consent: z.literal(true, {
-        errorMap: () => ({ message: 'Please tick this box so we can store your answers.' }),
-      }),
+      // Checked in superRefine so that every other error is reported too
+      // (zod skips refinements when the base object fails).
+      consent: z.boolean(),
       startedAt: z.number(),
       company_website: z.string().optional(),
     })
@@ -92,6 +92,8 @@ export function buildSubmissionSchema({ minDate }: ValidateOptions) {
       const answers: Answers = data.answers
       const err = (path: (string | number)[], message: string) =>
         ctx.addIssue({ code: z.ZodIssueCode.custom, path, message })
+
+      if (data.consent !== true) err(['consent'], 'Please tick this box so we can store your answers.')
 
       // 1. No unknown keys; nothing answered for hidden questions.
       for (const key of Object.keys(answers)) {

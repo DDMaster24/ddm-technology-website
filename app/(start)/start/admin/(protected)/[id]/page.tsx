@@ -84,7 +84,7 @@ export default async function SubmissionPage({ params }: { params: { id: string 
       {SECTIONS.map((s, i) => (
         <section key={s.id} className={styles.card} aria-labelledby={`s-${s.id}`}>
           <h2 id={`s-${s.id}`} className={styles.cardTitle}>
-            <span className={styles.muted} style={{ fontSize: '0.8rem', display: 'block' }}>
+            <span className={styles.muted} style={{ fontSize: '0.75rem', display: 'block', fontFamily: 'var(--font-body)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               {i + 1} of {SECTIONS.length}
             </span>
             {s.title}

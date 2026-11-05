@@ -102,7 +102,7 @@ export default function FileUpload({ question, items, setItems, error, errorId }
             status: 'error',
             message: known
               ? raw.replace(/^Vercel Blob:\s*/i, '')
-              : 'Upload failed. Check your connection and try again.',
+              : 'Upload failed. Please try again.',
           })
         })
         .finally(() => {

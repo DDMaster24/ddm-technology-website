@@ -1,9 +1,4 @@
 .wrap {
-  --admin-w: min(1100px, calc(100vw - 32px));
-  position: relative;
-  left: 50%;
-  width: var(--admin-w);
-  margin-left: calc(var(--admin-w) / -2);
   padding: 24px 0 40px;
 }
 
@@ -143,7 +138,7 @@
 .head,
 .row {
   display: grid;
-  grid-template-columns: 110px minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) 100px 90px 50px;
+  grid-template-columns: 160px minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) 100px 90px 50px;
   gap: 12px;
   align-items: center;
   padding: 12px 16px;

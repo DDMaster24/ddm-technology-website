@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic'
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   await requireAdmin()
   return (
-    <div className={styles.wrap}>
+    <div className={styles.wrap} data-admin-wide>
       <div className={styles.top}>
         <Link href="/start/admin" className={styles.link}>
           Intake submissions
