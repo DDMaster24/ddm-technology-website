@@ -485,7 +485,7 @@ export default function IndustriesPage() {
             Book a Free AI Audit <ArrowRightIcon />
           </Link>
           <a
-            href="https://wa.me/27832580869?text=Hi%20DDM%20Technology%2C%20I%27d%20like%20to%20discuss%20AI%20automation%20for%20my%20industry."
+            href="https://wa.me/27671288247?text=Hi%20DDM%20Technology%2C%20I%27d%20like%20to%20discuss%20AI%20automation%20for%20my%20industry."
             target="_blank"
             rel="noopener noreferrer"
             style={{

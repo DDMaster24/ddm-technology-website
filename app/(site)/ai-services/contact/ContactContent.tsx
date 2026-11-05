@@ -52,7 +52,7 @@ export default function AIServicesContactContent() {
                   <h4>WhatsApp</h4>
                   <p>
                     <a
-                      href="https://wa.me/27832580869?text=Hi%2C%20I%27m%20interested%20in%20DDM%20Technology%27s%20AI%20automation%20services."
+                      href="https://wa.me/27671288247?text=Hi%2C%20I%27m%20interested%20in%20DDM%20Technology%27s%20AI%20automation%20services."
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -179,7 +179,7 @@ export default function AIServicesContactContent() {
                   Prefer a quick chat? Get an instant response on WhatsApp.
                 </p>
                 <a
-                  href="https://wa.me/27832580869?text=Hi%2C%20I%27m%20interested%20in%20DDM%20Technology%27s%20AI%20packages."
+                  href="https://wa.me/27671288247?text=Hi%2C%20I%27m%20interested%20in%20DDM%20Technology%27s%20AI%20packages."
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

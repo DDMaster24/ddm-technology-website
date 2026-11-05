@@ -212,7 +212,7 @@ export default function ROICalculatorContent() {
                 Book a Free AI Audit
               </Link>
               <a
-                href="https://wa.me/27832580869?text=Hi%20DDM%20Technology%2C%20I%20just%20used%20your%20ROI%20calculator%20and%20I%27d%20like%20to%20discuss%20AI%20automation%20for%20my%20business."
+                href="https://wa.me/27671288247?text=Hi%20DDM%20Technology%2C%20I%20just%20used%20your%20ROI%20calculator%20and%20I%27d%20like%20to%20discuss%20AI%20automation%20for%20my%20business."
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.whatsappBtn}

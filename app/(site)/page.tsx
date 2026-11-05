@@ -412,7 +412,7 @@ export default function Home() {
                 Book a Free AI Audit <ArrowRightIcon />
               </Link>
               <a
-                href="https://wa.me/27832580869"
+                href="https://wa.me/27671288247"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary"

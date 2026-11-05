@@ -56,8 +56,8 @@ export default function ContactContent() {
                 <div className="contact-details">
                   <h4>WhatsApp</h4>
                   <p>
-                    <a href="https://wa.me/27832580869" target="_blank" rel="noopener noreferrer">
-                      +27 83 258 0869
+                    <a href="https://wa.me/27671288247" target="_blank" rel="noopener noreferrer">
+                      +27 67 128 8247
                     </a>
                   </p>
                   <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
@@ -86,7 +86,7 @@ export default function ContactContent() {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/27832580869?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20your%20AI%20automation%20services."
+                href="https://wa.me/27671288247?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20your%20AI%20automation%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -187,7 +187,7 @@ export default function ContactContent() {
                   Prefer a quick chat? Get an instant response on WhatsApp.
                 </p>
                 <a
-                  href="https://wa.me/27832580869?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20your%20AI%20automation%20services."
+                  href="https://wa.me/27671288247?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20your%20AI%20automation%20services."
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

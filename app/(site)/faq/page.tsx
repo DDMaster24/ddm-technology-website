@@ -430,7 +430,7 @@ export default function FAQPage() {
             </p>
             <div className={styles.ctaButtons}>
               <a
-                href="https://wa.me/27832580869"
+                href="https://wa.me/27671288247"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaWhatsApp}

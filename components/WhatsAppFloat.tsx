@@ -28,7 +28,7 @@ export default function WhatsAppFloat() {
 
   return (
     <a
-      href="https://wa.me/27832580869?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20your%20AI%20automation%20services."
+      href="https://wa.me/27671288247?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20your%20AI%20automation%20services."
       target="_blank"
       rel="noopener noreferrer"
       className={`whatsapp-float${pulsing ? ' whatsapp-pulse' : ''}${hidden ? ' whatsapp-hidden' : ''}`}

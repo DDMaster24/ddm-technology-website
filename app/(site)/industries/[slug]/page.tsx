@@ -696,7 +696,7 @@ export default function IndustryPage({
               Book Free Consultation
             </Link>
             <a
-              href="https://wa.me/27832580869?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20AI%20automation%20for%20my%20business."
+              href="https://wa.me/27671288247?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20AI%20automation%20for%20my%20business."
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary"
@@ -1151,7 +1151,7 @@ export default function IndustryPage({
               Book Free Consultation
             </Link>
             <a
-              href="https://wa.me/27832580869?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20AI%20automation%20for%20my%20business."
+              href="https://wa.me/27671288247?text=Hi%20DDM%20Technology%2C%20I%27m%20interested%20in%20AI%20automation%20for%20my%20business."
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary"
