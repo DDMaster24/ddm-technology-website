@@ -1,8 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
-import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ddmtech.co.za'),
@@ -49,15 +46,7 @@ export default function RootLayout({
         <meta name="geo.region" content="ZA-GP" />
         <meta name="geo.placename" content="Roodepoort, Johannesburg" />
       </head>
-      <body>
-        <a href="#main-content" className="skip-to-content">Skip to main content</a>
-        <Navigation />
-        <main id="main-content">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppFloat />
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
