@@ -84,3 +84,45 @@
     padding: 40px 0 12px;
   }
 }
+
+/* ---------- /start intake form only ----------
+   Lighter slate-navy backdrop, slightly brighter network, and a wider
+   content area. Scoped with :has() so the admin pages keep their look. */
+.shell:has([data-start-form]) {
+  background: #0f172a;
+}
+
+.shell:has([data-start-form]) .backdrop {
+  background: linear-gradient(180deg, #0f172a 0%, #111c33 60%, #13203a 100%);
+}
+
+.shell:has([data-start-form]) .glows {
+  background:
+    radial-gradient(ellipse 60% 50% at 6% 96%, rgba(220, 38, 38, 0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 94% 4%, rgba(37, 99, 235, 0.26) 0%, transparent 65%),
+    radial-gradient(ellipse 38% 34% at 97% 6%, rgba(34, 211, 238, 0.12) 0%, transparent 70%);
+}
+
+.shell:has([data-start-form]) .network {
+  opacity: 1;
+  filter: brightness(1.35);
+}
+
+.content:has([data-start-form]) .wordmark:focus-visible {
+  outline-color: #22d3ee;
+}
+
+@media (min-width: 768px) {
+  /* 960px content area plus 24px side padding */
+  .content:has([data-start-form]) {
+    max-width: 1008px;
+  }
+}
+
+@media (min-width: 1280px) {
+  /* 1440px content area plus 32px side padding */
+  .content:has([data-start-form]) {
+    max-width: 1504px;
+    padding: 0 32px 120px;
+  }
+}

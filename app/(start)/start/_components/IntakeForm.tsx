@@ -12,7 +12,6 @@ import {
   type Question,
   QUESTION_BY_ID,
   SECTIONS,
-  depthOf,
   hasValue,
   isVisible,
   otherKey,
@@ -95,6 +94,58 @@ const FIELD_ORDER: string[] = [
   ...ALL_QUESTIONS.flatMap((q) => (q.other ? [q.id, otherKey(q.id)] : [q.id])),
   'consent',
 ]
+
+// ---------- Layout helpers (display only: they never change answers or rules) ----------
+
+/** A question with the show/hide follow-ups that depend on it, in questions.ts order. */
+interface QNode {
+  q: Question
+  children: QNode[]
+}
+
+function buildTree(questions: Question[]): QNode[] {
+  const ids = new Set(questions.map((q) => q.id))
+  const kids = new Map<string, Question[]>()
+  const roots: Question[] = []
+  for (const q of questions) {
+    const parent = q.showIf?.id
+    if (parent && ids.has(parent)) kids.set(parent, [...(kids.get(parent) ?? []), q])
+    else roots.push(q)
+  }
+  const make = (q: Question): QNode => ({ q, children: (kids.get(q.id) ?? []).map(make) })
+  return roots.map(make)
+}
+
+const SECTION_TREES: QNode[][] = SECTIONS.map((s) => buildTree(s.questions))
+
+const optionsOf = (q: Question): string[] => [...(q.options ?? []), ...(q.other ? [OTHER] : [])]
+const longestOption = (opts: string[]) => opts.reduce((n, o) => Math.max(n, o.length), 0)
+
+/**
+ * Questions that take the full row of the grid: long answers, uploads, long
+ * or big choice lists, and any question that opens follow-ups (so a follow-up
+ * always appears right under it without moving its neighbours).
+ */
+function isWide(q: Question, hasFollowUps: boolean): boolean {
+  if (hasFollowUps || q.type === 'long' || q.type === 'file') return true
+  if (q.type === 'choice' || q.type === 'checkboxes') {
+    const opts = optionsOf(q)
+    return opts.length > 4 || longestOption(opts) > 24
+  }
+  return false
+}
+
+/** Minimum tile width and maximum tiles per row, from the option labels. */
+function tileClasses(opts: string[]): string {
+  const longest = longestOption(opts)
+  const min =
+    longest <= 12 ? styles.tileMinS : longest <= 24 ? styles.tileMinM : longest <= 34 ? styles.tileMinL : styles.tileMinXL
+  // Four short options: 2 × 2, or one row of 4 when the panel is wide enough (never 3 + 1).
+  const four = opts.length === 4 && longest <= 24 ? styles.tilesFour : ''
+  return `${min} ${longest > 34 ? styles.tileCap2 : styles.tileCap4} ${four}`
+}
+
+const sectionDomId = (id: string) => `section-${id}`
 
 function focusField(key: string) {
   const el =
@@ -194,18 +245,57 @@ export default function IntakeForm() {
 
   const uploading = FILE_FIELDS.some((f) => files[f].some((i) => i.status === 'queued' || i.status === 'uploading'))
 
-  const sectionsStarted = useMemo(
+  const sectionStarted = useMemo(
     () =>
-      SECTIONS.filter((s) =>
+      SECTIONS.map((s) =>
         s.questions.some((q) =>
           isVisible(q, answers) &&
           (q.type === 'file'
             ? files[q.id as FileFieldId].some((i) => i.status === 'done')
             : hasValue(answers[q.id])),
         ),
-      ).length,
+      ),
     [answers, files],
   )
+  const sectionsStarted = sectionStarted.filter(Boolean).length
+
+  // Desktop sidebar: highlight the section currently in view (display only).
+  const [currentSection, setCurrentSection] = useState(0)
+  useEffect(() => {
+    if (status === 'success') return
+    let frame = 0
+    const update = () => {
+      frame = 0
+      const line = window.innerHeight * 0.35
+      let idx = 0
+      SECTIONS.forEach((s, i) => {
+        const el = document.getElementById(sectionDomId(s.id))
+        if (el && el.getBoundingClientRect().top <= line) idx = i
+      })
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4
+      setCurrentSection(atBottom ? SECTIONS.length - 1 : idx)
+    }
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      if (frame) cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [status])
+
+  const jumpToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    const el = document.getElementById(sectionDomId(id))
+    if (!el) return
+    e.preventDefault()
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    el.scrollIntoView({ behavior: reduce ? 'instant' : 'smooth', block: 'start' })
+    document.getElementById(`sec-${id}`)?.focus({ preventScroll: true })
+  }
 
   const focusFirstError = (errs: Errors) => {
     const key = FIELD_ORDER.find((k) => errs[k]) ?? Object.keys(errs)[0]
@@ -279,18 +369,25 @@ export default function IntakeForm() {
 
   if (status === 'success') {
     return (
-      <section className={`${styles.card} ${styles.thanks}`} aria-labelledby="thanks-title">
-        <h1 id="thanks-title" ref={thanksRef} tabIndex={-1}>
-          Thank you! Darius will be in touch shortly.
-        </h1>
-        <p>
-          Questions in the meantime: WhatsApp{' '}
-          <a href="https://wa.me/27671288247" target="_blank" rel="noopener noreferrer">
-            067 128 8247
-          </a>{' '}
-          or <a href="mailto:darius@ddmtech.co.za">darius@ddmtech.co.za</a>
-        </p>
-      </section>
+      <div className={`${styles.page} ${styles.pageThanks}`} data-start-form>
+        <section className={`${styles.card} ${styles.thanks}`} aria-labelledby="thanks-title">
+          <div className={styles.thanksIcon} aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" focusable="false">
+              <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <h1 id="thanks-title" ref={thanksRef} tabIndex={-1}>
+            Thank you! Darius will be in touch shortly.
+          </h1>
+          <p>
+            Questions in the meantime: WhatsApp{' '}
+            <a href="https://wa.me/27671288247" target="_blank" rel="noopener noreferrer">
+              067 128 8247
+            </a>{' '}
+            or <a href="mailto:darius@ddmtech.co.za">darius@ddmtech.co.za</a>
+          </p>
+        </section>
+      </div>
     )
   }
 
@@ -302,8 +399,7 @@ export default function IntakeForm() {
       </p>
     ) : null
 
-  const renderQuestion = (q: Question) => {
-    const depth = depthOf(q)
+  const renderBody = (q: Question): React.ReactNode => {
     const v = answers[q.id]
     const err = errors[q.id]
     const helpId = q.help ? `q-${q.id}-help` : undefined
@@ -345,7 +441,7 @@ export default function IntakeForm() {
             {required}
           </legend>
           {help}
-          <div className={styles.options}>
+          <div className={`${styles.options} ${tileClasses(opts)}`}>
             {opts.map((opt, i) => (
               <div key={opt} style={{ display: 'contents' }}>
                 <label className={`${styles.tile} ${ticked(opt) ? styles.tileSelected : ''}`}>
@@ -455,41 +551,109 @@ export default function IntakeForm() {
       )
     }
 
-    const cls = [styles.question, depth > 0 ? styles.nested : '', depth > 1 ? styles.nested2 : ''].join(' ')
-    const block = (
-      <div className={cls} data-q={q.id}>
-        {body}
-      </div>
-    )
-    return depth > 0 ? (
-      <div key={q.id} className={styles.reveal}>
-        <div className={styles.revealInner}>{block}</div>
+    return body
+  }
+
+  /**
+   * Each question gets its own bordered panel. A question that opens
+   * follow-ups is one panel holding the question and, right under it, its
+   * visible follow-ups (each in a nested panel), so they stay grouped.
+   */
+  const renderNode = (node: QNode, depth: number): React.ReactNode => {
+    const { q } = node
+    const hasFollowUps = node.children.length > 0
+    const visibleFollowUps = node.children.filter((c) => isVisible(c.q, answers))
+    const span = isWide(q, hasFollowUps) ? styles.wide : ''
+    const hasError = Boolean(errors[q.id] || (q.other && errors[otherKey(q.id)]))
+    const panel = [styles.panel, depth > 0 ? styles.panelNested : '', hasError ? styles.panelError : '']
+      .filter(Boolean)
+      .join(' ')
+
+    const item = hasFollowUps ? (
+      <div className={`${panel} ${styles.group}`}>
+        <div className={styles.question} data-q={q.id}>
+          {renderBody(q)}
+        </div>
+        {visibleFollowUps.length > 0 && (
+          <div className={styles.followUps}>{visibleFollowUps.map((c) => renderNode(c, depth + 1))}</div>
+        )}
       </div>
     ) : (
-      <div key={q.id}>{block}</div>
+      <div className={`${panel} ${styles.question}`} data-q={q.id}>
+        {renderBody(q)}
+      </div>
+    )
+
+    if (depth === 0) {
+      return (
+        <div key={q.id} className={`${styles.cell} ${span}`}>
+          {item}
+        </div>
+      )
+    }
+    return (
+      <div key={q.id} className={`${styles.reveal} ${span}`}>
+        <div className={styles.revealInner}>{item}</div>
+      </div>
     )
   }
 
   return (
-    <>
-      <div
-        className={styles.progress}
-        role="progressbar"
-        aria-label="Sections started"
-        aria-valuemin={0}
-        aria-valuemax={SECTIONS.length}
-        aria-valuenow={sectionsStarted}
-        aria-valuetext={`${sectionsStarted} of ${SECTIONS.length} sections started`}
-      >
-        <div className={styles.progressFill} style={{ width: `${(sectionsStarted / SECTIONS.length) * 100}%` }} />
-      </div>
+    <div className={`${styles.page} ${styles.pageForm}`} data-start-form>
+      <div className={styles.sidebar}>
+        <div className={styles.intro}>
+          <h1 className={styles.title}>Let&apos;s build your website</h1>
+          <p className={styles.lead}>
+            Thank you for choosing DDM Technology. This takes about 10 minutes. If you&apos;re not sure about an
+            answer, skip it and we&apos;ll talk it through.
+          </p>
+        </div>
 
-      <div className={styles.intro}>
-        <h1 className={styles.title}>Let&apos;s build your website</h1>
-        <p className={styles.lead}>
-          Thank you for choosing DDM Technology. This takes about 10 minutes. If you&apos;re not sure about an
-          answer, skip it and we&apos;ll talk it through.
-        </p>
+        <div className={styles.sidePanel}>
+          <nav className={styles.sectionNav} aria-label="Form sections">
+            <ol className={styles.navList}>
+              {SECTIONS.map((s, i) => (
+                <li key={s.id}>
+                  <a
+                    href={`#${sectionDomId(s.id)}`}
+                    className={`${styles.navLink} ${currentSection === i ? styles.navCurrent : ''}`}
+                    aria-current={currentSection === i ? 'true' : undefined}
+                    onClick={(e) => jumpToSection(e, s.id)}
+                  >
+                    <span
+                      className={`${styles.navNum} ${sectionStarted[i] ? styles.navNumStarted : ''}`}
+                      aria-hidden="true"
+                    >
+                      {i + 1}
+                    </span>
+                    <span className={styles.navName}>{s.title}</span>
+                    {sectionStarted[i] && <span className={styles.srOnly}> (started)</span>}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          <div className={styles.progressBlock}>
+            <p className={styles.progressText} aria-hidden="true">
+              <span>Progress</span>
+              <span>
+                {sectionsStarted} of {SECTIONS.length} sections started
+              </span>
+            </p>
+            <div
+              className={styles.progress}
+              role="progressbar"
+              aria-label="Sections started"
+              aria-valuemin={0}
+              aria-valuemax={SECTIONS.length}
+              aria-valuenow={sectionsStarted}
+              aria-valuetext={`${sectionsStarted} of ${SECTIONS.length} sections started`}
+            >
+              <div className={styles.progressFill} style={{ width: `${(sectionsStarted / SECTIONS.length) * 100}%` }} />
+            </div>
+          </div>
+        </div>
       </div>
 
       <form className={styles.form} noValidate onSubmit={onSubmit}>
@@ -516,22 +680,32 @@ export default function IntakeForm() {
         </div>
 
         {SECTIONS.map((s, i) => (
-          <section key={s.id} className={styles.card} aria-labelledby={`sec-${s.id}`}>
+          <section
+            key={s.id}
+            id={sectionDomId(s.id)}
+            className={styles.card}
+            aria-labelledby={`sec-${s.id}`}
+          >
             <div className={styles.cardHeader}>
               <span className={styles.step}>
                 {i + 1} of {SECTIONS.length}
               </span>
-              <h2 id={`sec-${s.id}`} className={styles.cardTitle}>
+              <h2 id={`sec-${s.id}`} className={styles.cardTitle} tabIndex={-1}>
                 {s.title}
               </h2>
             </div>
-            <div className={styles.questions}>{s.questions.filter((q) => isVisible(q, answers)).map(renderQuestion)}</div>
+            <div className={styles.questions}>
+              {SECTION_TREES[i].filter((n) => isVisible(n.q, answers)).map((n) => renderNode(n, 0))}
+            </div>
           </section>
         ))}
 
-        <section className={styles.card} aria-label="Send your answers">
+        <section className={`${styles.card} ${styles.submitCard}`} aria-label="Send your answers">
           <div data-q="consent">
-            <label className={styles.consent} htmlFor="q-consent">
+            <label
+              className={`${styles.consent} ${consent ? styles.consentChecked : ''} ${errors.consent ? styles.consentError : ''}`}
+              htmlFor="q-consent"
+            >
               <input
                 id="q-consent"
                 type="checkbox"
@@ -567,6 +741,6 @@ export default function IntakeForm() {
           </div>
         </section>
       </form>
-    </>
+    </div>
   )
 }
