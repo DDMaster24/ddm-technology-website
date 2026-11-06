@@ -59,7 +59,7 @@ export default function Footer() {
             <div className={styles.footerNavGroup}>
               <h4>Contact</h4>
               <a href="mailto:darius@ddmtech.co.za">darius@ddmtech.co.za</a>
-              <a href="https://wa.me/27832580869" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a href="https://wa.me/27671288247" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               <span>Roodepoort, Johannesburg</span>
             </div>
           </div>

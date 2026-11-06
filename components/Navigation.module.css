@@ -28,15 +28,19 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+/* Wider than the 1200px page container: the logo plus 12 links need about
+   1,320px to sit on one line. Below 1280px the menu switches to the
+   hamburger (see the media queries at the bottom). */
 .navContainer {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 1.25rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .logo {
@@ -49,6 +53,8 @@
   align-items: center;
   gap: 0.125rem;
   letter-spacing: -0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
@@ -66,8 +72,17 @@
 .navLinks {
   display: flex;
   list-style: none;
-  gap: 0.25rem;
+  gap: 0.125rem;
   align-items: center;
+}
+
+.navLinks li {
+  flex-shrink: 0;
+}
+
+/* A little extra room before the "Book AI Audit" button */
+.navLinks li:last-child {
+  margin-left: 0.5rem;
 }
 
 .navLinks a {
@@ -76,8 +91,9 @@
   font-family: 'Satoshi', 'Inter', sans-serif;
   font-weight: 500;
   font-size: 0.9375rem;
-  padding: 0.625rem 1rem;
+  padding: 0.625rem 0.75rem;
   border-radius: 8px;
+  white-space: nowrap;
   transition: all 0.2s ease;
   position: relative;
 }
@@ -147,11 +163,20 @@
   display: none !important;
 }
 
-@media (max-width: 768px) {
-  .navContainer {
-    padding: 1rem 1.5rem;
+/* 1280–1439px: slightly smaller labels so the full menu still fits on one line */
+@media (max-width: 1439px) {
+  .navLinks {
+    gap: 0;
   }
 
+  .navLinks a {
+    font-size: 0.875rem;
+    padding: 0.625rem 0.625rem;
+  }
+}
+
+/* Below 1280px the full menu no longer fits, so use the hamburger menu */
+@media (max-width: 1279px) {
   .mobileMenuBtn {
     display: flex;
     align-items: center;
@@ -172,11 +197,19 @@
     padding: 2rem;
     gap: 0.5rem;
     transform: translateX(-100%);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Hidden menu links are not reachable with Tab until the menu is opened */
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.4s;
+  }
+
+  .navLinks li:last-child {
+    margin-left: 0;
   }
 
   .navLinks.active {
     transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .navLinks a {
@@ -190,5 +223,11 @@
   .navLinks a::after {
     bottom: 8px;
     width: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 1rem 1.5rem;
   }
 }
