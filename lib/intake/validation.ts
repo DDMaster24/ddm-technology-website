@@ -58,6 +58,10 @@ function safeDecode(s: string): string {
 
 const BLOB_HOST = /^[a-z0-9-]+\.public\.blob\.vercel-storage\.com$/i
 
+/** Looks up a question by id without falling through to Object.prototype ("constructor", "toString", ...). */
+const questionFor = (id: string) =>
+  Object.prototype.hasOwnProperty.call(QUESTION_BY_ID, id) ? QUESTION_BY_ID[id] : undefined
+
 export const uploadedFileSchema = z.object({
   field: z.enum(FILE_FIELDS as [FileFieldId, ...FileFieldId[]]),
   url: z.string().url().max(1000),
@@ -75,9 +79,14 @@ export const answerValueSchema = z.union([
 interface ValidateOptions {
   /** Earliest allowed deadline date, YYYY-MM-DD */
   minDate: string
+  /**
+   * Host name of this site's own Blob store (server only). When set, files
+   * must live in that store, not in some other Vercel Blob store.
+   */
+  blobHost?: string | null
 }
 
-export function buildSubmissionSchema({ minDate }: ValidateOptions) {
+export function buildSubmissionSchema({ minDate, blobHost }: ValidateOptions) {
   return z
     .object({
       answers: z.record(z.string(), answerValueSchema),
@@ -97,8 +106,8 @@ export function buildSubmissionSchema({ minDate }: ValidateOptions) {
 
       // 1. No unknown keys; nothing answered for hidden questions.
       for (const key of Object.keys(answers)) {
-        const isOther = key.endsWith('_other') && QUESTION_BY_ID[key.slice(0, -6)]?.other
-        const q = isOther ? QUESTION_BY_ID[key.slice(0, -6)] : QUESTION_BY_ID[key]
+        const isOther = key.endsWith('_other') && questionFor(key.slice(0, -6))?.other === true
+        const q = isOther ? questionFor(key.slice(0, -6)) : questionFor(key)
         if (!q || q.type === 'file') {
           err(['answers', key], 'Unknown question.')
           continue
@@ -172,7 +181,7 @@ export function buildSubmissionSchema({ minDate }: ValidateOptions) {
       // 3. Files: only for visible upload questions, within limits.
       const counts: Record<string, number> = {}
       data.files.forEach((f, i) => {
-        const q = QUESTION_BY_ID[f.field]
+        const q = questionFor(f.field)
         const rules = q?.file
         if (!q || !rules) return err(['files', i], 'Unknown upload field.')
         if (!isVisible(q, answers)) return err(['files', f.field], 'Files were sent for a hidden question.')
@@ -180,7 +189,7 @@ export function buildSubmissionSchema({ minDate }: ValidateOptions) {
         const ext = extensionOf(f.name)
         if (!rules.extensions.includes(ext)) err(['files', f.field], `"${f.name}" is not an allowed file type.`)
         if (f.size > rules.maxBytes) err(['files', f.field], `"${f.name}" is larger than 25 MB.`)
-        if (!Object.values(FILE_CONTENT_TYPES).includes(f.contentType))
+        if (FILE_CONTENT_TYPES[ext] !== f.contentType)
           err(['files', f.field], `"${f.name}" has an unexpected content type.`)
         let u: URL | null = null
         try {
@@ -192,7 +201,8 @@ export function buildSubmissionSchema({ minDate }: ValidateOptions) {
           !u ||
           u.protocol !== 'https:' ||
           !BLOB_HOST.test(u.hostname) ||
-          !f.pathname.startsWith('intake/') ||
+          (blobHost && u.hostname.toLowerCase() !== blobHost) ||
+          !f.pathname.startsWith(`intake/${f.field}/`) ||
           safeDecode(u.pathname) !== `/${f.pathname}`
         ) {
           err(['files', f.field], `"${f.name}" was not uploaded correctly. Please remove it and try again.`)
@@ -217,7 +227,7 @@ export function issuesToFieldErrors(issues: z.ZodIssue[]): Record<string, string
     else if (root === 'files' && typeof key === 'string') field = key
     else if (root === 'files') field = 'files'
     else field = String(root ?? 'form')
-    if (!out[field]) out[field] = issue.message
+    if (!Object.prototype.hasOwnProperty.call(out, field)) out[field] = issue.message
   }
   return out
 }

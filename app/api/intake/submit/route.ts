@@ -9,6 +9,13 @@ export const dynamic = 'force-dynamic'
 
 const MAX_BODY_BYTES = 256 * 1024
 
+/** "<storeId>.public.blob.vercel-storage.com" for the store behind BLOB_READ_WRITE_TOKEN. */
+function ownBlobHost(): string | null {
+  // Token format: vercel_blob_rw_<storeId>_<secret>
+  const storeId = process.env.BLOB_READ_WRITE_TOKEN?.split('_')[3]
+  return storeId ? `${storeId.toLowerCase()}.public.blob.vercel-storage.com` : null
+}
+
 export async function POST(request: Request) {
   const len = Number(request.headers.get('content-length') ?? 0)
   if (len > MAX_BODY_BYTES) {
@@ -41,7 +48,7 @@ export async function POST(request: Request) {
 
   // Allow one day of slack on "today or later" for time zone differences.
   const minDate = isoDate(new Date(Date.now() - 24 * 60 * 60 * 1000), 'Africa/Johannesburg')
-  const parsed = buildSubmissionSchema({ minDate }).safeParse(body)
+  const parsed = buildSubmissionSchema({ minDate, blobHost: ownBlobHost() }).safeParse(body)
   if (!parsed.success) {
     return NextResponse.json(
       {
