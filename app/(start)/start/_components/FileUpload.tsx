@@ -208,6 +208,17 @@ export default function FileUpload({ question, items, setItems, error, errorId }
             e.target.value = ''
           }}
         />
+        <span className={styles.dropIcon} aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" focusable="false">
+            <path
+              d="M12 15.5V4.5M7.5 9L12 4.5 16.5 9M4.5 15v2.5a2 2 0 002 2h11a2 2 0 002-2V15"
+              stroke="currentColor"
+              strokeWidth="1.9"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
         <label htmlFor={inputId} className={styles.dropTitle} style={{ cursor: 'pointer' }}>
           Drag files here or click to choose
         </label>
