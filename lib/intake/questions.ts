@@ -96,7 +96,7 @@ export const SECTIONS: Section[] = [
         label: 'Cell or WhatsApp number',
         type: 'tel',
         required: true,
-        placeholder: '067 128 8247',
+        placeholder: '082 123 4567',
         autoComplete: 'tel',
       },
       {

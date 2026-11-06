@@ -137,7 +137,7 @@ export function buildSubmissionSchema({ minDate }: ValidateOptions) {
             if (q.type === 'email' && !emailSchema.safeParse(v).success)
               err(path, 'Please enter a valid email address, like name@example.co.za.')
             if (q.type === 'tel' && !isValidPhone(v))
-              err(path, 'Please enter a valid cell number, like 067 128 8247 or +27 67 128 8247.')
+              err(path, 'Please enter a valid cell number, like 082 123 4567 or +27 82 123 4567.')
             if (q.type === 'url' && !isValidWebsite(v))
               err(path, 'Please enter a valid website address, like yourbusiness.co.za.')
             if (q.type === 'date') {
